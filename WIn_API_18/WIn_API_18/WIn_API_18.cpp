@@ -97,6 +97,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
+   
+   // 윈도우 API -> WINDOW : Application Interface  : 윈도우에 접근할 수 있는 여러가지 함수 
+   // 윈도우 핸들 
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
 
@@ -121,6 +124,15 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //  WM_DESTROY  - 종료 메시지를 게시하고 반환합니다.
 //
 //
+
+struct Pos
+{
+    int x;
+    int y;
+};
+
+Pos mousePos;
+
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
@@ -142,11 +154,25 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             }
         }
         break;
+
+    case WM_MOUSEMOVE:
+    {
+        // 
+        mousePos.x = static_cast <int>(LOWORD(lParam));
+        mousePos.y = static_cast <int>(HIWORD(lParam));
+    }
+
     case WM_PAINT:
         {
             PAINTSTRUCT ps;
+            //HDC :Handel Device Context -> 출력(그리기)에 관여하는 객체 
             HDC hdc = BeginPaint(hWnd, &ps);
             // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
+            MoveToEx(hdc, 150, 150,NULL);
+            LineTo(hdc, 300, 300); // 렌더 순서가 중요함. 겹치면 -> 먼저 그려진게 안으로 그려짐
+            Rectangle(hdc, 150, 150, 300, 300); // 회전 불가능 
+            Ellipse(hdc, 50, 50, 150, 150);
+
             EndPaint(hWnd, &ps);
         }
         break;
