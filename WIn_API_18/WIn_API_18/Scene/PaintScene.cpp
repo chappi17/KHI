@@ -11,7 +11,8 @@ PaintScene::PaintScene()
 	_pens[1] = CreatePen(0, 3, GREEN);
 	_pens[2] = CreatePen(0, 3, BLUE);
 
-	_rect = make_shared<RectCollider>(Vector2(225, 255), Vector2(150, 150));
+	_rect = make_shared<RectCollider>(Vector2(255, 255), Vector2(150, 150));
+	_circle = make_shared<CircleCollider>(Vector2(500,255), Vector2(150, 150));
 }
 
 PaintScene::~PaintScene()
@@ -22,6 +23,8 @@ PaintScene::~PaintScene()
 void PaintScene::Update()
 {
 	_rect->GetCenter()._x += 0.5f;
+	_circle->GetCenter()._x += 0.5f;
+	
 }
 
 void PaintScene::Render(HDC hdc)
@@ -44,6 +47,8 @@ void PaintScene::Render(HDC hdc)
 	SelectObject(hdc, _pens[2]);
 	SelectObject(hdc, _brushes[0]);
 	//Ellipse(hdc, 50, 50, 150, 150); -> 과제 움직이는 원 구현하기 
+	_circle->Render(hdc);
+	
 	//Collider -> 충돌체
 
 }

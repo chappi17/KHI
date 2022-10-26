@@ -15,6 +15,7 @@ private:
 	HPEN _pens[3];
 
 	shared_ptr <RectCollider> _rect;
+	shared_ptr <CircleCollider> _circle;
 
 };
 

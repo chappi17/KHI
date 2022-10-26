@@ -145,6 +145,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Collider\CircleCollider.h" />
     <ClInclude Include="Collider\Collider.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Collider\RectCollider.h" />
@@ -157,6 +158,7 @@
     <ClInclude Include="WIn_API_18.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Collider\CircleCollider.cpp" />
     <ClCompile Include="Collider\Collider.cpp" />
     <ClCompile Include="framework.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">framework.h</PrecompiledHeaderFile>
