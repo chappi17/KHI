@@ -125,41 +125,35 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //
 //
 
-struct Pos
-{
-    int x;
-    int y;
-};
+int mousePosX;
+int mousePosY;
 
-Pos mousePos;
+unique_ptr<Program> program;
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
     {
-    case WM_COMMAND:
-        {
-            int wmId = LOWORD(wParam);
-            // 메뉴 선택을 구문 분석합니다:
-            switch (wmId)
-            {
-            case IDM_ABOUT:
-                DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
-                break;
-            case IDM_EXIT:
-                DestroyWindow(hWnd);
-                break;
-            default:
-                return DefWindowProc(hWnd, message, wParam, lParam);
-            }
-        }
-        break;
-
-    case WM_MOUSEMOVE:
+    case WM_CREATE:
     {
-        // 
-        mousePos.x = static_cast <int>(LOWORD(lParam));
-        mousePos.y = static_cast <int>(HIWORD(lParam));
+        program = make_unique<Program>();
+        SetTimer(hWnd, 1, 1, nullptr);
+        break;
+    }
+
+
+    case WM_TIMER:
+    {
+        program->Update();
+        InvalidateRect(hWnd, nullptr, true);
+        break;
+    }
+
+    case WM_MOUSEMOVE: // 0.01초 마다 메시지 들어옴
+    {
+        
+        mousePosX = static_cast <int>(LOWORD(lParam));
+        mousePosY = static_cast <int>(HIWORD(lParam));
     }
 
     case WM_PAINT:
@@ -168,12 +162,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             //HDC :Handel Device Context -> 출력(그리기)에 관여하는 객체 
             HDC hdc = BeginPaint(hWnd, &ps);
             // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
-            MoveToEx(hdc, 150, 150,NULL);
-            LineTo(hdc, 300, 300); // 렌더 순서가 중요함. 겹치면 -> 먼저 그려진게 안으로 그려짐
-            Rectangle(hdc, 150, 150, 300, 300); // 회전 불가능 
-            Ellipse(hdc, 50, 50, 150, 150);
-
-            EndPaint(hWnd, &ps);
+            program->Reader(hdc);
+               
+            // EndPaint(hWnd, &ps);
         }
         break;
     case WM_DESTROY:
