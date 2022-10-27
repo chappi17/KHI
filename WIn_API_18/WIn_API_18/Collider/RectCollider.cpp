@@ -23,3 +23,18 @@ void RectCollider::Render(HDC hdc)
 	Rectangle(hdc, left, top, right, bottom);
 
 }
+
+bool RectCollider::IsCollision(const Vector2& pos)
+{
+	return false;
+}
+
+bool RectCollider::IsCollision(shared_ptr<CircleCollider> circle)
+{
+	return false;
+}
+
+bool RectCollider::Iscollision(shared_ptr<RectCollider> other)
+{
+	return false;
+}

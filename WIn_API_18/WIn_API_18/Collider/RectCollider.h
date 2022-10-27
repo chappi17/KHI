@@ -10,6 +10,10 @@ public:
 
 	Vector2& GetCenter() { return _center; }
 
+	bool IsCollision(const Vector2& pos);
+	bool IsCollision(shared_ptr<CircleCollider> circle);
+	bool Iscollision(shared_ptr<RectCollider> other);
+
 private:
 	Vector2 _center = Vector2();
 	Vector2 _size = Vector2();

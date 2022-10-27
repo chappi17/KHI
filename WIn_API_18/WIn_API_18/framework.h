@@ -28,10 +28,11 @@ struct Pos
 
 // Type
 #include "Types.h"
+#include "Math/Vector2.h"
 
 // Collider
-#include "Collider/RectCollider.h"
 #include "Collider/CircleCollider.h"
+#include "Collider/RectCollider.h"
 
 // Scene
 #include "Scene/Scene.h"
@@ -40,5 +41,5 @@ struct Pos
 #include "Program/Program.h"
 
 // extern 이거 뭐였지
-extern int mousePosX;
-extern int mousePosY;
+extern Vector2 mousePos;
+

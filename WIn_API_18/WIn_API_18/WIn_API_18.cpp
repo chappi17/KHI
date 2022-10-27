@@ -125,8 +125,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //
 //
 
-int mousePosX;
-int mousePosY;
+Vector2 mousePos;
 
 unique_ptr<Program> program;
 
@@ -152,8 +151,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_MOUSEMOVE: // 0.01초 마다 메시지 들어옴
     {
         
-        mousePosX = static_cast <int>(LOWORD(lParam));
-        mousePosY = static_cast <int>(HIWORD(lParam));
+        mousePos._x = static_cast <int>(LOWORD(lParam));
+        mousePos._y = static_cast <int>(HIWORD(lParam));
     }
 
     case WM_PAINT:
