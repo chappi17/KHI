@@ -5,10 +5,10 @@ class CircleCollider
 {
 public:
 	CircleCollider();
+	CircleCollider(Vector2 center, float radius);
 	~CircleCollider();
 
-	CircleCollider(Vector2 center, Vector2 size);
-	CircleCollider(Vector2 center, float radius);
+//	CircleCollider(Vector2 center, Vector2 size);
 
 	void Update();
 	void Render(HDC hdc);
@@ -31,9 +31,10 @@ private:
 	HPEN _pens[2];
 
 	Vector2 _center = Vector2(0,0);
-	Vector2 _size = Vector2();
+	float _radius = 0.0f;
 
-	float _radius;
+//	Vector2 _size = Vector2();
+
 
 };
 

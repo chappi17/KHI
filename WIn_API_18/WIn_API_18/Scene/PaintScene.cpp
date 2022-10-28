@@ -15,9 +15,9 @@ PaintScene::PaintScene()
 	_rect2 = make_shared<RectCollider>(Vector2(500, 150), Vector2(150, 150));
 
 
-	_circle1 = make_shared<CircleCollider>(Vector2(100.0f,400.0f), Vector2(50, 50));
-	_circle2 = make_shared<CircleCollider>(Vector2(500.0f,400.0f), Vector2(50, 50));
-	_circle3 = make_shared<CircleCollider>(Vector2(900.0f,400.0f), Vector2(50, 50));
+	_circle1 = make_shared<CircleCollider>(Vector2(100.0f,400.0f), 50);
+	_circle2 = make_shared<CircleCollider>(Vector2(500.0f,400.0f), 50);
+	_circle3 = make_shared<CircleCollider>(Vector2(900.0f,400.0f), 50);
 }
 
 PaintScene::~PaintScene()
@@ -29,6 +29,27 @@ void PaintScene::Update()
 
 {
 	_circle3->SetCenter(mousePos);
+
+	if (_circle1->IsCollision(mousePos))
+		_circle1->SetRED();
+	else
+		_circle1->SetGREEN();
+
+	if (_circle2->IsCollision(_circle3))
+		_circle2->SetRED();
+	else
+		_circle2->SetGREEN();
+
+	if (_rect1->IsCollision(mousePos))
+		_rect1->SetRED();
+	else
+		_rect1->SetGREEN();
+	
+	if (_rect2->IsCollision(mousePos))
+		_rect2->SetRED();
+	else
+		_rect2->SetGREEN();
+
 	//_rect->GetCenter()._x += 0.5f;
 
 	//Vector2 start = _circle1->GetCenter();
@@ -58,15 +79,7 @@ void PaintScene::Render(HDC hdc)
 	//SelectObject(hdc, _pens[2]);
 	_circle3->Render(hdc);
 
-	if (_circle1->IsCollision(mousePos))
-		_circle1->SetRED();
-	else
-		_circle1->SetGREEN();
 
-	if (_circle2->IsCollision(_circle3))
-		_circle2->SetRED();
-	else
-		_circle2->SetGREEN();
 	//SelectObject(hdc, _brushes[1]);
 	_rect1->Render(hdc);
 	_rect2->Render(hdc);

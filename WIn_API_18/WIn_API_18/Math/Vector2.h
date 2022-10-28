@@ -14,8 +14,9 @@ public:
 
 
 	// 과제 
-	//Vector2 Dot(const Vector2& other);
-	//Vector2 Cross(const Vector2& other);
+	Vector2 Dot(const Vector2& other1, Vector2& other2);
+	Vector2 Cross(const Vector2& other1, Vector2& other2, Vector2& other3);
+
 
 	// 진짜 중요한거
 	// 정규화 : 어떤 한 벡터를 길이가 1인 벡터로 만드는 작업 (아래꺼)
@@ -27,8 +28,10 @@ public:
 
 	float Length();
 	float Length(const Vector2& other);
-	Vector2 Normalize();
+	float Rec_center(float& other);
 
+	Vector2 Normalize();
+	float Area();
 
 
 	float _x = 0.0f;
