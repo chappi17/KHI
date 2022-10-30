@@ -31,7 +31,7 @@ public:
 	float Rec_center(float& other);
 
 	Vector2 Normalize();
-	float Area();
+	
 
 
 	float _x = 0.0f;

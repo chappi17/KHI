@@ -33,6 +33,7 @@ struct Pos
 // Collider
 #include "Collider/CircleCollider.h"
 #include "Collider/RectCollider.h"
+#include "Collider/Collider.h"
 
 // Scene
 #include "Scene/Scene.h"

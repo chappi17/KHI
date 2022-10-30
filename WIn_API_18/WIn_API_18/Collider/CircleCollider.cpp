@@ -9,8 +9,8 @@ CircleCollider::CircleCollider()
 }
 
 CircleCollider::CircleCollider(Vector2 center, float radius)
-: _center(center)
-, _radius(radius)
+	: _center(center)
+	, _radius(radius)
 {
 	_pens[0] = CreatePen(0, 3, RED);
 	_pens[1] = CreatePen(0, 3, GREEN);
@@ -65,6 +65,6 @@ bool CircleCollider::IsCollision(shared_ptr<CircleCollider> other)
 
 bool CircleCollider::IsCollision(shared_ptr<RectCollider> rect)
 {
-	// return rect->IsCollision()
+
 	return false;
 }

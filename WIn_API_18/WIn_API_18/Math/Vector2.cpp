@@ -81,9 +81,3 @@ Vector2 Vector2::Normalize()
 	float length = this->Length();
 	return Vector2(_x /length, _y/length);
 }
-
-float Vector2::Area()
-{
-	float Area = powf(_x, 2);
-	return Area;
-}

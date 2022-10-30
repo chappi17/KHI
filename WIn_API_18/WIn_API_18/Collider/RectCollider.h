@@ -6,6 +6,7 @@ class RectCollider
 public:
 	RectCollider();
 	RectCollider(Vector2 center, Vector2 size);
+	~RectCollider();
 
 	void Update();
 	void Render(HDC hdc);
@@ -14,21 +15,20 @@ public:
 	void SetGREEN();
 
 	Vector2& GetCenter() { return _center; }
-	Vector2& GetSize() { return _size; }
 
-	bool IsCollision(const Vector2& pos);
+	bool IsCollision(Vector2 pos);
 	bool IsCollision(shared_ptr<CircleCollider> circle);
-	bool Iscollision(shared_ptr<RectCollider> other);
+	bool IsCollision(shared_ptr<RectCollider> other);
+
+	Vector2 LeftTop();
+	Vector2 RightBottom();
 
 private:
 	HPEN _curPen;
 	HPEN _pens[2];
 
-
-	Vector2 _center = Vector2(0,0);
-	Vector2 _size = Vector2(0,0);
-	Vector2 _area = Vector2(0,0);
-	
+	Vector2 _center = Vector2();
+	Vector2 _size = Vector2();
 
 	// left top right bottom
 	// ÁßÁ¡
