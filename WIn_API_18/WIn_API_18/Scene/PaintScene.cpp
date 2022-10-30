@@ -52,7 +52,7 @@ void PaintScene::Update()
     else
         _rect1->SetGREEN();
 
-    if (_rect2->IsCollision(_circle3))
+    if (_circle3->IsCollision(_rect2))
         _rect2->SetRED();
     else
         _rect2->SetGREEN();

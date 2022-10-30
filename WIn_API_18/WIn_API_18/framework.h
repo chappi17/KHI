@@ -31,9 +31,9 @@ struct Pos
 #include "Math/Vector2.h"
 
 // Collider
+#include "Collider/Collider.h"
 #include "Collider/CircleCollider.h"
 #include "Collider/RectCollider.h"
-#include "Collider/Collider.h"
 
 // Scene
 #include "Scene/Scene.h"

@@ -3,17 +3,14 @@
 
 RectCollider::RectCollider()
 {
-	_pens[0] = CreatePen(0, 3, RED);
-	_pens[1] = CreatePen(0, 3, GREEN);
-	_curPen = _pens[1];
+	_type = ColliderType::RECT;
 }
 
 RectCollider::RectCollider(Vector2 center, Vector2 size)
-	:_center(center), _size(size)
+: _size(size)
 {
-	_pens[0] = CreatePen(0, 3, RED);
-	_pens[1] = CreatePen(0, 3, GREEN);
-	_curPen = _pens[1];
+	_type = ColliderType::RECT;
+	_center = center;
 }
 
 RectCollider::~RectCollider()
@@ -35,16 +32,6 @@ void RectCollider::Render(HDC hdc)
 
 }
 
-void RectCollider::SetRED()
-{
-	_curPen = _pens[0];
-}
-
-void RectCollider::SetGREEN()
-{
-	_curPen = _pens[1];
-}
-
 bool RectCollider::IsCollision(Vector2 pos)
 {
 
@@ -58,8 +45,6 @@ bool RectCollider::IsCollision(Vector2 pos)
 		return true;
 	return false;
 }
-
-
 
 Vector2 RectCollider::LeftTop()
 {
