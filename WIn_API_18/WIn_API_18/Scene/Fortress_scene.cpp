@@ -4,6 +4,7 @@
 Fortress_scene::Fortress_scene()
 {
 	_cannon = make_shared<Cannon>();
+	_cannon2 = make_shared<Cannon>();
 }
 
 Fortress_scene::~Fortress_scene()
@@ -19,19 +20,26 @@ void Fortress_scene::Update()
 	if (GetAsyncKeyState(VK_RIGHT))
 		_cannon->MoveRight();
 	if (GetAsyncKeyState(VK_UP))
-		_cannon->GetAngle() -= 0.01f;
+		_angle -= 0.01f;
 	if (GetAsyncKeyState(VK_DOWN))
-		_cannon->GetAngle() += 0.01f;
-	if (GetAsyncKeyState(VK_SPACE))
+		_angle += 0.01f;
+	if (GetAsyncKeyState(VK_SPACE) & 0x0001)
 		_cannon->Fire();
 
-	//if (_enemy_body->IsCollision(_bullet))
-	//	_enemy_body->SetRED();
-	
+	_cannon->SetAngle(_angle);
 
+	for (auto bullet : _cannon->GetBullests())
+	{
+		if (_cannon2->IsCollision(bullet))
+		{
+			_cannon2->_isActive = false;
+			bullet->SetActive(false);
+		}
+	}
 }
 
 void Fortress_scene::Render(HDC hdc)
 {
 	_cannon->Render(hdc);
+	_cannon2->Render(hdc);
 }

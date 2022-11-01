@@ -1,5 +1,6 @@
 #include "framework.h"
 #include "Program.h"
+
 #include "../Scene/PaintScene.h"
 #include "../Scene/Fortress_scene.h"
 #include"../Scene/LineScene.h"
@@ -10,7 +11,7 @@ Program::Program()
 	_scenes["FortressScene"] = make_shared<Fortress_scene>();
 	_scenes["LineScene"] = make_shared<LineScene>();
 
-	_targetScene = _scenes["FortressScene"];
+	_targetScene = _scenes["LineScene"];
 }
 
 Program::~Program()

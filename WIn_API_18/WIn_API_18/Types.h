@@ -4,6 +4,8 @@
 #define WIN_WIDTH 1280
 #define WIN_HEIGHT 720
 
+#define GRAVITY 0.098
+
 #define CENTER_X 640
 #define CENTER_Y 360
 

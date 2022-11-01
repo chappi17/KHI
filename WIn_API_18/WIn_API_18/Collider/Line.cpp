@@ -32,8 +32,10 @@ void Line::Render(HDC hdc)
     LineTo(hdc, _endPos._x, _endPos._y);
 }
 
-bool Line::IsCollision(shared_ptr<Line> other)
+Line :: Result Line::IsCollision(shared_ptr<Line> other)
 {
+    Result myresult;
+
     Vector2 line1Vec = _endPos - _startPos;
     Vector2 line1ToEnd = other->_endPos - _startPos;
     Vector2 line1ToStart = other->_startPos - _startPos;
@@ -47,7 +49,21 @@ bool Line::IsCollision(shared_ptr<Line> other)
     bool between2 = line2Vec.IsBetween(line2ToEnd, line2ToStart);
 
     if (between1 == true && between2 == true)
-        return true;
+    {
+        myresult.collision = true;
 
-    return false;
+        // ¿ÞÂÊ »ï°¢ÇüÀÇ ³ÐÀÌ 
+        float leftTriangle = abs(line2Vec.Cross(line1ToStart));
+        float rightTriangle = abs(line2Vec.Cross(line2ToEnd));
+
+        float t = ( leftTriangle) / (rightTriangle + leftTriangle);
+        Vector2 conflict = LERP(_startPos, _endPos, t);
+        myresult.conflict = conflict;
+    }
+    else
+    {
+        myresult.collision = false;
+    }
+
+    return myresult;
 }
