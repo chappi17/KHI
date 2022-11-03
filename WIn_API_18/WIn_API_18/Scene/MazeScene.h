@@ -1,17 +1,15 @@
 #pragma once
-class Arkanoid : public Scene
+class MazeScene : public Scene
 {
 public:
-	Arkanoid();
-	virtual ~Arkanoid();
+	MazeScene();
+	virtual ~MazeScene();
 	
 	virtual void Update() override;
-
 	virtual void Render(HDC hdc) override;
 
 private:
-
-	shared_ptr<Map> _map;
+	shared_ptr<Maze> _maze;
 
 };
 

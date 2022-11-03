@@ -44,7 +44,15 @@ struct Pos
 #include "Object/GameObject/Barrel.h"
 #include "Object/GameObject/Cannon.h"
 
+// Game
+#include "Object/GameObject/Arkanoid/Block.h"
+#include "Object/GameObject/Arkanoid/Ball.h"
+#include "Object/GameObject/Arkanoid/Map.h"
 
+// Game MAze
+#include "Object/GameObject/Maze/MazeBlock.h"
+#include "Object/GameObject/Maze/MazePlayer.h"
+#include "Object/GameObject/Maze/Maze.h"
 
 // Scene
 #include "Scene/Scene.h"
@@ -54,4 +62,5 @@ struct Pos
 
 // extern 이거 뭐였지
 extern Vector2 mousePos;
+extern HWND hWnd;
 

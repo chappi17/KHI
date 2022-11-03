@@ -5,7 +5,6 @@ public:
 	LineScene2();
 	virtual ~LineScene2();
 
-
 	virtual void Update() override;
 
 	virtual void Render(HDC hdc) override;
