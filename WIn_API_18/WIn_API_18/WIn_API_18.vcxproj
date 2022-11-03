@@ -145,6 +145,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Scene\LineScene2.h" />
+    <ClInclude Include="Scene\Arkanoid.h" />
     <ClInclude Include="Collider\Line.h" />
     <ClInclude Include="Scene\LineScene.h" />
     <ClInclude Include="Object\GameObject\Barrel.h" />
@@ -165,6 +167,8 @@
     <ClInclude Include="WIn_API_18.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Scene\LineScene2.cpp" />
+    <ClCompile Include="Scene\Arkanoid.cpp" />
     <ClCompile Include="Collider\Line.cpp" />
     <ClCompile Include="Scene\LineScene.cpp" />
     <ClCompile Include="Object\GameObject\Barrel.cpp" />

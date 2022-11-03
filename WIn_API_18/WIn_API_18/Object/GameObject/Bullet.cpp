@@ -17,20 +17,30 @@ void Bullet::Update()
 
 	_ball->Update();
 
-	_gravity._y += GRAVITY;
+//	_gravity._y += GRAVITY;
 
 	Vector2 now = _ball->GetCenter();
 	now += _dir.Normalize() * _speed;
-	now += _gravity;
+//	now += _gravity;
 	_ball->SetCenter(now);
 
-	if (_ball->GetCenter()._x > WIN_WIDTH || _ball->GetCenter()._x <0
-		|| _ball->GetCenter()._y > WIN_HEIGHT || _ball->GetCenter()._y < 0)
+	//if (_ball->GetCenter()._x > WIN_WIDTH || _ball->GetCenter()._x <0
+	//	|| _ball->GetCenter()._y > WIN_HEIGHT || _ball->GetCenter()._y < 0)
+	//{
+	//	_gravity._y = 0.0f;
+	//	_isActive = false;
+	//}
+	
+
+	if (_ball->GetCenter()._y > WIN_HEIGHT || _ball->GetCenter()._y < 0)
 	{
-		_gravity._y = 0.0f;
-		_isActive = false;
+		_dir._y *= -1.0f;
 	}
-		
+
+	if (_ball->GetCenter()._x > WIN_WIDTH || _ball->GetCenter()._x < 0)
+	{
+		_dir._x *= -1.0f;
+	}
 }
 
 void Bullet::Render(HDC hdc)

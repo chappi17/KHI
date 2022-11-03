@@ -20,6 +20,7 @@ public:
 	void SetGREEN() { _curPen = _pens[1]; }
 
 	Result IsCollision(shared_ptr<Line> other);
+	
 
 	Vector2 _startPos;
 	Vector2 _endPos;

@@ -69,6 +69,12 @@
     <ClInclude Include="Scene\LineScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Scene\Arkanoid.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\LineScene2.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WIn_API_18.cpp">
@@ -114,6 +120,12 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Scene\LineScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\Arkanoid.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\LineScene2.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

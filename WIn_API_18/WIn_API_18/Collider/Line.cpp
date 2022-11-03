@@ -65,5 +65,6 @@ Line :: Result Line::IsCollision(shared_ptr<Line> other)
         myresult.collision = false;
     }
 
-    return myresult;
-}
+    return myresult;}
+
+
