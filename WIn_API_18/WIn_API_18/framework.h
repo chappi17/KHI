@@ -40,12 +40,13 @@ struct Pos
 // Basic
 
 // Game
-#include "Object/GameObject/Bullet.h"
-#include "Object/GameObject/Barrel.h"
-#include "Object/GameObject/Cannon.h"
+#include "Object/GameObject/Fortress/Barrel.h"
+#include "Object/GameObject/Fortress/Bullet.h"
+#include "Object/GameObject/Fortress/Cannon.h"
 
 // Game
 #include "Object/GameObject/Arkanoid/Block.h"
+#include "Object/GameObject/Arkanoid/Bar.h"
 #include "Object/GameObject/Arkanoid/Ball.h"
 #include "Object/GameObject/Arkanoid/Map.h"
 

@@ -12,8 +12,8 @@ Map::Map()
 			_blocks.push_back(block);
 		}
 
-		int maxX = 5;
-		int maxY = 4;
+		int maxX = 8;
+		int maxY = 5;
 		Vector2 blockSize = _blocks[0]->GetBlockSize();
 
 		for (int y = 0; y < maxY; y++)

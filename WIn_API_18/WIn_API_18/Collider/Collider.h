@@ -29,12 +29,13 @@ public:
 	void SetCenter(const Vector2& center) { _center = center; }
 
 	ColliderType GetType() { return _type;}
+	Vector2 _center = Vector2(0, 0);
 
 protected:
 	HPEN _curPen;
 	HPEN _pens[2];
+	
 
-	Vector2 _center = Vector2(0, 0);
 	ColliderType _type = ColliderType::NONE;
 };
 

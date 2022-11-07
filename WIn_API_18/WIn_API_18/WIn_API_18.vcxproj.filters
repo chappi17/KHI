@@ -54,13 +54,13 @@
     <ClInclude Include="Scene\Fortress_scene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Object\GameObject\Cannon.h">
+    <ClInclude Include="Object\GameObject\Fortress\Cannon.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Object\GameObject\Bullet.h">
+    <ClInclude Include="Object\GameObject\Fortress\Bullet.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Object\GameObject\Barrel.h">
+    <ClInclude Include="Object\GameObject\Fortress\Barrel.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Collider\Line.h">
@@ -131,13 +131,13 @@
     <ClCompile Include="Scene\Fortress_scene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Object\GameObject\Bullet.cpp">
+    <ClCompile Include="Object\GameObject\Fortress\Bullet.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Object\GameObject\Barrel.cpp">
+    <ClCompile Include="Object\GameObject\Fortress\Barrel.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Object\GameObject\Cannon.cpp">
+    <ClCompile Include="Object\GameObject\Fortress\Cannon.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Collider\Line.cpp">

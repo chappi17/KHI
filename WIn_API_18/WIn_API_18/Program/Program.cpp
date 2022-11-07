@@ -28,7 +28,7 @@ Program::Program()
 	_scenes["MazeScene"] = make_shared<MazeScene>();
 	_scenes["Arkanoid"] = make_shared<Arkanoid>();
 
-	_targetScene = _scenes["LineScene2"];
+	_targetScene = _scenes["Arkanoid"];
 }
 
 Program::~Program()

@@ -11,7 +11,7 @@ public:
 
 private:
 
-	UINT _poolCount = 20;
+	UINT _poolCount = 40;
 
 	Vector2 _offset = { 500,200 };
 	Vector2 _gap = { 3,3 };

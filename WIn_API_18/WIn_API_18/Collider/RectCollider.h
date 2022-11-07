@@ -20,6 +20,7 @@ public:
 
 	const Vector2 GetSize() { return _size; }
 
+
 private:
 	Vector2 _size = Vector2();
 

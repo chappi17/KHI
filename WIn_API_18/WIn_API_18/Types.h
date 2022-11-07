@@ -16,4 +16,6 @@
 #define WHITE	RGB(255,255,255)
 #define CYAN	RGB(150,150,255)
 
+#define MYBALL _ball.front()
+
 #define LERP(s,d,t) (d-s)*t +s

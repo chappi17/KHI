@@ -157,9 +157,9 @@
     <ClInclude Include="Scene\Arkanoid.h" />
     <ClInclude Include="Collider\Line.h" />
     <ClInclude Include="Scene\LineScene.h" />
-    <ClInclude Include="Object\GameObject\Barrel.h" />
-    <ClInclude Include="Object\GameObject\Bullet.h" />
-    <ClInclude Include="Object\GameObject\Cannon.h" />
+    <ClInclude Include="Object\GameObject\Fortress\Barrel.h" />
+    <ClInclude Include="Object\GameObject\Fortress\Bullet.h" />
+    <ClInclude Include="Object\GameObject\Fortress\Cannon.h" />
     <ClInclude Include="Collider\CircleCollider.h" />
     <ClInclude Include="Collider\Collider.h" />
     <ClInclude Include="Scene\Fortress_scene.h" />
@@ -187,9 +187,9 @@
     <ClCompile Include="Scene\Arkanoid.cpp" />
     <ClCompile Include="Collider\Line.cpp" />
     <ClCompile Include="Scene\LineScene.cpp" />
-    <ClCompile Include="Object\GameObject\Barrel.cpp" />
-    <ClCompile Include="Object\GameObject\Bullet.cpp" />
-    <ClCompile Include="Object\GameObject\Cannon.cpp" />
+    <ClCompile Include="Object\GameObject\Fortress\Barrel.cpp" />
+    <ClCompile Include="Object\GameObject\Fortress\Bullet.cpp" />
+    <ClCompile Include="Object\GameObject\Fortress\Cannon.cpp" />
     <ClCompile Include="Collider\CircleCollider.cpp" />
     <ClCompile Include="Collider\Collider.cpp" />
     <ClCompile Include="Scene\Fortress_scene.cpp" />
