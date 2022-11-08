@@ -1,4 +1,6 @@
 #pragma once
+class Ball;
+
 class Bar
 {
 public:
@@ -13,13 +15,11 @@ public:
 	void MoveLeft();
 	void MoveRight();	
 
-	void Fire(Vector2 vector);
+	bool IsCollision(shared_ptr<Ball> ball);	
 
 private:
 	shared_ptr<RectCollider> _bar;
+	shared_ptr<CircleCollider> _ball;
 	float _speed = 3.0f;
-	
-
-
 };
 

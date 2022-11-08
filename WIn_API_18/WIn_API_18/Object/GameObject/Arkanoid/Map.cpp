@@ -34,13 +34,34 @@ Map::Map()
 
 Map::~Map()
 {
-	_target = nullptr;
+	
 }
 
 void Map::Update()
 {
 	for (auto& block : _blocks)
 		block->Update();
+
+	for (auto& block : _blocks)
+	{
+		if (block->IsCollision(_ball) == true)
+		{
+			float before_x = _ball->GetDir()._x;
+			float before_y = _ball->GetDir()._y;
+
+			block->_isActive = false;
+			if (_ball->GetBall()->GetCenter()._x <= block->GetBlock()->GetCenter()._x + 30
+				|| _ball->GetBall()->GetCenter()._x >= block->GetBlock()->GetCenter()._x - 30)
+			{
+				_ball->SetDir(Vector2(-before_x, before_y));
+			}
+			if (_ball->GetBall()->GetCenter()._y >= block->GetBlock()->GetCenter()._x - 20
+				|| _ball->GetBall()->GetCenter()._y <= block->GetBlock()->GetCenter()._x + 20)
+			{
+				_ball->SetDir(Vector2(before_x, -before_y));
+			}
+		}
+	}
 }
 
 void Map::Render(HDC hdc)
@@ -48,3 +69,5 @@ void Map::Render(HDC hdc)
 	for (auto& block : _blocks)
 		block->Render(hdc);
 }
+
+

@@ -12,7 +12,7 @@ Bar::~Bar()
 
 void Bar::Update()
 {
-	_bar->Update();
+	_bar->Update();	
 }
 
 void Bar::Render(HDC hdc)
@@ -34,8 +34,14 @@ void Bar::MoveRight()
 	_bar->SetCenter(temp);
 }
 
-void Bar::Fire(Vector2 vector)
-{	
 
-	
+
+bool Bar::IsCollision(shared_ptr<Ball> ball)
+{
+	if (_bar->IsCollision(ball->GetBall()))
+	{
+		return true;
+	}
+
+	return false;
 }

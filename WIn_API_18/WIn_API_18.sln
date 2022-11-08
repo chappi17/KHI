@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.32802.440
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WIn_API_18", "WIn_API_18\WIn_API_18.vcxproj", "{C27F7F53-1503-4DE0-8036-9A461D6AF047}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Algorithm", "Algorithm\Algorithm.vcxproj", "{9722334C-24B7-4B91-8DC4-18E24ACB89ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{C27F7F53-1503-4DE0-8036-9A461D6AF047}.Release|x64.Build.0 = Release|x64
 		{C27F7F53-1503-4DE0-8036-9A461D6AF047}.Release|x86.ActiveCfg = Release|Win32
 		{C27F7F53-1503-4DE0-8036-9A461D6AF047}.Release|x86.Build.0 = Release|Win32
+		{9722334C-24B7-4B91-8DC4-18E24ACB89ED}.Debug|x64.ActiveCfg = Debug|x64
+		{9722334C-24B7-4B91-8DC4-18E24ACB89ED}.Debug|x64.Build.0 = Debug|x64
+		{9722334C-24B7-4B91-8DC4-18E24ACB89ED}.Debug|x86.ActiveCfg = Debug|Win32
+		{9722334C-24B7-4B91-8DC4-18E24ACB89ED}.Debug|x86.Build.0 = Debug|Win32
+		{9722334C-24B7-4B91-8DC4-18E24ACB89ED}.Release|x64.ActiveCfg = Release|x64
+		{9722334C-24B7-4B91-8DC4-18E24ACB89ED}.Release|x64.Build.0 = Release|x64
+		{9722334C-24B7-4B91-8DC4-18E24ACB89ED}.Release|x86.ActiveCfg = Release|Win32
+		{9722334C-24B7-4B91-8DC4-18E24ACB89ED}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
