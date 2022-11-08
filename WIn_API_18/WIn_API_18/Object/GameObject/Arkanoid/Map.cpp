@@ -34,7 +34,7 @@ Map::Map()
 
 Map::~Map()
 {
-	
+	_targetBall = nullptr;
 }
 
 void Map::Update()
@@ -44,21 +44,21 @@ void Map::Update()
 
 	for (auto& block : _blocks)
 	{
-		if (block->IsCollision(_ball) == true)
+		if (block->IsCollision(_targetBall) == true)
 		{
-			float before_x = _ball->GetDir()._x;
-			float before_y = _ball->GetDir()._y;
+			float before_x = _targetBall->GetDir()._x;
+			float before_y = _targetBall->GetDir()._y;
 
 			block->_isActive = false;
-			if (_ball->GetBall()->GetCenter()._x <= block->GetBlock()->GetCenter()._x + 30
-				|| _ball->GetBall()->GetCenter()._x >= block->GetBlock()->GetCenter()._x - 30)
+			if (_targetBall->GetBall()->GetCenter()._x <= block->GetBlock()->GetCenter()._x + 30
+				|| _targetBall->GetBall()->GetCenter()._x >= block->GetBlock()->GetCenter()._x - 30)
 			{
-				_ball->SetDir(Vector2(-before_x, before_y));
+				_targetBall->SetDir(Vector2(-before_x, before_y));
 			}
-			if (_ball->GetBall()->GetCenter()._y >= block->GetBlock()->GetCenter()._x - 20
-				|| _ball->GetBall()->GetCenter()._y <= block->GetBlock()->GetCenter()._x + 20)
+			if (_targetBall->GetBall()->GetCenter()._y >= block->GetBlock()->GetCenter()._x - 20
+				|| _targetBall->GetBall()->GetCenter()._y <= block->GetBlock()->GetCenter()._x + 20)
 			{
-				_ball->SetDir(Vector2(before_x, -before_y));
+				_targetBall->SetDir(Vector2(before_x, -before_y));
 			}
 		}
 	}

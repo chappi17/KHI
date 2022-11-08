@@ -14,7 +14,6 @@ private:
 	shared_ptr<Map> _map;
 	shared_ptr<Bar> _bar;
 	shared_ptr<Ball> _ball;
-	
 
 	bool _isActiveMyBall = false;
 };

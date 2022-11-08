@@ -7,6 +7,8 @@ Arkanoid::Arkanoid()
 	_bar = make_shared<Bar>();
 	_ball = make_shared<Ball>();
 
+	_map->SetBall(_ball);
+
 	_screen = make_shared<RectCollider>();
 	_screen->_center =(Vector2(CENTER_X, 100), Vector2(410, 510));
 
@@ -20,13 +22,13 @@ Arkanoid::~Arkanoid()
 
 void Arkanoid::Update()
 {
-	if (_isActiveMyBall == false)
+	//if (_isActiveMyBall == false)
 
-		if (GetAsyncKeyState(VK_LEFT))
-			_bar->MoveLeft();
+	if (GetAsyncKeyState(VK_LEFT))
+		_bar->MoveLeft();
 	if (GetAsyncKeyState(VK_RIGHT))
 		_bar->MoveRight();
-	if (GetAsyncKeyState(VK_SPACE))
+//	if (GetAsyncKeyState(VK_SPACE))
 
 	_map->Update();
 	_bar->Update();
@@ -42,13 +44,12 @@ void Arkanoid::Update()
 
 		if (_ball->GetBall()->GetCenter()._x <= _bar->Getbar()->GetCenter()._x +50)
 		{
-			_ball->SetDir(Vector2(-vector_x, vector_y));
+			_ball->SetDir(Vector2(+vector_x, vector_y));
 		}
 		if (_ball->GetBall()->GetCenter()._y >= _bar->Getbar()->GetCenter()._y - 20)
 		{
-			_ball->SetDir(Vector2(vector_x, -vector_y));
-		}
-	
+			_ball->SetDir(Vector2(-vector_x, -vector_y));
+		}	
 
 		//_mainball->_center = MYBALL->GetBall()->_center;
 		//_mainball->Update();	

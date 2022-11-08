@@ -10,7 +10,7 @@ public:
 
 	void Update();
 	void Render(HDC hdc);
-
+	void SetBall(shared_ptr<Ball> target) { _targetBall = target; }
 	
 private:
 
@@ -20,7 +20,6 @@ private:
 	Vector2 _gap = { 6,6 };
 
 	vector<shared_ptr<Block>> _blocks;
-	shared_ptr<Ball> _ball;
-	
+	shared_ptr<Ball> _targetBall;
 };
 
