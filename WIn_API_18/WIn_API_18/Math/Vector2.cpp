@@ -37,6 +37,21 @@ Vector2 Vector2::operator/(const float& value) const
     return Vector2(_x / value, _y / value);
 }
 
+bool Vector2::operator==(const Vector2& other) const
+{
+    if (_x != other._x)
+        return false;
+    if (_y != other._y)
+        return false;
+
+    return true;
+}
+
+bool Vector2::operator!=(const Vector2& other) const
+{
+    return !(*this == other);
+}
+
 float Vector2::Dot(const Vector2& other)
 {
     return _x * other._x + _y * other._y;
@@ -68,7 +83,7 @@ float Vector2::Length(const Vector2& other)
     return temp.Length();
 }
 
-Vector2 Vector2::Normalize()
+Vector2 Vector2::Normallize()
 {
     float legnth = this->Length();
     return Vector2(_x / legnth, _y / legnth);

@@ -23,7 +23,7 @@ void LineScene2::Update()
 
 	Vector2 line2Vec = _line2->_endPos - _line2->_startPos;
 	Vector2 line1Vec = _line1->_endPos - _line1->_startPos;  // 벡터의 선
-	line1Vec= line1Vec.Normalize();
+	line1Vec= line1Vec.Normallize();
 
 	// 내적
 	float dot = (line2Vec._x * line1Vec._x) + (line2Vec._y * line1Vec._y);

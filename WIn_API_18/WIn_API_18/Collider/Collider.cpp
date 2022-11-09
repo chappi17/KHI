@@ -14,12 +14,12 @@ Collider::~Collider()
 
 void Collider::SetRED()
 {
-    _curPen = _pens[0];
+  //  _curPen = _pens[0];
 }
 
 void Collider::SetGREEN()
 {
-    _curPen = _pens[1];
+//    _curPen = _pens[1];
 }
 
 bool Collider::IsCollision(Vector2 pos)

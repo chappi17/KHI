@@ -16,7 +16,7 @@ void Ball::Update()
 		return;
 	
 	Vector2 now = _ball->GetCenter();
-	now += _dir.Normalize() * _speed;
+	now += _dir.Normallize() * _speed;
 	_ball->SetCenter(now);
 
 

@@ -103,7 +103,7 @@ void DFS(int start)
 		if (adjacent2[start][i] == true)
 		{
 			if (visited[i] == true) // 방문한 곳인가? 
-				continue;
+			continue;
 			next = i;
 			DFS(next);
 		}

@@ -12,10 +12,12 @@
 #include <stdlib.h>
 #include <malloc.h>
 #include <memory>
+#include <time.h>
 #include <tchar.h>
 #include <math.h>
 #include <vector>
 #include <unordered_map>
+#include <stack>
 #include <algorithm>
 using namespace std;
 
@@ -50,7 +52,7 @@ struct Pos
 #include "Object/GameObject/Arkanoid/Ball.h"
 #include "Object/GameObject/Arkanoid/Map.h"
 
-// Game MAze
+// Game Maze
 #include "Object/GameObject/Maze/MazeBlock.h"
 #include "Object/GameObject/Maze/MazePlayer.h"
 #include "Object/GameObject/Maze/Maze.h"

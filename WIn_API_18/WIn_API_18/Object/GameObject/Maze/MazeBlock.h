@@ -6,6 +6,9 @@ public:
 	{
 		ABLE,
 		DISABLE,
+		END,
+		PLAYER,
+		FOOTPRINT,
 		NONE
 	};
 
@@ -19,10 +22,8 @@ public:
 	void SetCenter(Vector2 pos) { _rect->SetCenter(pos); }
 
 private:
-
 	BlockType _type = BlockType::NONE;
-	vector <HBRUSH> _brushes;
+	vector<HBRUSH> _brushes;
 	shared_ptr<RectCollider> _rect;
-
 };
 
