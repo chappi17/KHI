@@ -19,6 +19,15 @@ using namespace std;
 
 //	t.emplace_back(2); // 임시객체가 필요없음.
 
+struct Player
+{
+public:
+
+	Player() {}
+	Player(const Player& p) { cout << "복사생성자" << endl; }
+	Player(const Player&& p) { cout << "이동생성자" << endl; }
+};
+
 class Stack
 {
 public:
@@ -26,6 +35,7 @@ public:
 	{
 		v.push_back(value);
 	}
+
 
 	void pop()
 	{
@@ -41,21 +51,20 @@ public:
 	{
 		return v.size() == 0;
 	}
-	
+
 public:
 	vector<int> v;
+
 };
 
 
 int main()
 {
-	stack<int> s;
+	Stack s;
 	s.push(1);
 	s.push(2);
 	s.push(3);
 	s.push(4);
-
-	
 
 	while (true)
 	{
@@ -65,8 +74,6 @@ int main()
 		cout << s.top() << endl;
 		s.pop();
 	}
-
-
 
 	return 0;
 }

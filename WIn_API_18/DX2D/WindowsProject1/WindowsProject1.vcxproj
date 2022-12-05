@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{c27f7f53-1503-4de0-8036-9a461d6af047}</ProjectGuid>
-    <RootNamespace>WInAPI18</RootNamespace>
+    <ProjectGuid>{aa3fe0ef-4033-4f91-862b-1629aa8bfd9a}</ProjectGuid>
+    <RootNamespace>WindowsProject1</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -72,14 +72,12 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -90,8 +88,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>framework.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -120,8 +116,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>framework.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -145,75 +139,39 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Math\DIsjoint_set.h" />
-    <ClInclude Include="Object\GameObject\Arkanoid\Ball.h" />
-    <ClInclude Include="Object\GameObject\Arkanoid\Bar.h" />
-    <ClInclude Include="Object\GameObject\Arkanoid\Block.h" />
-    <ClInclude Include="Object\GameObject\Arkanoid\Map.h" />
-    <ClInclude Include="Scene\MazeScene.h" />
-    <ClInclude Include="Object\GameObject\Maze\Maze.h" />
-    <ClInclude Include="Object\GameObject\Maze\MazePlayer.h" />
-    <ClInclude Include="Object\GameObject\Maze\MazeBlock.h" />
-    <ClInclude Include="Scene\LineScene2.h" />
-    <ClInclude Include="Scene\Arkanoid.h" />
-    <ClInclude Include="Collider\Line.h" />
-    <ClInclude Include="Scene\LineScene.h" />
-    <ClInclude Include="Object\GameObject\Fortress\Barrel.h" />
-    <ClInclude Include="Object\GameObject\Fortress\Bullet.h" />
-    <ClInclude Include="Object\GameObject\Fortress\Cannon.h" />
-    <ClInclude Include="Collider\CircleCollider.h" />
-    <ClInclude Include="Collider\Collider.h" />
-    <ClInclude Include="Scene\Fortress_scene.h" />
     <ClInclude Include="framework.h" />
-    <ClInclude Include="Collider\RectCollider.h" />
-    <ClInclude Include="Scene\PaintScene.h" />
-    <ClInclude Include="Program\Program.h" />
     <ClInclude Include="Resource.h" />
-    <ClInclude Include="Scene\Scene.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="Types.h" />
-    <ClInclude Include="Math\Vector2.h" />
-    <ClInclude Include="WIn_API_18.h" />
+    <ClInclude Include="WindowsProject1.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Math\DIsjoint_set.cpp" />
-    <ClCompile Include="Object\GameObject\Arkanoid\Ball.cpp" />
-    <ClCompile Include="Object\GameObject\Arkanoid\Bar.cpp" />
-    <ClCompile Include="Object\GameObject\Arkanoid\Block.cpp" />
-    <ClCompile Include="Object\GameObject\Arkanoid\Map.cpp" />
-    <ClCompile Include="Scene\MazeScene.cpp" />
-    <ClCompile Include="Object\GameObject\Maze\Maze.cpp" />
-    <ClCompile Include="Object\GameObject\Maze\MazePlayer.cpp" />
-    <ClCompile Include="Object\GameObject\Maze\MazeBlock.cpp" />
-    <ClCompile Include="Scene\LineScene2.cpp" />
-    <ClCompile Include="Scene\Arkanoid.cpp" />
-    <ClCompile Include="Collider\Line.cpp" />
-    <ClCompile Include="Scene\LineScene.cpp" />
-    <ClCompile Include="Object\GameObject\Fortress\Barrel.cpp" />
-    <ClCompile Include="Object\GameObject\Fortress\Bullet.cpp" />
-    <ClCompile Include="Object\GameObject\Fortress\Cannon.cpp" />
-    <ClCompile Include="Collider\CircleCollider.cpp" />
-    <ClCompile Include="Collider\Collider.cpp" />
-    <ClCompile Include="Scene\Fortress_scene.cpp" />
-    <ClCompile Include="framework.cpp">
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">framework.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">framework.h</PrecompiledHeaderFile>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="Collider\RectCollider.cpp" />
-    <ClCompile Include="Scene\PaintScene.cpp" />
-    <ClCompile Include="Program\Program.cpp" />
-    <ClCompile Include="Scene\Scene.cpp" />
-    <ClCompile Include="Math\Vector2.cpp" />
-    <ClCompile Include="WIn_API_18.cpp" />
+    <ClCompile Include="WindowsProject1.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="WIn_API_18.rc" />
+    <ResourceCompile Include="WindowsProject1.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="resource\2B.png" />
+    <Image Include="resource\BM.png" />
     <Image Include="small.ico" />
-    <Image Include="WIn_API_18.ico" />
+    <Image Include="WindowsProject1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Shaders\Tutorial.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Effect</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Effect</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">VS</EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">VS</EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DirectXTex\DirectXTex_Desktop_2019_Win10.vcxproj">
+      <Project>{371b9fa9-4c90-4ac6-a123-aced756d6c77}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

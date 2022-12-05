@@ -17,7 +17,7 @@ Maze::Maze()
 		}
 	}
 
-	CreateMap();
+	CreateMap_Kruskal();
 }
 
 Maze::~Maze()
@@ -46,8 +46,8 @@ void Maze::Render(HDC hdc)
 		}
 	}
 
-	Vector2 playerPos = _player->GetPos();
-	_blocks[(UINT)playerPos._y][(UINT)playerPos._x]->Type() = MazeBlock::BlockType::PLAYER;
+	//Vector2 playerPos = _player->GetPos();
+	//_blocks[(UINT)playerPos._y][(UINT)playerPos._x]->Type() = MazeBlock::BlockType::PLAYER;
 }
 
 void Maze::CreateMap()
@@ -102,6 +102,23 @@ void Maze::CreateMap()
 				_blocks[y + 1][x]->Type() = MazeBlock::BlockType::ABLE;
 		}
 	}
+}
+
+void Maze::CreateMap_Kruskal()
+{
+	// ³ëµå ¶Õ±â
+	for (int y = 0; y < _poolCountY; y++)
+	{
+		for (int x = 0; x < _poolCountX; x++)
+		{
+			if (x % 2 == 0 || y % 2 == 0)
+				_blocks[y][x]->Type() = MazeBlock::BlockType::DISABLE;
+			else
+				_blocks[y][x]->Type() = MazeBlock::BlockType::ABLE;
+		}
+	}
+	
+
 }
 
 MazeBlock::BlockType Maze::GetBlockType(const Vector2& pos)

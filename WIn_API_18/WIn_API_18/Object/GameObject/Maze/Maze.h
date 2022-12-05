@@ -1,4 +1,19 @@
 #pragma once
+
+struct Kruskal_edge
+{
+	int cost;
+	Vector2 u;
+	Vector2 v;
+
+	bool operator < (const Kruskal_edge& edge)const
+	{
+		if (cost < edge.cost)
+			return true;
+		return false;
+	}
+};
+
 class Maze
 {
 public:
@@ -9,6 +24,7 @@ public:
 	void Render(HDC hdc);
 
 	void CreateMap();
+	void CreateMap_Kruskal();
 
 	Vector2 GetStartPos() { return Vector2(1, 1); }
 	Vector2 GetEndPos() { return Vector2(23, 23); }

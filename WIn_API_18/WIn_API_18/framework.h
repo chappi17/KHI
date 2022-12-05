@@ -31,6 +31,7 @@ struct Pos
 // Type
 #include "Types.h"
 #include "Math/Vector2.h"
+#include "Math/DIsjoint_set.h"
 
 // Collider
 #include "Collider/Line.h"
