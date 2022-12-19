@@ -61,6 +61,9 @@ using namespace DirectX;
 // Math
 #include "Framework/Math/Vector2.h"
 #include "Framework/Math/Transform.h"
+#include "Framework/Math/Collider.h"
+#include "Framework/Math/RectCollider.h"
+#include "Framework/Math/CircleCollider.h"
 
 
 // Texture

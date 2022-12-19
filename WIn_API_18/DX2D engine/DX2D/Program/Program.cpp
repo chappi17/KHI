@@ -4,11 +4,12 @@
 #include "../Scene/TextureScene.h"
 #include "../Scene/SolarSystem.h"
 #include "../Scene/GunScene.h"
+#include "../Scene/CollisionScene.h"
 
 Program::Program()
 {
-	_scenes["GunScene"] = make_shared<GunScene>();
-	_curscene = _scenes["GunScene"];
+	_scenes["CollisionScene"] = make_shared<CollisionScene>();
+	_curscene = _scenes["CollisionScene"];
 
 	_viewBuffer = make_shared<MatrixBuffer>();
 	_projectBuffer = make_shared<MatrixBuffer>();
