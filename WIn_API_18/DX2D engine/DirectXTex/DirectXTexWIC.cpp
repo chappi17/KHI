@@ -192,7 +192,8 @@ namespace
 
 
     //-------------------------------------------------------------------------------------
-    // IStream over a Blob for WIC in-memory write functions
+    // IStream over a 
+    //  for WIC in-memory write functions
     //-------------------------------------------------------------------------------------
     class MemoryStreamOnBlob : public IStream
     {

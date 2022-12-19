@@ -32,7 +32,7 @@ Vector2 Vector2::operator*(const float& value) const
     return Vector2(_x * value, _y * value);
 }
 
-Vector2& Vector2::operator *=(const float& value)
+Vector2& Vector2::operator*=(const float& value)
 {
     _x *= value;
     _y *= value;
@@ -57,7 +57,28 @@ bool Vector2::operator==(const Vector2& other) const
 
 bool Vector2::operator!=(const Vector2& other) const
 {
-    return !(*this == other);
+    if (_x != other._x)
+        return true;
+    if (_y != other._y)
+        return true;
+
+    return false;
+}
+
+bool Vector2::operator>(const Vector2& other) const
+{
+    if (_y != other._y)
+        return _y > other._y;
+
+    return _x > other._x;
+}
+
+bool Vector2::operator<(const Vector2& other) const
+{
+    if (_y != other._y)
+        return _y < other._y;
+
+    return _x < other._x;
 }
 
 float Vector2::Dot(const Vector2& other)
@@ -80,25 +101,29 @@ bool Vector2::IsBetween(const Vector2& vector1, const Vector2& vector2)
     return between < 0.0f;
 }
 
-float Vector2::Length()
+float Vector2::Length() const
 {
     return sqrt(powf(_x, 2) + powf(_y, 2));
 }
 
-float Vector2::Length(const Vector2& other)
+float Vector2::Length(const Vector2& other) const
 {
     Vector2 temp = (*this) - other;
     return temp.Length();
 }
 
-void Vector2::Normalize()
+Vector2 Vector2::Normallize() const
 {
-    float length = Length();
-    _x = _x / length;
-    _y = _y / length;
+    float legnth = this->Length();
+    return Vector2(_x / legnth, _y / legnth);
 }
 
 float Vector2::Angle() const
 {
     return atan2(_y, _x);
+}
+
+int Vector2::Manhattan(const Vector2& other)
+{
+    return (int)(other._x - _x) + (int)(other._y - _y);
 }

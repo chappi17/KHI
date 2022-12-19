@@ -3,7 +3,7 @@
 
 Bullet::Bullet()
 {
-	_quad = make_shared<Quad>(L"Bullet.png", Vector2(130, 130));
+	_quad = make_shared<Quad>(L"Bullet.png", Vector2(150, 150));
 }
 
 Bullet::~Bullet()

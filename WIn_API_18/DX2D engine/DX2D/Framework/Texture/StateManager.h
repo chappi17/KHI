@@ -37,3 +37,4 @@ private:
 	shared_ptr<BlendState> _alphaState;
 	shared_ptr<BlendState> _additiveState;
 };
+

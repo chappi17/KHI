@@ -1,4 +1,4 @@
-Texture2D map : register(t0);
+Texture2D map :register(t0);
 SamplerState samp : register(s0);
 
 struct PixelInput
@@ -7,17 +7,10 @@ struct PixelInput
 	float2 uv : UV;
 };
 
+// SV_TARGET -> 그릴 곳... 우리한테는 후면버퍼(RTV)
 float4 PS(PixelInput input) : SV_TARGET
 {
 	float4 result = map.Sample(samp, input.uv);
-
-	if (result.a < 0.5f && result.a > 0.1f )
-	{
-		result.r = 1.0f;
-		result.g = 1.0f;
-		result.b = 1.0f;
-		result.a += 0.1f;
-	}
 
 	return result;
 }

@@ -10,7 +10,7 @@ public:
 
 	shared_ptr<Transform> GetTransform() { return _quad->GetTransform(); }
 
-	void SetDir(const Vector2& dir) { _dir =dir.
+	void SetDir(const Vector2& dir) { _dir = dir.Normallize(); }
 
 	bool _isActive = false;
 private:

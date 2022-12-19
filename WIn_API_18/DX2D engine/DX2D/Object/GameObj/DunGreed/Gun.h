@@ -12,13 +12,11 @@ public:
 
 	shared_ptr<Transform> GetTransform() { return _quad->GetTransform(); }
 
-	
 private:
 	shared_ptr<Quad> _quad;
 	shared_ptr<Transform> _muzzle;
 
 	UINT _poolCount = 20;
 	vector<shared_ptr<class Bullet>> _bullets;
-	
 };
 

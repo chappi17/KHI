@@ -25,4 +25,7 @@
 #define AlphaBlendState StateManager::GetInstance()->GetAlphaBlend()
 #define AdditiveBlendState StateManager::GetInstance()->GetAdditiveBlend()
 
+#define HALF *0.5f
+
 using Float2 = XMFLOAT2;
+typedef XMFLOAT4X4	Float4x4;

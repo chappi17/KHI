@@ -9,8 +9,8 @@ public:
 	virtual void Render() override;
 
 private:
-	shared_ptr<Quad> _player;
-	shared_ptr<Quad> _gun;
+	shared_ptr<Player> _player;
+
 
 };
 

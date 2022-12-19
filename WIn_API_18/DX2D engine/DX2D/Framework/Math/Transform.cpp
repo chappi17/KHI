@@ -3,7 +3,7 @@
 
 Transform::Transform()
 {
-	_worldbuffer = make_shared<MatrixBuffer>();
+	_worldBuffer = make_shared<MatrixBuffer>();
 }
 
 Transform::~Transform()
@@ -23,18 +23,19 @@ void Transform::Update()
 		_srtMatrix *= (*_parent);
 	}
 
-	_worldbuffer->SetData(_srtMatrix);
-	_worldbuffer->Update();
+	_worldBuffer->SetData(_srtMatrix);
+	_worldBuffer->Update();
 }
 
 void Transform::SetWorldBuffer()
 {
-	_worldbuffer->SetVSBuffer(0);
+	_worldBuffer->SetVSBuffer(0);
 }
+
 
 Vector2 Transform::GetWorldPos()
 {
-	if (_parent != nullptr)
+	if (_parent != nullptr || _parent == nullptr)
 	{
 		XMFLOAT4X4 matrix;
 		XMStoreFloat4x4(&matrix, _srtMatrix);
@@ -47,3 +48,5 @@ Vector2 Transform::GetWorldPos()
 
 	return _pos;
 }
+
+

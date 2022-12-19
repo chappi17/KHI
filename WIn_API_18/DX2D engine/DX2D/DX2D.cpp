@@ -43,12 +43,14 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_DX2D));
 
     MSG msg = {};
+
+    Device::Create(hWnd);
     
     // 생성
-    Device::Create(hWnd);
     StateManager::Create();
     Timer::Create();
     Keyboard::Create();
+    SRVManager::Create();
 
     shared_ptr<Program> program = make_shared<Program>();
     
@@ -73,6 +75,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     }
 
     // 삭제
+    SRVManager::Delete();
     Keyboard::Delete();
     Timer::Delete();
     StateManager::Delete();
@@ -105,23 +108,24 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
-   hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
+    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
-   //RECT rc = { 0,0, WIN_WIDTH, WIN_HEIGHT };
-   //AdjustWindowRect(&rc,WS_OVERLAPPEDWINDOW, false);
+    RECT rc = { 0,0,WIN_WIDTH, WIN_HEIGHT };
+    AdjustWindowRect(&rc, WS_OVERLAPPEDWINDOW, false);
 
-   hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, WIN_WIDTH,WIN_HEIGHT, nullptr, nullptr, hInstance, nullptr);
+    hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
+        0, 0, rc.right - rc.left, rc.bottom - rc.top, nullptr, nullptr, hInstance, nullptr);
 
-   if (!hWnd)
-   {
-      return FALSE;
-   }
+    if (!hWnd)
+    {
+        return FALSE;
+    }
 
-   ShowWindow(hWnd, nCmdShow);
-   UpdateWindow(hWnd);
+    SetMenu(hWnd, NULL);
+    ShowWindow(hWnd, nCmdShow);
+    UpdateWindow(hWnd);
 
-   return TRUE;
+    return TRUE;
 }
 
 

@@ -12,8 +12,8 @@ public:
 	void Set();
 
 private:
-	Microsoft::WRL::ComPtr<ID3D11InputLayout> _inputLayOut;
-	Microsoft::WRL::ComPtr<ID3D11VertexShader> _vertexshader;
+	Microsoft::WRL::ComPtr<ID3D11InputLayout> _inputLayout;
 	Microsoft::WRL::ComPtr<ID3DBlob> _vertexBlob;
+	Microsoft::WRL::ComPtr<ID3D11VertexShader> _vertexShader;
 };
 

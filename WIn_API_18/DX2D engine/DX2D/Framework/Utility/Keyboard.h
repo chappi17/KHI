@@ -31,10 +31,7 @@ public:
 	static Keyboard* GetInstance()
 	{
 		if (_instance != nullptr)
-		{
 			return _instance;
-		}
-		return nullptr;
 	}
 
 	void Update();
@@ -43,15 +40,11 @@ public:
 	bool Up(UINT key) { return _mapState[key] == UP; }
 	bool Press(UINT key) { return _mapState[key] == PRESS; }
 
-	Vector2& GetMousePos() { return _mousePos; }
-
 private:
 	static Keyboard* _instance;
 
 	byte _curState[KEYMAX];
 	byte _oldState[KEYMAX];
 	byte _mapState[KEYMAX];
-
-	Vector2 _mousePos = { 0.0f,0.0f };
 };
 

@@ -1,4 +1,5 @@
 #pragma once
+
 class MatrixBuffer : public ConstantBuffer
 {
 public:
@@ -7,10 +8,8 @@ public:
 		XMMATRIX _matrix = XMMatrixIdentity();
 	};
 
-
-
 	MatrixBuffer()
-	:ConstantBuffer(&_data, sizeof(Data))
+		: ConstantBuffer(&_data, sizeof(Data))
 	{
 	}
 
@@ -21,10 +20,24 @@ public:
 
 	virtual ~MatrixBuffer() {}
 
-	// pos, scale, angle 한거를  행렬로 바꿔서 -> ContantBuffer에 묶어서 -> Shader 한테 전달하고 계산
-	// 4 X 4 로 이루어져 있음 
-
 private:
+
+	Data _data;
+};
+
+class ColorBuffer : public ConstantBuffer
+{
+public:
+	struct Data
+	{
+		XMFLOAT4 color;
+	};
+
+	ColorBuffer()
+		: ConstantBuffer(&_data, sizeof(Data))
+	{
+		_data.color = { 255,0.0f,0.0f, 1.0f }; // 
+	}
 
 	Data _data;
 };

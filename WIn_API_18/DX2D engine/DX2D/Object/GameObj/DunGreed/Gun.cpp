@@ -3,7 +3,7 @@
 
 Gun::Gun()
 {
-	_quad = make_shared<Quad>(L"railgun.png", Vector2(200, 100));
+	_quad = make_shared<Quad>(L"Gun1.png", Vector2(80, 50));
 	_muzzle = make_shared<Transform>();
 	_muzzle->SetParent(_quad->GetTransform());
 	_muzzle->Getpos()._x += 40;
@@ -53,7 +53,7 @@ void Gun::FireBullet(const Vector2& mousePos)
 	if (iter != _bullets.end())
 	{
 		(*iter)->_isActive = true;
-		(*iter)->GetTransform()->GetPos() = _muzzle->GetWorldPos();
+		(*iter)->GetTransform()->Getpos() = _muzzle->GetWorldPos();
 		(*iter)->SetDir(dir);
 		(*iter)->GetTransform()->GetAngle() = dir.Angle();
 	}

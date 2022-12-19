@@ -1,5 +1,5 @@
 #pragma once
-// 상수 버퍼 
+// 상수 버퍼
 class ConstantBuffer
 {
 public:

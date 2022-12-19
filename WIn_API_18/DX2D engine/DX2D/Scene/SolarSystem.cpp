@@ -60,9 +60,6 @@ void SolarSystem::Update()
 
 	_sun->Getpos() = mousePos;
 	_sunTrans->Getpos() = mousePos;
-
-	Vector2 temp = _earth->GetTrnasform()->GetWorldPos();
-
 	_sun->Update();
 	_earth->Update();
 	_moon->Update();

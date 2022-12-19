@@ -2,11 +2,12 @@
 #include "Device.h"
 
 Device* Device::_instance = nullptr;
+
 Device::Device(HWND hWnd)
-	:_hWnd(hWnd)
+    : _hWnd(hWnd)
 {
-	CreateDeviceAndSwapChain();
-	CreateDoubleBuffer();
+    CreateDeviceAndSwapChain();
+    CreateDoubleBuffer();
 }
 
 Device::~Device()
@@ -20,7 +21,7 @@ void Device::CreateDeviceAndSwapChain()
     UINT width = rc.right - rc.left;
     UINT height = rc.bottom - rc.top;
 
-    D3D_FEATURE_LEVEL  featureLevels[] =
+    D3D_FEATURE_LEVEL featureLevels[] =
     {
         D3D_FEATURE_LEVEL_11_0,
         D3D_FEATURE_LEVEL_10_1,
@@ -36,11 +37,12 @@ void Device::CreateDeviceAndSwapChain()
     sd.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
     sd.BufferDesc.RefreshRate.Numerator = 60;
     sd.BufferDesc.RefreshRate.Denominator = 1;
+    // Numeartor / Denominator = 화면 프레임 갱신 속도
     sd.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
     sd.OutputWindow = _hWnd;
     sd.SampleDesc.Count = 1;
     sd.SampleDesc.Quality = 0;
-    sd.Windowed = true;
+    sd.Windowed = true; // 창모드
 
     D3D11CreateDeviceAndSwapChain
     (
@@ -62,12 +64,13 @@ void Device::CreateDeviceAndSwapChain()
 void Device::CreateDoubleBuffer()
 {
     Microsoft::WRL::ComPtr<ID3D11Texture2D> backBuffer;
+
     _swapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (void**)backBuffer.GetAddressOf());
     _device->CreateRenderTargetView(backBuffer.Get(), nullptr, _renderTargetView.GetAddressOf());
 
     _deviceContext->OMSetRenderTargets(1, _renderTargetView.GetAddressOf(), nullptr);
 
-    D3D11_VIEWPORT vp; // 실제 바라보는 뷰 (화면의 크기)  
+    D3D11_VIEWPORT vp;
     vp.Width = WIN_WIDTH;
     vp.Height = WIN_HEIGHT;
     vp.MinDepth = 0.0f;
@@ -79,7 +82,7 @@ void Device::CreateDoubleBuffer()
 
 void Device::Clear()
 {
-    FLOAT myColorR = 0.1f / 255.0f;
+    FLOAT myColorR = 0.1 / 255.0f;
     FLOAT myColorG = 0.1f / 255.0f;
     FLOAT myColorB = 0.1f / 255.0f;
 

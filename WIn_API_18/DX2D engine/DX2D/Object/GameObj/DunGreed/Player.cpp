@@ -3,11 +3,10 @@
 
 Player::Player()
 {
-	_quad = make_shared<Quad>(L"Player.png", Vector2(150, 70));
-
+	_quad = make_shared<Quad>(L"Player.png", Vector2(200, 200));
 	_gun = make_shared<Gun>();
 	_gun->GetTransform()->SetParent(_quad->GetTransform());
-	_gun->GetTransform()->GetPos()._x += 100;
+	_gun->GetTransform()->Getpos()._x += 100;
 }
 
 Player::~Player()
@@ -35,7 +34,7 @@ void Player::Render()
 
 void Player::Move(const Vector2& pos)
 {
-	_quad->GetTransform()->GetPos() = pos;
+	_quad->GetTransform()->Getpos() = pos;
 }
 
 void Player::Fire(const Vector2& mousePos)
