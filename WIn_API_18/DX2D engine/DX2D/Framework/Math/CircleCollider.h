@@ -1,7 +1,7 @@
 #pragma once
 class RectCollider;
 
-class CircleCollider : public Collider, public enable_shared_from_this<CircleCollider>
+class CircleCollider : public Collider
 {
 public:
 	CircleCollider();
@@ -14,6 +14,8 @@ public:
 	virtual bool IsCollision(Vector2 pos) override;
 	virtual bool IsCollision(shared_ptr<CircleCollider> other) override;
 	virtual bool IsCollision(shared_ptr<RectCollider> rect) override;
+
+	float GetWorldRadius();
 
 private:
 	void CreateVertices();

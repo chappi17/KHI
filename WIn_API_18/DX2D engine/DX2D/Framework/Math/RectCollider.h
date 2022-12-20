@@ -1,5 +1,8 @@
 #pragma once
-class RectCollider : public Collider
+class CircleCollider;
+
+
+class RectCollider : public Collider, public enable_shared_from_this<RectCollider>
 {
 public:
 	RectCollider();
@@ -10,21 +13,21 @@ public:
 	virtual bool IsCollision(shared_ptr<CircleCollider> circle) override;
 	virtual bool IsCollision(shared_ptr<RectCollider> rect) override;
 
-	bool AABB(shared_ptr<RectCollider> rect);
-	bool AABB(shared_ptr<CircleCollider> circle);
+	bool AABB(shared_ptr<RectCollider> rect);	
 	bool OBB(shared_ptr<RectCollider> rect);
 	
-	const Vector2& GetSize() { return _size; }
+	Vector2 LeftTop();
+	Vector2 RightBottom();
 
-	float Left()	{ return	_transform->GetWorldPos()._x - halfSize._x; }
-	float Right()	{ return	_transform->GetWorldPos()._x + halfSize._x; }
-	float Top()		{ return	_transform->GetWorldPos()._y + halfSize._y; }
-	float Bottom()	{ return	_transform->GetWorldPos()._y - halfSize._y; }
+	const Vector2& GetSize() { return _size; }
+	Vector2 GetWorldSize();
+	Vector2 HalfSize() { return _size * 0.5f; }
+
+	
 
 private:
 	void CreateVertices();
 	Vector2 _size = Vector2();
-	
-	Vector2 halfSize = _size * 0.5f;
+
 };
 

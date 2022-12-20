@@ -21,26 +21,54 @@ CircleCollider::~CircleCollider()
 
 bool CircleCollider::IsCollision(Vector2 pos)
 {
-	float distance = _transform->GetWorldPos().Length(pos);
-	float radius = GetRadius();
-	if (distance < radius)
+	if ((this->GetTransform()->GetWorldPos() - pos).Length() <= (this->GetWorldRadius()))
+	{
 		return true;
-
+	}
 	return false;
 }
 
 bool CircleCollider::IsCollision(shared_ptr<CircleCollider> other)
 {
-	float lengthAToB = _transform->GetWorldPos().Length(other->GetCenter());
-	if (lengthAToB <= _radius + other->GetRadius())
+	if ((this->GetTransform()->GetWorldPos() - other->GetTransform()->GetWorldPos()).Length() <= (this->GetWorldRadius() + other->GetWorldRadius()))
+	{
 		return true;
-
+	}
 	return false;
 }
 
 bool CircleCollider::IsCollision(shared_ptr<RectCollider> rect)
 {
-	return rect->IsCollision(shared_from_this());
+	Vector2 temp = rect->GetWorldSize();
+	float left = rect->LeftTop()._x;
+	float right = rect->RightBottom()._x;
+	float top = rect->LeftTop()._y;
+	float bottom = rect->RightBottom()._y;
+
+	Vector2 center = _transform->GetWorldPos();
+	float radius = GetWorldRadius();
+
+	if (center._x >= left && center._x <= right
+		&& center._y <= top + radius && center._y >= bottom - radius)
+		return true;
+
+	if (center._x >= left - radius && center._x <= right + radius
+		&& center._y <= top && center._y >= bottom)
+		return true;
+
+	if (IsCollision(rect->LeftTop()) || IsCollision(rect->RightBottom())
+		|| IsCollision(Vector2(left, bottom)) || IsCollision(Vector2(right, top)))
+		return true;
+
+	return false;
+}
+
+float CircleCollider::GetWorldRadius()
+{
+	XMFLOAT4X4 matrix;
+	XMStoreFloat4x4(&matrix, *_transform->GetMatrix());
+
+	return _radius * __max(matrix._11, matrix._22);
 }
 
 void CircleCollider::CreateVertices()

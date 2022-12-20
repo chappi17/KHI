@@ -7,10 +7,10 @@ CollisionScene::CollisionScene()
 	_rect->GetTransform()->Getpos() = { CENTER_X, CENTER_Y };
 
 	_rect2 = make_shared<RectCollider>(Vector2(100.0f, 100.0f));
-	_rect2->GetTransform()->Getpos() = { CENTER_X+ 200, CENTER_Y};
+	_rect2->GetTransform()->Getpos() = { CENTER_X, CENTER_Y };
 
 	_circle = make_shared<CircleCollider>(50.0f);
-	_circle->GetTransform()->Getpos() = { CENTER_X+200, CENTER_Y+200 };
+	_circle->GetTransform()->Getpos() = { CENTER_X+200, CENTER_Y };
 }
 
 CollisionScene::~CollisionScene()
@@ -20,21 +20,71 @@ CollisionScene::~CollisionScene()
 void CollisionScene::Update()
 {
 	
-	if (_rect->IsCollision(_circle))
-		{			
-		_circle->SetRED();
-		}
+	if (KEY_PRESS('W'))
+	{
+		_circle->GetTransform()->GetScale()._x += 1 * DELTA_TIME;
+		_circle->GetTransform()->GetScale()._y += 1 * DELTA_TIME;
+	}
+
+	if (KEY_PRESS('S'))
+	{
+		_circle->GetTransform()->GetScale()._x -= 1 * DELTA_TIME;
+		_circle->GetTransform()->GetScale()._y -= 1 * DELTA_TIME;
+	}
+
+	if (KEY_PRESS('A'))
+	{
+		_rect->GetTransform()->GetScale()._y += 1 * DELTA_TIME;
+	}
+
+	if (KEY_PRESS('D'))
+	{
+		_rect->GetTransform()->GetScale()._y -= 1 * DELTA_TIME;
+	}
+
+	if (KEY_PRESS(VK_SPACE))
+	{
+		_rect->GetTransform()->GetAngle() += 0.005f * DELTA_TIME * 100;
+	}
+
+	if (_rect->IsCollision(_rect2))
+	{
+		_rect->SetRED();
+		_rect2->SetRED();
+	}
 	else
-		{		
+	{
+		_rect->SetGREEN();
+		_rect2->SetGREEN();
+	}
+
+	if (_circle->IsCollision(_rect2))
+	{
+		_circle->SetRED();
+		_rect2->SetRED();		
+	}
+	else
+	{
 		_circle->SetGREEN();
-		}
-	
+		_rect2->SetGREEN();		
+	}
+	 
+	if (_circle->IsCollision(_rect))
+	{
+		_rect->SetRED();		
+		_circle->SetRED();
+	}
+	else
+	{
+		_rect->SetGREEN();		
+		_circle->SetGREEN();
+	}
+
+	_rect2->GetTransform()->Getpos() = mousePos;
+
 	_rect->Update();
+	_rect2->Update();
 	_circle->Update();
-	
-
-
-//	_circle->Update();
 }
 
 void CollisionScene::Render()
@@ -43,6 +93,6 @@ void CollisionScene::Render()
 	ImGui::SliderFloat("PosY", &_rect->GetTransform()->Getpos()._y, 0, WIN_HEIGHT);
 
 	_rect->Render();
+	_rect2->Render();
 	_circle->Render();
-//	_circle->Render();
 }
