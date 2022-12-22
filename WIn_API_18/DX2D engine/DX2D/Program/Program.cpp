@@ -5,15 +5,18 @@
 #include "../Scene/SolarSystem.h"
 #include "../Scene/GunScene.h"
 #include "../Scene/CollisionScene.h"
+#include "../Scene/DongScene.h"
 
 Program::Program()
 {
+	srand(static_cast<UINT>(time(nullptr)));
 	_scenes["TextureScene"] = make_shared<TextureScene>();
 	_scenes["SolarSystem"] = make_shared<SolarSystem>();
 	_scenes["GunScene"] = make_shared<GunScene>();
 	_scenes["Collision"] = make_shared<CollisionScene>();
+	_scenes["DongScene"] = make_shared<DongScene>();
 
-	_curscene = _scenes["GunScene"];
+	_curscene = _scenes["DongScene"];
 
 	_viewBuffer = make_shared<MatrixBuffer>();
 	_projectBuffer = make_shared<MatrixBuffer>();

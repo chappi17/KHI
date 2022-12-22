@@ -151,6 +151,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Object\GameObj\Dong\Dong.h" />
+    <ClInclude Include="Object\GameObj\Dong\D_Player.h" />
+    <ClInclude Include="Scene\DongScene.h" />
     <ClInclude Include="Framework\Math\CircleCollider.h" />
     <ClInclude Include="Framework\Math\Collider.h" />
     <ClInclude Include="Framework\Math\RectCollider.h" />
@@ -189,6 +192,9 @@
     <ClInclude Include="Framework\Render\VertexShader.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Object\GameObj\Dong\Dong.cpp" />
+    <ClCompile Include="Object\GameObj\Dong\D_Player.cpp" />
+    <ClCompile Include="Scene\DongScene.cpp" />
     <ClCompile Include="Framework\Math\CircleCollider.cpp" />
     <ClCompile Include="Framework\Math\Collider.cpp" />
     <ClCompile Include="Framework\Math\RectCollider.cpp" />
@@ -237,9 +243,11 @@
     <Image Include="DX2D.ico" />
     <Image Include="Resource\Texture\2B.png" />
     <Image Include="Resource\Texture\BM.png" />
+    <Image Include="Resource\Texture\Bullet.png" />
     <Image Include="Resource\Texture\earth.png" />
     <Image Include="Resource\Texture\Gun.png" />
     <Image Include="Resource\Texture\Gun1.png" />
+    <Image Include="Resource\Texture\Mococo.png" />
     <Image Include="Resource\Texture\moon.png" />
     <Image Include="Resource\Texture\Player.png" />
     <Image Include="Resource\Texture\sun.png" />

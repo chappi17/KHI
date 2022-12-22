@@ -48,3 +48,13 @@ void Bullet::Render()
 	_quad->Render();
 	_circleCol->Render();
 }
+
+bool Bullet::IsCollision(shared_ptr<RectCollider> rect)
+{
+	return _circleCol->IsCollision(rect);
+}
+
+bool Bullet::IsCollision(shared_ptr<class Player> player)
+{
+	return _circleCol->IsCollision(player->GetCollider());
+}

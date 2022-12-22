@@ -13,4 +13,3 @@ private:
 	shared_ptr<Collider> _rect2;
 	shared_ptr<Collider> _circle;
 };
-
