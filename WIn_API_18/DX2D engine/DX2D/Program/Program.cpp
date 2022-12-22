@@ -8,8 +8,12 @@
 
 Program::Program()
 {
-	_scenes["CollisionScene"] = make_shared<CollisionScene>();
-	_curscene = _scenes["CollisionScene"];
+	_scenes["TextureScene"] = make_shared<TextureScene>();
+	_scenes["SolarSystem"] = make_shared<SolarSystem>();
+	_scenes["GunScene"] = make_shared<GunScene>();
+	_scenes["Collision"] = make_shared<CollisionScene>();
+
+	_curscene = _scenes["GunScene"];
 
 	_viewBuffer = make_shared<MatrixBuffer>();
 	_projectBuffer = make_shared<MatrixBuffer>();

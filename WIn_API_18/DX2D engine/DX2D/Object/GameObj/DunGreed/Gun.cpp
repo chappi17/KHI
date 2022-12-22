@@ -4,6 +4,7 @@
 Gun::Gun()
 {
 	_quad = make_shared<Quad>(L"Gun1.png", Vector2(80, 50));
+
 	_muzzle = make_shared<Transform>();
 	_muzzle->SetParent(_quad->GetTransform());
 	_muzzle->Getpos()._x += 40;
