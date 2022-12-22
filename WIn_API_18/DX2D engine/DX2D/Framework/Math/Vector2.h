@@ -2,7 +2,7 @@
 class Vector2
 {
 public:
-	Vector2() : _x(0.0f), _y(0.0f) {}
+	Vector2() {}
 	Vector2(int x, int y) : _x(float(x)), _y(float(y)) {}
 	Vector2(float x, float y) : _x(x), _y(y) {}
 
@@ -26,11 +26,13 @@ public:
 
 	float Length() const;
 	float Length(const Vector2& other) const;
-	Vector2 Normallize() const;
+	void Normallize();
 
-	float Angle() const;
+	Vector2 Normal() const;
 
 	int Manhattan(const Vector2& other);
+
+	float Angle() const;
 
 	float _x = 0.0f;
 	float _y = 0.0f;

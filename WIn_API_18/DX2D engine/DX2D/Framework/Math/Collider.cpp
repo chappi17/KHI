@@ -1,6 +1,7 @@
 #include "framework.h"
 #include "Collider.h"
 
+bool Collider::_isDebug = true;
 Collider::Collider()
 {
 }
@@ -11,12 +12,16 @@ Collider::~Collider()
 
 void Collider::Update()
 {
+    if (_isActive == false)
+        return;
     _transform->Update();
     _colorBuffer->Update();
 }
 
 void Collider::Render()
 {
+    if (_isActive == false || _isDebug == false)
+        return;
     _transform->SetWorldBuffer();
     _colorBuffer->SetPSBuffer(0);
 
@@ -40,7 +45,7 @@ void Collider::SetGREEN()
     _colorBuffer->_data.color = { 0,255,0,1.0f };
 }
 
-bool Collider::IsCollision(shared_ptr<Collider> col)
+bool Collider::IsCollision(shared_ptr<Collider> col, bool isObb)
 {
     switch (col->GetType())
     {
@@ -51,12 +56,16 @@ bool Collider::IsCollision(shared_ptr<Collider> col)
 
     case ColliderType::CIRCLE:
     {
+        if (isObb)
+            return OBB(dynamic_pointer_cast<CircleCollider>(col));
         return IsCollision(dynamic_pointer_cast<CircleCollider>(col));
         break;
     }
 
     case ColliderType::RECT:
     {
+        if (isObb)
+            return OBB(dynamic_pointer_cast<RectCollider>(col));
         return IsCollision(dynamic_pointer_cast<RectCollider>(col));
         break;
     }

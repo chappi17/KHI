@@ -3,7 +3,11 @@
 
 Bullet::Bullet()
 {
-	_quad = make_shared<Quad>(L"Bullet.png", Vector2(150, 150));
+	_quad = make_shared<Quad>(L"Bullet.png", Vector2(130, 130));
+
+	_circleCol = make_shared<CircleCollider>(5);
+	_circleCol->GetTransform()->Getpos()._x += 30;
+	_circleCol->GetTransform()->SetParent(_quad->GetTransform());
 }
 
 Bullet::~Bullet()
@@ -32,6 +36,8 @@ void Bullet::Update()
 	_quad->Update();
 
 	_quad->GetTransform()->Getpos() += _dir * _speed * DELTA_TIME;
+
+	_circleCol->Update();
 }
 
 void Bullet::Render()
@@ -40,4 +46,5 @@ void Bullet::Render()
 		return;
 
 	_quad->Render();
+	_circleCol->Render();
 }

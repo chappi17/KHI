@@ -112,10 +112,23 @@ float Vector2::Length(const Vector2& other) const
     return temp.Length();
 }
 
-Vector2 Vector2::Normallize() const
+void Vector2::Normallize()
 {
     float legnth = this->Length();
+    _x /= legnth;
+    _y /= legnth;
+}
+
+Vector2 Vector2::Normal() const
+{
+    float legnth = this->Length();
+
     return Vector2(_x / legnth, _y / legnth);
+}
+
+int Vector2::Manhattan(const Vector2& other)
+{
+    return (int)(other._x - _x) + (int)(other._y - _y);
 }
 
 float Vector2::Angle() const
@@ -123,7 +136,4 @@ float Vector2::Angle() const
     return atan2(_y, _x);
 }
 
-int Vector2::Manhattan(const Vector2& other)
-{
-    return (int)(other._x - _x) + (int)(other._y - _y);
-}
+

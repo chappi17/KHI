@@ -39,28 +39,17 @@ bool CircleCollider::IsCollision(shared_ptr<CircleCollider> other)
 
 bool CircleCollider::IsCollision(shared_ptr<RectCollider> rect)
 {
-	Vector2 temp = rect->GetWorldSize();
-	float left = rect->LeftTop()._x;
-	float right = rect->RightBottom()._x;
-	float top = rect->LeftTop()._y;
-	float bottom = rect->RightBottom()._y;
+	return rect->IsCollision(shared_from_this());
+}
 
-	Vector2 center = _transform->GetWorldPos();
-	float radius = GetWorldRadius();
+bool CircleCollider::OBB(shared_ptr<CircleCollider> circle)
+{
+	return IsCollision(circle);
+}
 
-	if (center._x >= left && center._x <= right
-		&& center._y <= top + radius && center._y >= bottom - radius)
-		return true;
-
-	if (center._x >= left - radius && center._x <= right + radius
-		&& center._y <= top && center._y >= bottom)
-		return true;
-
-	if (IsCollision(rect->LeftTop()) || IsCollision(rect->RightBottom())
-		|| IsCollision(Vector2(left, bottom)) || IsCollision(Vector2(right, top)))
-		return true;
-
-	return false;
+bool CircleCollider::OBB(shared_ptr<RectCollider> rect)
+{
+	return rect->OBB(shared_from_this());
 }
 
 float CircleCollider::GetWorldRadius()

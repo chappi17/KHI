@@ -23,17 +23,22 @@ public:
 
 	shared_ptr<Transform> GetTransform() { return _transform; }
 
-	virtual bool IsCollision(shared_ptr<Collider> col);
+	virtual bool IsCollision(shared_ptr<Collider> col, bool isObb = true);
 
 	virtual bool IsCollision(Vector2 pos) abstract;
-	virtual bool IsCollision(shared_ptr<RectCollider> other) abstract;
-	virtual bool IsCollision(shared_ptr<CircleCollider> other) abstract;
+	virtual bool IsCollision(shared_ptr<RectCollider> rect) abstract;
+	virtual bool IsCollision(shared_ptr<CircleCollider> circle) abstract;
 
-	const Vector2& GetCenter() { return center; }
+	virtual bool OBB(shared_ptr<RectCollider> rect) abstract;
+	virtual bool OBB(shared_ptr<CircleCollider> circle) abstract;
+	
 
 	ColliderType GetType() { return _type; }
 
-	shared_ptr<Transform> _transform;
+	bool _isActive = true;
+	static bool _isDebug;
+
+	
 protected:
 	virtual void CreateData();
 
@@ -47,9 +52,6 @@ protected:
 	shared_ptr<VertexBuffer> _vertexBuffer;
 	shared_ptr<ColorBuffer> _colorBuffer;
 
-	
-	Vector2 center = { 0,0 };
-
-
+	shared_ptr<Transform> _transform;
 };
 

@@ -47,43 +47,19 @@ void CollisionScene::Update()
 		_rect->GetTransform()->GetAngle() += 0.005f * DELTA_TIME * 100;
 	}
 
-	if (_rect->IsCollision(_rect2))
+
+	if (_rect->IsCollision(_circle,true))
 	{
 		_rect->SetRED();
-		_rect2->SetRED();
+		_circle->SetRED();
 	}
 	else
 	{
 		_rect->SetGREEN();
-		_rect2->SetGREEN();
-	}
-
-	if (_circle->IsCollision(_rect2))
-	{
-		_circle->SetRED();
-		_rect2->SetRED();		
-	}
-	else
-	{
-		_circle->SetGREEN();
-		_rect2->SetGREEN();		
-	}
-	 
-	if (_circle->IsCollision(_rect))
-	{
-		_rect->SetRED();		
-		_circle->SetRED();
-	}
-	else
-	{
-		_rect->SetGREEN();		
 		_circle->SetGREEN();
 	}
 
-	_rect2->GetTransform()->Getpos() = mousePos;
-
-	_rect->Update();
-	_rect2->Update();
+	_rect->Update();	
 	_circle->Update();
 }
 
@@ -92,7 +68,6 @@ void CollisionScene::Render()
 	ImGui::SliderFloat("PosX", &_rect->GetTransform()->Getpos()._x, 0, WIN_WIDTH);
 	ImGui::SliderFloat("PosY", &_rect->GetTransform()->Getpos()._y, 0, WIN_HEIGHT);
 
-	_rect->Render();
-	_rect2->Render();
+	_rect->Render();	
 	_circle->Render();
 }
