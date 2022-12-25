@@ -85,6 +85,9 @@ using namespace DirectX;
 #include "Object/GameObj/Dong/D_BackGround.h"
 #include "Object/GameObj/Dong/D_Player.h"
 #include "Object/GameObj/Dong/Dong.h"
+#include "Object/GameObj/Fortress/Cannon.h"
+#include "Object/GameObj/Fortress/Barrel.h"
+#include "Object/GameObj/Fortress/F_bullet.h"
 
 // Scene
 #include "Scene/Scene.h"

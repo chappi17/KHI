@@ -18,7 +18,7 @@ Program::Program()
 	_scenes["DongScene"] = make_shared<DongScene>();
 	_scenes["FortressScene"] = make_shared<FortressScene>();
 
-	_curscene = _scenes["DongScene"];
+	_curscene = _scenes["FortressScene"];
 
 	_viewBuffer = make_shared<MatrixBuffer>();
 	_projectBuffer = make_shared<MatrixBuffer>();
