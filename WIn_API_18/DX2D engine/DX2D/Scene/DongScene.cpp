@@ -24,6 +24,15 @@ void DongScene::Update()
 	for (auto dong : _dongs)
 		dong->Update();
 
+	for (auto dong : _dongs)
+	{
+		if (dong->IsCollisionWithPlayer(_player))
+		{
+			dong->Init();
+			--_player->GetHp();
+		}
+	}
+
 	if (_check > _delay)
 	{
 		for (auto dong : _dongs)
@@ -37,16 +46,11 @@ void DongScene::Update()
 		}
 	}
 
-	for (auto dong : _dongs)
-	{
-		if (dong->IsCollisionWithPlayer(_player))
-		{
-			dong->_isActive = false;
-			_player->_isActive = false;
-		}
-	}
+
 
 	_check += DELTA_TIME;
+	if (_player->GetHp() <= 0)
+		_player->_isActive = false;
 }
 
 void DongScene::Render()
@@ -55,5 +59,8 @@ void DongScene::Render()
 
 	for (auto dong : _dongs)
 		dong->Render();
+
+	int playerHP = _player->GetHp();
+	ImGui::SliderInt("HP", &playerHP, 0, 10);
 
 }

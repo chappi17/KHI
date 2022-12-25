@@ -11,7 +11,7 @@ public:
 	void Init();
 
 	shared_ptr<Transform> GetTransform() { return _quad->GetTransform(); }
-
+	shared_ptr<Collider> GetCollider() { return _circleCol; }
 	bool IsCollisionWithPlayer(shared_ptr<D_Player> player);
 
 	bool _isActive = true;
