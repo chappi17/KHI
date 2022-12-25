@@ -82,6 +82,7 @@ using namespace DirectX;
 #include "Object/GameObj/DunGreed/Player.h"
 #include "Object/GameObj/DunGreed/Gun.h"
 #include "Object/GameObj/DunGreed/Bullet.h"
+#include "Object/GameObj/Dong/D_BackGround.h"
 #include "Object/GameObj/Dong/D_Player.h"
 #include "Object/GameObj/Dong/Dong.h"
 

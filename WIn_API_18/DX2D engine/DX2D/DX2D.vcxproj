@@ -151,6 +151,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Object\GameObj\Dong\D_BackGround.h" />
+    <ClInclude Include="Object\GameObj\Fortress\Barrel.h" />
+    <ClInclude Include="Object\GameObj\Fortress\Cannon.h" />
+    <ClInclude Include="Object\GameObj\Fortress\F_bullet.h" />
+    <ClInclude Include="Scene\FortressScene.h" />
     <ClInclude Include="Object\GameObj\Dong\Dong.h" />
     <ClInclude Include="Object\GameObj\Dong\D_Player.h" />
     <ClInclude Include="Scene\DongScene.h" />
@@ -192,6 +197,11 @@
     <ClInclude Include="Framework\Render\VertexShader.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Object\GameObj\Dong\D_BackGround.cpp" />
+    <ClCompile Include="Object\GameObj\Fortress\Barrel.cpp" />
+    <ClCompile Include="Object\GameObj\Fortress\Cannon.cpp" />
+    <ClCompile Include="Object\GameObj\Fortress\F_bullet.cpp" />
+    <ClCompile Include="Scene\FortressScene.cpp" />
     <ClCompile Include="Object\GameObj\Dong\Dong.cpp" />
     <ClCompile Include="Object\GameObj\Dong\D_Player.cpp" />
     <ClCompile Include="Scene\DongScene.cpp" />

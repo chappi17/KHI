@@ -7,6 +7,8 @@ public:
 
 	UINT& GetHp() { return _hp; }
 
+	void SetLeftRight(Vector2 leftright) { _LeftRight = leftright; }
+
 	void Update();
 	void Render();
 
@@ -19,8 +21,10 @@ private:
 
 	UINT _hp = 10;
 
+
 	shared_ptr<Quad> _quad;
 	shared_ptr<Collider> _rectCol;
+	Vector2 _LeftRight = { 0,WIN_WIDTH };
 	
 	float _speed = 300.0f;
 

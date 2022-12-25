@@ -6,6 +6,7 @@
 #include "../Scene/GunScene.h"
 #include "../Scene/CollisionScene.h"
 #include "../Scene/DongScene.h"
+#include "../Scene/FortressScene.h"
 
 Program::Program()
 {
@@ -15,6 +16,7 @@ Program::Program()
 	_scenes["GunScene"] = make_shared<GunScene>();
 	_scenes["Collision"] = make_shared<CollisionScene>();
 	_scenes["DongScene"] = make_shared<DongScene>();
+	_scenes["FortressScene"] = make_shared<FortressScene>();
 
 	_curscene = _scenes["DongScene"];
 

@@ -9,6 +9,8 @@ public:
 	void Update();
 	void Render();
 
+	Vector2 GetSize() { return _size; }
+
 	shared_ptr<Transform> GetTransform() { return _transform; }
 
 private:

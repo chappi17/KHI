@@ -44,6 +44,7 @@ void Dong::Init()
 {
 	_quad->GetTransform()->Getpos()._y = WIN_HEIGHT + 50;
 	_quad->GetTransform()->Getpos()._x = rand() % WIN_WIDTH;
+	_quad->GetTransform()->Update();
 	_isActive = false;
 }
 

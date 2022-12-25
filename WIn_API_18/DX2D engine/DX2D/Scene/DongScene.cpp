@@ -4,6 +4,10 @@
 DongScene::DongScene()
 {
 	_player = make_shared<D_Player>();
+	_bg = make_shared<D_BackGround>();
+	_bg->Update();
+
+	_player->SetLeftRight(_bg->LeftRight());
 
 	for (int i = 0; i < 50; i++)
 	{
@@ -15,6 +19,11 @@ DongScene::DongScene()
 
 DongScene::~DongScene()
 {
+}
+
+void DongScene::PreRender()
+{
+
 }
 
 void DongScene::Update()
@@ -46,8 +55,6 @@ void DongScene::Update()
 		}
 	}
 
-
-
 	_check += DELTA_TIME;
 	if (_player->GetHp() <= 0)
 		_player->_isActive = false;
@@ -55,6 +62,7 @@ void DongScene::Update()
 
 void DongScene::Render()
 {
+	_bg->Render();
 	_player->Render();
 
 	for (auto dong : _dongs)
