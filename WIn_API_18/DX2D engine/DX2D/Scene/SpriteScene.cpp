@@ -3,8 +3,9 @@
 
 SpriteScene::SpriteScene()
 {
-	_sprite = make_shared<Sprite>(L"weather.png", Vector2(6,5), Vector2(100,100));
+	_sprite = make_shared<Sprite>(L"X_man.png", Vector2(5,2), Vector2(100,100));
 	_sprite->GetTransform()->Getpos() = { CENTER_X, CENTER_Y };
+	_leftRightBuffer = make_shared<LeftRightBuffer>();
 }
 
 SpriteScene::~SpriteScene()
@@ -20,11 +21,13 @@ void SpriteScene::Update()
 void SpriteScene::Render()
 {
 	AdditiveBlendState->SetState();	
+	_leftRightBuffer->SetPSBuffer(0);
 	_sprite->Render();
 }
 
 void SpriteScene::PostRender()
 {
-	ImGui::SliderInt("FrameX", &_frameX, 0, 5);
-	ImGui::SliderInt("FrameY", &_frameY, 0, 4);
+	ImGui::SliderInt("FrameX", &_frameX, 0, 4);
+	ImGui::SliderInt("FrameY", &_frameY, 0, 1);
+	ImGui::SliderInt("LeftRight", &_leftRightBuffer->_data.leftRight, 0, 1);
 }

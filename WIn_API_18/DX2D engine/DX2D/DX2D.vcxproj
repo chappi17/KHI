@@ -188,6 +188,8 @@
     <ClInclude Include="Framework\Texture\SRVManager.h" />
     <ClInclude Include="Scene\SpriteScene.h" />
     <ClInclude Include="Object\GameObj\BasicObj\Sprite.h" />
+    <ClInclude Include="Framework\Render\ShaderManager.h" />
+    <ClInclude Include="Framework\Render\Shader.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Scene\TextureScene.h" />
     <ClInclude Include="Object\GameObj\BasicObj\Quad.h" />
@@ -249,6 +251,8 @@
     <ClCompile Include="Framework\Texture\SRVManager.cpp" />
     <ClCompile Include="Scene\SpriteScene.cpp" />
     <ClCompile Include="Object\GameObj\BasicObj\Sprite.cpp" />
+    <ClCompile Include="Framework\Render\ShaderManager.cpp" />
+    <ClCompile Include="Framework\Render\Shader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX2D.rc" />
@@ -270,6 +274,7 @@
     <Image Include="Resource\Texture\sun.png" />
     <Image Include="Resource\Texture\Tank.png" />
     <Image Include="Resource\Texture\weather.png" />
+    <Image Include="Resource\Texture\X_man.png" />
     <Image Include="small.ico" />
   </ItemGroup>
   <ItemGroup>

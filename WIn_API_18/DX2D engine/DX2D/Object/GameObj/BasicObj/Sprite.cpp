@@ -27,7 +27,7 @@ void Sprite::Update()
 
 void Sprite::Render()
 {
-	_frameBuffer->SetPSBuffer(0);
+	_frameBuffer->SetPSBuffer(1);
 	Quad::Render();
 }
 

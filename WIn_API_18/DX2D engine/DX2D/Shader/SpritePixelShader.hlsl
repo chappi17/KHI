@@ -1,7 +1,13 @@
-cbuffer MaxFrame : register(b0)
+cbuffer MaxFrame : register(b1)
 {
 	float2 maxFrame;
 	float2 curFrame;
+}
+
+cbuffer LeftRight : register(b0)
+{
+	int leftRight;
+	int padding[3];
 }
 
 Texture2D map : register(t0);
@@ -16,7 +22,7 @@ struct PixelInput
 float4 PS(PixelInput input) : SV_TARGET
 {
 	float2 spriteUV;
-	spriteUV.x = input.uv.x / maxFrame.x + curFrame.x / maxFrame.x;
+	spriteUV.x = abs(input.uv.x - leftRight) / maxFrame.x + curFrame.x / maxFrame.x;
 	spriteUV.y = input.uv.y / maxFrame.y + curFrame.y / maxFrame.y;
 	float4 result = map.Sample(samp, spriteUV);
 
