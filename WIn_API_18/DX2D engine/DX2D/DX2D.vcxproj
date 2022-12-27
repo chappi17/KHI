@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CupHeadScene.h" />
     <ClInclude Include="Object\GameObj\Dong\D_BackGround.h" />
     <ClInclude Include="Object\GameObj\Fortress\Barrel.h" />
     <ClInclude Include="Object\GameObj\Fortress\Cannon.h" />
@@ -201,6 +202,7 @@
     <ClInclude Include="Framework\Render\VertexShader.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CupHeadScene.cpp" />
     <ClCompile Include="Object\GameObj\Dong\D_BackGround.cpp" />
     <ClCompile Include="Object\GameObj\Fortress\Barrel.cpp" />
     <ClCompile Include="Object\GameObj\Fortress\Cannon.cpp" />

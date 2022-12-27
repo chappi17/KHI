@@ -54,9 +54,10 @@ using namespace DirectX;
 #include "Framework/Render/VertexLayOut.h"
 #include "Framework/Render/VertexBuffer.h"
 #include "Framework/Render/IndexBuffer.h"
-#include "Framework/Render/ShaderManager.h"
+#include "Framework/Render/Shader.h"
 #include "Framework/Render/VertexShader.h"
 #include "Framework/Render/PixelShader.h"
+#include "Framework/Render/ShaderManager.h"
 #include "Framework/Render/ConstantBuffer.h"
 #include "Framework/Render/GlobalBuffer.h"
 

@@ -13,8 +13,8 @@ Quad::Quad(wstring file)
 	_vBuffer = make_shared<VertexBuffer>(_vertices.data(), sizeof(Vertex_UV), _vertices.size());
 	_indexBuffer = make_shared<IndexBuffer>(_indices.data(), _indices.size());
 
-	_vs = make_shared<VertexShader>(L"TextureVertexShader");
-	_ps = make_shared<PixelShader>(L"TexturePixelShader");
+	_vs = ADD_VS(L"TextureVertexShader");
+	_ps = ADD_PS(L"TexturePixelShader");
 }
 
 Quad::Quad(wstring file, Vector2 size)

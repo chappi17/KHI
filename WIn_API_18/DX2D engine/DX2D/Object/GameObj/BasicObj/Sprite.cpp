@@ -7,7 +7,7 @@ Sprite::Sprite(wstring file, Vector2 maxFrame)
 	_frameBuffer = make_shared<FrameBuffer>();
 	_frameBuffer-> _data.maxFrame = maxFrame;
 
-	_ps = make_shared<PixelShader>(L"SpritePixelShader");
+	_ps = ADD_PS(L"SpritePixelShader");
 }
 
 Sprite::Sprite(wstring file, Vector2 maxFrame, Vector2 size)
@@ -16,7 +16,7 @@ Sprite::Sprite(wstring file, Vector2 maxFrame, Vector2 size)
 	_frameBuffer = make_shared<FrameBuffer>();
 	_frameBuffer->_data.maxFrame = maxFrame;
 
-	_ps = make_shared<PixelShader>(L"SpritePixelShader");
+	_ps = ADD_PS(L"SpritePixelShader");
 }
 
 void Sprite::Update()

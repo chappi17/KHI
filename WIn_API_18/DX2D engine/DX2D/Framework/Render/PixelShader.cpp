@@ -25,11 +25,11 @@ void PixelShader::CreateBlob(wstring file)
 	DWORD flags = D3DCOMPILE_ENABLE_STRICTNESS | D3DCOMPILE_DEBUG;
 
 	D3DCompileFromFile(path.c_str(), nullptr, nullptr,
-		"PS", "ps_5_0", flags, 0, _pixelBlob.GetAddressOf(), nullptr);
+		"PS", "ps_5_0", flags, 0, _blob.GetAddressOf(), nullptr);
 }
 
 void PixelShader::CreatePixelShader()
 {
-	DEVICE->CreatePixelShader(_pixelBlob->GetBufferPointer(), _pixelBlob->GetBufferSize(), nullptr,
+	DEVICE->CreatePixelShader(_blob->GetBufferPointer(), _blob->GetBufferSize(), nullptr,
 		_pixelShader.GetAddressOf());
 }

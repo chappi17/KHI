@@ -13,12 +13,12 @@ public:
 
 	shared_ptr<Transform> GetTransform() { return _transform; }
 	
-	shared_ptr<VertexShader> _vs;
-	shared_ptr<PixelShader> _ps;
+
 
 protected:
 	void CreateVertricesAndIndices();
-	
+	shared_ptr<VertexShader> _vs;
+	shared_ptr<PixelShader> _ps;
 
 	// Mesh... 정점들의 집합
 	vector<Vertex_UV> _vertices;

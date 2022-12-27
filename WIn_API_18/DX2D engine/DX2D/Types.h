@@ -25,6 +25,9 @@
 #define AlphaBlendState StateManager::GetInstance()->GetAlphaBlend()
 #define AdditiveBlendState StateManager::GetInstance()->GetAdditiveBlend()
 
+#define ADD_VS(k) ShaderManager::GetInstance()->AddVS(k)
+#define ADD_PS(k) ShaderManager::GetInstance()->AddPS(k)
+
 #define HALF *0.5f
 
 using Float2 = XMFLOAT2;
