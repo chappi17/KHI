@@ -159,7 +159,10 @@
     <ClInclude Include="Framework\Render\Shader.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="CupHeadScene.h">
+    <ClInclude Include="Scene\CupHeadScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Animation\Action.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -293,7 +296,10 @@
     <ClCompile Include="Framework\Render\Shader.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="CupHeadScene.cpp">
+    <ClCompile Include="Scene\CupHeadScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Animation\Action.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -357,6 +363,9 @@
     <Image Include="Resource\Texture\X_man.png">
       <Filter>리소스 파일</Filter>
     </Image>
+    <Image Include="Resource\Texture\Idle.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shader\Tutorial.hlsl" />
@@ -365,5 +374,8 @@
     <FxCompile Include="Shader\Collider\ColliderVertexShader.hlsl" />
     <FxCompile Include="Shader\Collider\ColliderPixelShader.hlsl" />
     <FxCompile Include="Shader\SpritePixelShader.hlsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Resource\Texture\Idle.xml" />
   </ItemGroup>
 </Project>

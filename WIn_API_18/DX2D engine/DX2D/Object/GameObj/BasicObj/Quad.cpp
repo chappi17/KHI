@@ -3,8 +3,7 @@
 
 Quad::Quad(wstring file)
 {
-	wstring path = L"Resource/Texture/" + file;
-	_srv = SRVManager::GetInstance()->AddSRV(path);
+	_srv = SRVManager::GetInstance()->AddSRV(file);
 	_size = _srv->GetSize();
 
 	_transform = make_shared<Transform>();
@@ -15,13 +14,14 @@ Quad::Quad(wstring file)
 
 	_vs = ADD_VS(L"TextureVertexShader");
 	_ps = ADD_PS(L"TexturePixelShader");
+
+	_leftRightBuffer = make_shared<LeftRightBuffer>();
 }
 
 Quad::Quad(wstring file, Vector2 size)
 	: _size(size)
-{
-	wstring path = L"Resource/Texture/" + file;
-	_srv = SRVManager::GetInstance()->AddSRV(path);
+{	
+	_srv = SRVManager::GetInstance()->AddSRV(file);
 	_transform = make_shared<Transform>();
 
 	CreateVertricesAndIndices();
@@ -30,6 +30,8 @@ Quad::Quad(wstring file, Vector2 size)
 
 	_vs = make_shared<VertexShader>(L"TextureVertexShader");
 	_ps = make_shared<PixelShader>(L"TexturePixelShader");
+
+	_leftRightBuffer = make_shared<LeftRightBuffer>();
 }
 
 Quad::~Quad()
@@ -52,11 +54,18 @@ void Quad::Render()
 
 	_srv->Set(0);
 	SAMPLER->Set(0);
+	_leftRightBuffer->SetPSBuffer(0);
 
 	_vs->Set();
 	_ps->Set();
 
 	DC->DrawIndexed(_indices.size(), 0, 0);
+}
+
+void Quad::SetLeftRight(int leftRight)
+{
+	leftRight %= 2;
+	_leftRightBuffer->_data.leftRight = leftRight;
 }
 
 void Quad::CreateVertricesAndIndices()

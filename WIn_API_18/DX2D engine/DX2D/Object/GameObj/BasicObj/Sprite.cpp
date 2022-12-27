@@ -35,3 +35,8 @@ void Sprite::SetSprite(Vector2 curFrame)
 {
 	_frameBuffer->_data.curFrame = curFrame;
 }
+
+void Sprite::SetSprite(const Action::Clip& clip)
+{
+	_frameBuffer->_data.curFrame = clip.startPos;
+}

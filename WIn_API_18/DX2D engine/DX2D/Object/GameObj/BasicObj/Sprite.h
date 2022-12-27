@@ -9,6 +9,7 @@ public:
 	virtual void Render() override;
 
 	void SetSprite(Vector2 curFrame);
+	void SetSprite(const Action::Clip& clip);
 
 private:
 	shared_ptr<FrameBuffer> _frameBuffer;

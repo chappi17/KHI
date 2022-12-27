@@ -151,7 +151,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="CupHeadScene.h" />
+    <ClInclude Include="Framework\Animation\Action.h" />
+    <ClInclude Include="Scene\CupHeadScene.h" />
     <ClInclude Include="Object\GameObj\Dong\D_BackGround.h" />
     <ClInclude Include="Object\GameObj\Fortress\Barrel.h" />
     <ClInclude Include="Object\GameObj\Fortress\Cannon.h" />
@@ -202,7 +203,8 @@
     <ClInclude Include="Framework\Render\VertexShader.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CupHeadScene.cpp" />
+    <ClCompile Include="Framework\Animation\Action.cpp" />
+    <ClCompile Include="Scene\CupHeadScene.cpp" />
     <ClCompile Include="Object\GameObj\Dong\D_BackGround.cpp" />
     <ClCompile Include="Object\GameObj\Fortress\Barrel.cpp" />
     <ClCompile Include="Object\GameObj\Fortress\Cannon.cpp" />
@@ -270,6 +272,7 @@
     <Image Include="Resource\Texture\Fortress.png" />
     <Image Include="Resource\Texture\Gun.png" />
     <Image Include="Resource\Texture\Gun1.png" />
+    <Image Include="Resource\Texture\Idle.png" />
     <Image Include="Resource\Texture\Mococo.png" />
     <Image Include="Resource\Texture\moon.png" />
     <Image Include="Resource\Texture\Player.png" />
@@ -368,6 +371,9 @@
     <ProjectReference Include="..\ImGUI\ImGUI.vcxproj">
       <Project>{023dcf59-7a84-4cfa-a4cb-12dfddc4ce77}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Resource\Texture\Idle.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

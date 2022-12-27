@@ -76,6 +76,9 @@ using namespace DirectX;
 #include "Framework/Texture/StateManager.h"
 #include "Framework/Texture/SRVManager.h"
 
+//Animation
+#include "Framework/Animation/Action.h"
+
 // BagicObj
 #include "Object/GameObj/BasicObj/Quad.h"
 #include "Object/GameObj/BasicObj/Sprite.h"

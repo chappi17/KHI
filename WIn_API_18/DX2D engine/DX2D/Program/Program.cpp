@@ -8,6 +8,7 @@
 #include "../Scene/DongScene.h"
 #include "../Scene/FortressScene.h"
 #include "../Scene/SpriteScene.h"
+#include "../Scene/CupHeadScene.h"
 
 Program::Program()
 {
@@ -19,8 +20,9 @@ Program::Program()
 	_scenes["DongScene"] = make_shared<DongScene>();
 	_scenes["FortressScene"] = make_shared<FortressScene>();
 	_scenes["SpriteScene"] = make_shared<SpriteScene>();
+	_scenes["CupHeadScene"] = make_shared<CupHeadScene>();
 
-	_curscene = _scenes["SpriteScene"];
+	_curscene = _scenes["CupHeadScene"];
 
 	_viewBuffer = make_shared<MatrixBuffer>();
 	_projectBuffer = make_shared<MatrixBuffer>();

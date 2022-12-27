@@ -1,9 +1,9 @@
 #pragma once
-class SpriteScene : public Scene
+class CupHeadScene : public Scene
 {
 public:
-	SpriteScene();
-	virtual ~SpriteScene();
+	CupHeadScene();
+	virtual ~CupHeadScene();
 
 	virtual void Update() override;
 	virtual void Render() override;
@@ -12,7 +12,6 @@ public:
 	void CreateAction();
 
 private:
-
 	shared_ptr<Sprite> _sprite;
 	shared_ptr<Action> _action;
 

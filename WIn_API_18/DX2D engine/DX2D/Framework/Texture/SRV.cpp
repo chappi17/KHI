@@ -3,8 +3,9 @@
 
 SRV::SRV(wstring file)
 {
+    wstring path = L"Resource/Texture/" + file;
     ScratchImage image;
-    LoadFromWICFile(file.data(), WIC_FLAGS_NONE, nullptr, image);
+    LoadFromWICFile(path.data(), WIC_FLAGS_NONE, nullptr, image);
 
     CreateShaderResourceView(DEVICE.Get(), image.GetImages(), image.GetImageCount(), image.GetMetadata(),
         _shaderResourceView.GetAddressOf());
