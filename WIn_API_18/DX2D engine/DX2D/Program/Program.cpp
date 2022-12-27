@@ -7,6 +7,7 @@
 #include "../Scene/CollisionScene.h"
 #include "../Scene/DongScene.h"
 #include "../Scene/FortressScene.h"
+#include "../Scene/SpriteScene.h"
 
 Program::Program()
 {
@@ -17,8 +18,9 @@ Program::Program()
 	_scenes["Collision"] = make_shared<CollisionScene>();
 	_scenes["DongScene"] = make_shared<DongScene>();
 	_scenes["FortressScene"] = make_shared<FortressScene>();
+	_scenes["SpriteScene"] = make_shared<SpriteScene>();
 
-	_curscene = _scenes["FortressScene"];
+	_curscene = _scenes["SpriteScene"];
 
 	_viewBuffer = make_shared<MatrixBuffer>();
 	_projectBuffer = make_shared<MatrixBuffer>();
@@ -54,6 +56,8 @@ void Program::Render()
 
 
 	AlphaBlendState->SetState();
+
+	_curscene->PreRender();
 	
 	_viewBuffer->SetVSBuffer(1);
 	_projectBuffer->SetVSBuffer(2);
@@ -62,6 +66,7 @@ void Program::Render()
 	_curscene->Render();
 
 	ImGui::Text("FPS : %d", Timer::GetInstance()->GetFPS());
+	_curscene->PostRender();
 	ImGui::Render();
 	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
 

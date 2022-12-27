@@ -186,6 +186,7 @@
     <ClInclude Include="Scene\SolarSystem.h" />
     <ClInclude Include="Framework\Texture\StateManager.h" />
     <ClInclude Include="Framework\Texture\SRVManager.h" />
+    <ClInclude Include="Scene\SpriteScene.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Scene\TextureScene.h" />
     <ClInclude Include="Object\GameObj\BasicObj\Quad.h" />
@@ -245,6 +246,7 @@
     <ClCompile Include="Framework\Utility\Timer.cpp" />
     <ClCompile Include="Framework\Texture\StateManager.cpp" />
     <ClCompile Include="Framework\Texture\SRVManager.cpp" />
+    <ClCompile Include="Scene\SpriteScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX2D.rc" />
@@ -265,6 +267,7 @@
     <Image Include="Resource\Texture\Player.png" />
     <Image Include="Resource\Texture\sun.png" />
     <Image Include="Resource\Texture\Tank.png" />
+    <Image Include="Resource\Texture\weather.png" />
     <Image Include="small.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -294,6 +297,20 @@
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="Shader\SpritePixelShader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">PS</EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">PS</EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">PS</EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">PS</EntryPointName>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
     </FxCompile>
     <FxCompile Include="Shader\TextureVertexShader.hlsl">

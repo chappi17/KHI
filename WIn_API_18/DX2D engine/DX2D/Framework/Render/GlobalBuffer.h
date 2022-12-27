@@ -41,3 +41,22 @@ public:
 
 	Data _data;
 };
+
+class SpriteBuffer : public ConstantBuffer
+{
+public:
+	struct Data
+	{
+		XMFLOAT2 maxFrame;
+		XMFLOAT2 curFrame;
+	};
+
+	SpriteBuffer()
+		: ConstantBuffer(&_data, sizeof(Data))
+	{
+		_data.maxFrame = { 1,1 }; // 
+		_data.curFrame = { 1,1 };
+	}
+
+	Data _data;
+};

@@ -147,6 +147,9 @@
     <ClInclude Include="Object\GameObj\Dong\D_BackGround.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Scene\SpriteScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DX2D.cpp">
@@ -266,6 +269,9 @@
     <ClCompile Include="Object\GameObj\Dong\D_BackGround.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Scene\SpriteScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX2D.rc">
@@ -321,6 +327,9 @@
     <Image Include="Resource\Texture\Cannonball.png">
       <Filter>리소스 파일</Filter>
     </Image>
+    <Image Include="Resource\Texture\weather.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shader\Tutorial.hlsl" />
@@ -328,5 +337,6 @@
     <FxCompile Include="Shader\TexturePixelShader.hlsl" />
     <FxCompile Include="Shader\Collider\ColliderVertexShader.hlsl" />
     <FxCompile Include="Shader\Collider\ColliderPixelShader.hlsl" />
+    <FxCompile Include="Shader\SpritePixelShader.hlsl" />
   </ItemGroup>
 </Project>
