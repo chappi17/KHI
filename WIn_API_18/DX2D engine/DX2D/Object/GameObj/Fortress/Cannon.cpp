@@ -10,7 +10,7 @@ Cannon::Cannon()
 	_barrel = make_shared<Barrel>();
 	_barrel->GetTransform()->SetParent(_rotation);
 
-	_barrel->GetTransform()->Getpos()._x += 50;	
+	_barrel->GetTransform()->Getpos().x += 50;	
 
 	_circleCol = make_shared<CircleCollider>(60);
 	_circleCol->GetTransform()->SetParent(_quad->GetTransform());
@@ -57,12 +57,12 @@ void Cannon::Move()
 {
 	if (KEY_PRESS('A'))
 	{
-		_quad->GetTransform()->Getpos()._x -= _speed * DELTA_TIME;
+		_quad->GetTransform()->Getpos().x -= _speed * DELTA_TIME;
 	}
 
 	if (KEY_PRESS('D'))
 	{
-		_quad->GetTransform()->Getpos()._x += _speed * DELTA_TIME;
+		_quad->GetTransform()->Getpos().x += _speed * DELTA_TIME;
 	}
 
 	if (KEY_PRESS('W'))

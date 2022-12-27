@@ -20,9 +20,9 @@ RectCollider::~RectCollider()
 
 bool RectCollider::IsCollision(Vector2 pos)
 {
-	if (pos._x > this->LeftTop()._x && pos._x < this->RightBottom()._x)
+	if (pos.x > this->LeftTop().x && pos.x < this->RightBottom().x)
 	{
-		if (pos._y < this->LeftTop()._y && pos._y > this->RightBottom()._y)
+		if (pos.y < this->LeftTop().y && pos.y > this->RightBottom().y)
 		{
 			return true;
 		}
@@ -32,20 +32,20 @@ bool RectCollider::IsCollision(Vector2 pos)
 
 bool RectCollider::IsCollision(shared_ptr<CircleCollider> circle)
 {
-	float left = LeftTop()._x;
-	float right = RightBottom()._x;
-	float top = LeftTop()._y;
-	float bottom = RightBottom()._y;
+	float left = LeftTop().x;
+	float right = RightBottom().x;
+	float top = LeftTop().y;
+	float bottom = RightBottom().y;
 
 	Vector2 center = circle->GetTransform()->GetWorldPos();
 	float radius = circle->GetWorldRadius();
 
-	if (center._x >= left && center._x <= right
-		&& center._y <= top + radius && center._y >= bottom - radius)
+	if (center.x >= left && center.x <= right
+		&& center.y <= top + radius && center.y >= bottom - radius)
 		return true;
 
-	if (center._x >= left - radius && center._x <= right + radius
-		&& center._y <= top && center._y >= bottom)
+	if (center.x >= left - radius && center.x <= right + radius
+		&& center.y <= top && center.y >= bottom)
 		return true;
 
 	if (circle->IsCollision(LeftTop()) || circle->IsCollision(RightBottom())
@@ -68,11 +68,11 @@ bool RectCollider::IsCollision(shared_ptr<RectCollider> rect)
 	{
 		return true;
 	}
-	if (this->IsCollision(Vector2(leftTop._x, rightBottom._y)) == true)
+	if (this->IsCollision(Vector2(leftTop.x, rightBottom.y)) == true)
 	{
 		return true;
 	}
-	if (this->IsCollision(Vector2(rightBottom._x, leftTop._y)) == true)
+	if (this->IsCollision(Vector2(rightBottom.x, leftTop.y)) == true)
 	{
 		return true;
 	}
@@ -189,8 +189,8 @@ Vector2 RectCollider::LeftTop()
 	Vector2 result;
 	Vector2 half = GetWorldSize() * 0.5f;
 
-	result._x = _transform->GetWorldPos()._x - half._x;
-	result._y = _transform->GetWorldPos()._y + half._y;
+	result.x = _transform->GetWorldPos().x - half.x;
+	result.y = _transform->GetWorldPos().y + half.y;
 
 	return result;
 }
@@ -199,8 +199,8 @@ Vector2 RectCollider::RightBottom()
 {
 	Vector2 result;
 	Vector2 half = GetWorldSize() * 0.5f;
-	result._x = _transform->GetWorldPos()._x + half._x;
-	result._y = _transform->GetWorldPos()._y - half._y;
+	result.x = _transform->GetWorldPos().x + half.x;
+	result.y = _transform->GetWorldPos().y - half.y;
 
 	return result;
 }
@@ -211,8 +211,8 @@ RectCollider ::OBB_Info RectCollider::GetObb()
 
 	info.position = _transform->GetWorldPos();
 
-	info.length[0] = GetWorldSize()._x * 0.5f;
-	info.length[1] = GetWorldSize()._y * 0.5f;
+	info.length[0] = GetWorldSize().x * 0.5f;
+	info.length[1] = GetWorldSize().y * 0.5f;
 
 	XMFLOAT4X4 matrix;
 	XMStoreFloat4x4(&matrix, *_transform->GetMatrix());
@@ -233,8 +233,8 @@ Vector2 RectCollider::GetWorldSize()
 	XMFLOAT4X4 matrix;
 	XMStoreFloat4x4(&matrix, *_transform->GetMatrix());
 
-	result._x = _size._x * _transform->GetScale()._x;
-	result._y = _size._y * _transform->GetScale()._y;
+	result.x = _size.x * _transform->GetScale().x;
+	result.y = _size.y * _transform->GetScale().y;
 
 	return result;
 }
@@ -253,15 +253,15 @@ void RectCollider::CreateVertices()
 {	
 	Vector2 halfSize = _size * 0.5f;
 	// 왼쪽 위
-	_vertices.emplace_back(-halfSize._x, halfSize._y);
+	_vertices.emplace_back(-halfSize.x, halfSize.y);
 	// 오른쪽 위
-	_vertices.emplace_back(halfSize._x, halfSize._y);
+	_vertices.emplace_back(halfSize.x, halfSize.y);
 	// 오른쪽 아래
-	_vertices.emplace_back(halfSize._x, -halfSize._y);
+	_vertices.emplace_back(halfSize.x, -halfSize.y);
 	// 왼쪽 아래
-	_vertices.emplace_back(-halfSize._x, -halfSize._y);
+	_vertices.emplace_back(-halfSize.x, -halfSize.y);
 	// 왼쪽 위
-	_vertices.emplace_back(-halfSize._x, halfSize._y);
+	_vertices.emplace_back(-halfSize.x, halfSize.y);
 
 	Collider::CreateData();
 

@@ -178,8 +178,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_MOUSEMOVE:
         {
             // 윈도우 창 기준 
-            mousePos._x = static_cast<float>(LOWORD(lParam));
-            mousePos._y = WIN_HEIGHT - static_cast<float>(HIWORD(lParam));
+            mousePos.x = static_cast<float>(LOWORD(lParam));
+            mousePos.y = WIN_HEIGHT - static_cast<float>(HIWORD(lParam));
         }
         break;
 

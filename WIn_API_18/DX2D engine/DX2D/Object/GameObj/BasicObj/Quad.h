@@ -4,20 +4,21 @@ class Quad
 public:
 	Quad(wstring file);
 	Quad(wstring file, Vector2 size);
-	~Quad();
+	virtual ~Quad();
 
-	void Update();
-	void Render();
+	virtual void Update();
+	virtual void Render();
 
 	Vector2 GetSize() { return _size; }
 
 	shared_ptr<Transform> GetTransform() { return _transform; }
-
+	
 	shared_ptr<VertexShader> _vs;
 	shared_ptr<PixelShader> _ps;
 
-private:
+protected:
 	void CreateVertricesAndIndices();
+	
 
 	// Mesh... 정점들의 집합
 	vector<Vertex_UV> _vertices;

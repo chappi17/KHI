@@ -22,24 +22,24 @@ void CollisionScene::Update()
 	
 	if (KEY_PRESS('W'))
 	{
-		_circle->GetTransform()->GetScale()._x += 1 * DELTA_TIME;
-		_circle->GetTransform()->GetScale()._y += 1 * DELTA_TIME;
+		_circle->GetTransform()->GetScale().x += 1 * DELTA_TIME;
+		_circle->GetTransform()->GetScale().y += 1 * DELTA_TIME;
 	}
 
 	if (KEY_PRESS('S'))
 	{
-		_circle->GetTransform()->GetScale()._x -= 1 * DELTA_TIME;
-		_circle->GetTransform()->GetScale()._y -= 1 * DELTA_TIME;
+		_circle->GetTransform()->GetScale().x -= 1 * DELTA_TIME;
+		_circle->GetTransform()->GetScale().y -= 1 * DELTA_TIME;
 	}
 
 	if (KEY_PRESS('A'))
 	{
-		_rect->GetTransform()->GetScale()._y += 1 * DELTA_TIME;
+		_rect->GetTransform()->GetScale().y += 1 * DELTA_TIME;
 	}
 
 	if (KEY_PRESS('D'))
 	{
-		_rect->GetTransform()->GetScale()._y -= 1 * DELTA_TIME;
+		_rect->GetTransform()->GetScale().y -= 1 * DELTA_TIME;
 	}
 
 	if (KEY_PRESS(VK_SPACE))
@@ -65,8 +65,8 @@ void CollisionScene::Update()
 
 void CollisionScene::Render()
 {
-	ImGui::SliderFloat("PosX", &_rect->GetTransform()->Getpos()._x, 0, WIN_WIDTH);
-	ImGui::SliderFloat("PosY", &_rect->GetTransform()->Getpos()._y, 0, WIN_HEIGHT);
+	ImGui::SliderFloat("PosX", &_rect->GetTransform()->Getpos().x, 0, WIN_WIDTH);
+	ImGui::SliderFloat("PosY", &_rect->GetTransform()->Getpos().y, 0, WIN_HEIGHT);
 
 	_rect->Render();	
 	_circle->Render();

@@ -14,8 +14,8 @@ D_BackGround::~D_BackGround()
 Vector2 D_BackGround::LeftRight()
 {
 	Vector2 result;
-	result._x =_quad->GetTransform()->Getpos()._x - _quad->GetSize()._x * 0.5f;
-	result._y =_quad->GetTransform()->Getpos()._x + _quad->GetSize()._x * 0.5f;
+	result.x =_quad->GetTransform()->Getpos().x - _quad->GetSize().x * 0.5f;
+	result.y =_quad->GetTransform()->Getpos().x + _quad->GetSize().x * 0.5f;
 
 	return result;
 }

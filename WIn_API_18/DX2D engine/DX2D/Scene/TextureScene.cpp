@@ -8,7 +8,7 @@ TextureScene::TextureScene()
 
 	_quad2->GetTransform()->SetParent(_quad1->GetTransform());
 
-	_quad2->GetTransform()->Getpos()._x += 200;
+	_quad2->GetTransform()->Getpos().x += 200;
 
 	_worldBuffer = make_shared<MatrixBuffer>();
 	_viewBuffer = make_shared<MatrixBuffer>();

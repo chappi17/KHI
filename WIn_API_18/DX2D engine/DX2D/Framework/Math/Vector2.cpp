@@ -3,53 +3,53 @@
 
 Vector2 Vector2::operator+(const Vector2& other) const
 {
-    return Vector2(_x + other._x, _y + other._y);
+    return Vector2(x + other.x, y + other.y);
 }
 
 Vector2& Vector2::operator+=(const Vector2& other)
 {
-    _x += other._x;
-    _y += other._y;
+    x += other.x;
+    y += other.y;
 
     return *this;
 }
 
 Vector2 Vector2::operator-(const Vector2& other) const
 {
-    return Vector2(_x - other._x, _y - other._y);
+    return Vector2(x - other.x, y - other.y);
 }
 
 Vector2& Vector2::operator-=(const Vector2& other)
 {
-    _x -= other._x;
-    _y -= other._y;
+    x -= other.x;
+    y -= other.y;
 
     return *this;
 }
 
 Vector2 Vector2::operator*(const float& value) const
 {
-    return Vector2(_x * value, _y * value);
+    return Vector2(x * value, y * value);
 }
 
 Vector2& Vector2::operator*=(const float& value)
 {
-    _x *= value;
-    _y *= value;
+    x *= value;
+    y *= value;
 
     return *this;
 }
 
 Vector2 Vector2::operator/(const float& value) const
 {
-    return Vector2(_x / value, _y / value);
+    return Vector2(x / value, y / value);
 }
 
 bool Vector2::operator==(const Vector2& other) const
 {
-    if (_x != other._x)
+    if (x != other.x)
         return false;
-    if (_y != other._y)
+    if (y != other.y)
         return false;
 
     return true;
@@ -57,9 +57,9 @@ bool Vector2::operator==(const Vector2& other) const
 
 bool Vector2::operator!=(const Vector2& other) const
 {
-    if (_x != other._x)
+    if (x != other.x)
         return true;
-    if (_y != other._y)
+    if (y != other.y)
         return true;
 
     return false;
@@ -67,28 +67,28 @@ bool Vector2::operator!=(const Vector2& other) const
 
 bool Vector2::operator>(const Vector2& other) const
 {
-    if (_y != other._y)
-        return _y > other._y;
+    if (y != other.y)
+        return y > other.y;
 
-    return _x > other._x;
+    return x > other.x;
 }
 
 bool Vector2::operator<(const Vector2& other) const
 {
-    if (_y != other._y)
-        return _y < other._y;
+    if (y != other.y)
+        return y < other.y;
 
-    return _x < other._x;
+    return x < other.x;
 }
 
 float Vector2::Dot(const Vector2& other)
 {
-    return _x * other._x + _y * other._y;
+    return x * other.x + y * other.y;
 }
 
 float Vector2::Cross(const Vector2& other)
 {
-    return _x * other._y - _y * other._x;
+    return x * other.y - y * other.x;
 }
 
 bool Vector2::IsBetween(const Vector2& vector1, const Vector2& vector2)
@@ -103,7 +103,7 @@ bool Vector2::IsBetween(const Vector2& vector1, const Vector2& vector2)
 
 float Vector2::Length() const
 {
-    return sqrt(powf(_x, 2) + powf(_y, 2));
+    return sqrt(powf(x, 2) + powf(y, 2));
 }
 
 float Vector2::Length(const Vector2& other) const
@@ -115,31 +115,31 @@ float Vector2::Length(const Vector2& other) const
 void Vector2::Normallize()
 {
     float legnth = this->Length();
-    _x /= legnth;
-    _y /= legnth;
+    x /= legnth;
+    y /= legnth;
 }
 
 Vector2 Vector2::Normal() const
 {
     float legnth = this->Length();
 
-    return Vector2(_x / legnth, _y / legnth);
+    return Vector2(x / legnth, y / legnth);
 }
 
 int Vector2::Manhattan(const Vector2& other)
 {
-    return (int)(other._x - _x) + (int)(other._y - _y);
+    return (int)(other.x - x) + (int)(other.y - y);
 }
 
 float Vector2::Angle() const
 {
-    return atan2(_y, _x);
+    return atan2(y, x);
 }
 
 void Vector2::Angle(const float& angle)
 {    
-   _x = _x * cos(angle);
-   _y = _y * sin(angle);
+   x = x * cos(angle);
+   y = y * sin(angle);
     
 }
 

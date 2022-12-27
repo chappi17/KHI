@@ -13,11 +13,11 @@ SolarSystem::SolarSystem()
 		
 	_earth->SetParent(_sunTrans);
 	_earthTrans->SetParent(_sunTrans);
-	_earth->Getpos()._x += 250;	
-	_earthTrans->Getpos()._x += 250;
+	_earth->Getpos().x += 250;	
+	_earthTrans->Getpos().x += 250;
 
 	_moon->SetParent(_earthTrans);
-	_moon->Getpos()._x += 120;
+	_moon->Getpos().x += 120;
 
 
 }
@@ -30,26 +30,26 @@ void SolarSystem::Update()
 {
 	if (KEY_PRESS(0x41))
 	{
-		_sun->Getpos()._x -= 0.5f * DELTA_TIME * 100;
-		_sunTrans->Getpos()._x -= 0.5f * DELTA_TIME * 100;
+		_sun->Getpos().x -= 0.5f * DELTA_TIME * 100;
+		_sunTrans->Getpos().x -= 0.5f * DELTA_TIME * 100;
 	}
 
 	if (KEY_PRESS(0x44))
 	{
-		_sun->Getpos()._x += 0.5f * DELTA_TIME * 100;
-		_sunTrans->Getpos()._x += 0.5f * DELTA_TIME * 100;
+		_sun->Getpos().x += 0.5f * DELTA_TIME * 100;
+		_sunTrans->Getpos().x += 0.5f * DELTA_TIME * 100;
 	}
 
 	if (KEY_PRESS(0x57))
 	{
-		_sun->Getpos()._y += 0.5f * DELTA_TIME * 100;
-		_sunTrans->Getpos()._y += 0.5f * DELTA_TIME * 100;
+		_sun->Getpos().y += 0.5f * DELTA_TIME * 100;
+		_sunTrans->Getpos().y += 0.5f * DELTA_TIME * 100;
 	}
 
 	if (KEY_PRESS(0x53))
 	{
-		_sun->Getpos()._y -= 0.5f * DELTA_TIME * 100;
-		_sunTrans->Getpos()._y -= 0.5f * DELTA_TIME * 100;
+		_sun->Getpos().y -= 0.5f * DELTA_TIME * 100;
+		_sunTrans->Getpos().y -= 0.5f * DELTA_TIME * 100;
 	}
 
 	_sun->GetAngle() += 0.005f * DELTA_TIME * 100; // ÀÚÀü

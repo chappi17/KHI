@@ -12,9 +12,9 @@ Transform::~Transform()
 
 void Transform::Update()
 {
-	XMMATRIX S = XMMatrixScaling(_scale._x, _scale._y, 1);
+	XMMATRIX S = XMMatrixScaling(_scale.x, _scale.y, 1);
 	XMMATRIX R = XMMatrixRotationZ(_angle);
-	XMMATRIX T = XMMatrixTranslation(_pos._x, _pos._y, 0);
+	XMMATRIX T = XMMatrixTranslation(_pos.x, _pos.y, 0);
 
 	_srtMatrix = S * R * T;
 
@@ -51,8 +51,8 @@ Vector2 Transform::GetWorldPos()
 		XMFLOAT4X4 matrix;
 		XMStoreFloat4x4(&matrix, _srtMatrix);
 		Vector2 result;
-		result._x = matrix._41;
-		result._y = matrix._42;
+		result.x = matrix._41;
+		result.y = matrix._42;
 
 		return result;
 	}

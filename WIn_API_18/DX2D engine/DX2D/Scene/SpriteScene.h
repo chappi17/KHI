@@ -10,8 +10,10 @@ public:
 	virtual void PostRender() override;
 
 private:
-	shared_ptr<Quad> _quad;
-	shared_ptr<SpriteBuffer> _maxFrameBuffer;
 
+	shared_ptr<Sprite> _sprite;
+
+	int _frameX = 0;
+	int _frameY = 0;
 };
 

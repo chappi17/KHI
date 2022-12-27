@@ -37,14 +37,14 @@ void D_Player::Render()
 
 void D_Player::Move()
 {
-	if (KEY_PRESS('A') && (_quad->GetTransform()->Getpos()._x-50 > _LeftRight._x))
+	if (KEY_PRESS('A') && (_quad->GetTransform()->Getpos().x-50 > _LeftRight.x))
 		{
-			_quad->GetTransform()->Getpos()._x -= _speed * DELTA_TIME;
+			_quad->GetTransform()->Getpos().x -= _speed * DELTA_TIME;
 		}
 	
-	if (KEY_PRESS('D') && ((_quad->GetTransform()->Getpos()._x+50 < _LeftRight._y)))
+	if (KEY_PRESS('D') && ((_quad->GetTransform()->Getpos().x+50 < _LeftRight.y)))
 		{
-			_quad->GetTransform()->Getpos()._x += _speed * DELTA_TIME;
+			_quad->GetTransform()->Getpos().x += _speed * DELTA_TIME;
 		}
 }
 

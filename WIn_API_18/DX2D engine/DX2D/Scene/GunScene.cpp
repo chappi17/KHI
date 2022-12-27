@@ -48,6 +48,6 @@ void GunScene::Render()
 	_player->Render();
 	_target->Render();
 
-	ImGui::SliderFloat("PosX", &_player->GetTransform()->Getpos()._x, 0, WIN_WIDTH);
-	ImGui::SliderFloat("PosY", &_player->GetTransform()->Getpos()._y, 0, WIN_HEIGHT);
+	ImGui::SliderFloat("PosX", &_player->GetTransform()->Getpos().x, 0, WIN_WIDTH);
+	ImGui::SliderFloat("PosY", &_player->GetTransform()->Getpos().y, 0, WIN_HEIGHT);
 }

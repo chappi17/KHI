@@ -7,8 +7,8 @@ Gun::Gun()
 
 	_muzzle = make_shared<Transform>();
 	_muzzle->SetParent(_quad->GetTransform());
-	_muzzle->Getpos()._x += 40;
-	_muzzle->Getpos()._y += 5;
+	_muzzle->Getpos().x += 40;
+	_muzzle->Getpos().y += 5;
 
 	for (int i = 0; i < _poolCount; i++)
 	{

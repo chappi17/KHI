@@ -6,7 +6,7 @@ Bullet::Bullet()
 	_quad = make_shared<Quad>(L"Bullet.png", Vector2(130, 130));
 
 	_circleCol = make_shared<CircleCollider>(5);
-	_circleCol->GetTransform()->Getpos()._x += 30;
+	_circleCol->GetTransform()->Getpos().x += 30;
 	_circleCol->GetTransform()->SetParent(_quad->GetTransform());
 }
 

@@ -7,7 +7,7 @@ Barrel::Barrel()
 
 	_muzzle = make_shared<Transform>();
 	_muzzle->SetParent(_quad->GetTransform());
-	_muzzle->Getpos()._x += 50;
+	_muzzle->Getpos().x += 50;
 
 	_rectCol = make_shared<RectCollider>(Vector2(100, 30));
 	_rectCol->GetTransform()->SetParent(_quad->GetTransform());

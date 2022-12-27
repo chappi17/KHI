@@ -7,7 +7,7 @@ Player::Player()
 
 	_gun = make_shared<Gun>();
 	_gun->GetTransform()->SetParent(_quad->GetTransform());
-	_gun->GetTransform()->Getpos()._x += 100;
+	_gun->GetTransform()->Getpos().x += 100;
 
 	_rectCol = make_shared<RectCollider>(Vector2(130, 190));
 	_rectCol->GetTransform()->SetParent(_quad->GetTransform());

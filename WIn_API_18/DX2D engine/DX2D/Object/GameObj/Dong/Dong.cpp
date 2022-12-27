@@ -20,12 +20,12 @@ void Dong::Update()
 	if (_isActive == false)
 		return;
 
-	if (_quad->GetTransform()->Getpos()._y < 0)
+	if (_quad->GetTransform()->Getpos().y < 0)
 	{
 		Init();
 		return;
 	}
-	_quad->GetTransform()->Getpos()._y -= _speed * DELTA_TIME;
+	_quad->GetTransform()->Getpos().y -= _speed * DELTA_TIME;
 
 	_quad->Update();
 	_circleCol->Update();
@@ -42,8 +42,8 @@ void Dong::Render()
 
 void Dong::Init()
 {
-	_quad->GetTransform()->Getpos()._y = WIN_HEIGHT + 50;
-	_quad->GetTransform()->Getpos()._x = rand() % WIN_WIDTH;
+	_quad->GetTransform()->Getpos().y = WIN_HEIGHT + 50;
+	_quad->GetTransform()->Getpos().x = rand() % WIN_WIDTH;
 	_quad->GetTransform()->Update();
 	_isActive = false;
 }
