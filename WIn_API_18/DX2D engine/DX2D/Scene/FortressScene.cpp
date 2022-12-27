@@ -17,7 +17,7 @@ void FortressScene::Update()
 
 	if (KEY_DOWN(VK_SPACE))
 	{
-		_player->Fire(mousePos);
+		_player->Fire();
 	}
 	_player->Update();
 

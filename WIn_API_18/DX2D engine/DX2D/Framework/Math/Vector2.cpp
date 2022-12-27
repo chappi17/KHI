@@ -136,4 +136,11 @@ float Vector2::Angle() const
     return atan2(_y, _x);
 }
 
+void Vector2::Angle(const float& angle)
+{    
+   _x = _x * cos(angle);
+   _y = _y * sin(angle);
+    
+}
+
 

@@ -33,6 +33,7 @@ public:
 	int Manhattan(const Vector2& other);
 
 	float Angle() const;
+	void Angle(const float& angle);
 
 	float _x = 0.0f;
 	float _y = 0.0f;

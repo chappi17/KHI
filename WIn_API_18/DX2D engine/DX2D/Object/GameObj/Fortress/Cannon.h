@@ -10,9 +10,7 @@ public:
 
 	void Set(const Vector2 pos);
 	
-	void Fire(const Vector2& mousepos);
-	
-
+	void Fire();		
 	
 private:
 	void Move();

@@ -4,9 +4,10 @@
 Barrel::Barrel()
 {
 	_quad = make_shared<Quad>(L"Barrel.png", Vector2(100, 30));
-	_barrel = make_shared<Transform>();
-	_barrel->SetParent(_quad->GetTransform());	
 
+	_barrelTrans = make_shared<Transform>();	
+	_barrelTrans->SetParent(_quad->GetTransform());
+	_barrelTrans->Getpos()._x += 50;
 
 	_rectCol = make_shared<RectCollider>(Vector2(100, 30));
 	_rectCol->GetTransform()->SetParent(_quad->GetTransform());
@@ -27,25 +28,27 @@ Barrel::~Barrel()
 void Barrel::Update()
 {
 	MoveAngle();
+	_barrelTrans->Update();	
 	_quad->Update();
 	_rectCol->Update();
-	_barrel->Update();
+
 	for (auto bullet : _bullets)
 		bullet->Update();
 	
 }
 
 void Barrel::Render()
-{
+{	
+	_barrelTrans->SetWorldBuffer();
 	_quad->Render();
 	_rectCol->Render();
 	for (auto bullet : _bullets)
 		bullet->Render();
 }
 
-void Barrel::FireBullet(const Vector2& mousePos)
+void Barrel::FireBullet()
 {
-	Vector2 dir = mousePos - _quad->GetTransform()->GetWorldPos();
+	Vector2 dir = _barrelTrans->GetWorldPos() - _quad->GetTransform()->GetWorldPos();
 
 	auto iter = std::find_if(_bullets.begin(), _bullets.end(), [](const shared_ptr<F_bullet>& bullet)->bool
 		{
@@ -57,7 +60,7 @@ void Barrel::FireBullet(const Vector2& mousePos)
 	if (iter != _bullets.end())
 	{
 		(*iter)->_isActive = true;
-		(*iter)->GetTransform()->Getpos() = _barrel->GetWorldPos();
+		(*iter)->GetTransform()->Getpos() = _barrelTrans->GetWorldPos();
 		(*iter)->SetDir(dir);
 		(*iter)->GetTransform()->GetAngle() = dir.Angle();
 	}
@@ -66,19 +69,21 @@ void Barrel::FireBullet(const Vector2& mousePos)
 	}
 }
 
-
-
 void Barrel::MoveAngle()
 {
-	
-		if (KEY_PRESS('W'))
-		{
-			_quad->GetTransform()->GetAngle() += 0.5f * DELTA_TIME;
-		}
 
-		if (KEY_PRESS('S'))
-		{
-			_quad->GetTransform()->GetAngle() -= 0.5f *DELTA_TIME;
-		}
-	
+	if (KEY_PRESS('W'))
+	{
+		_quad->GetTransform()->GetAngle() += 0.5f * DELTA_TIME;
+	}
+
+	if (KEY_PRESS('S'))
+	{
+		_quad->GetTransform()->GetAngle() -= 0.5f * DELTA_TIME;
+	}
+
 }
+
+
+
+

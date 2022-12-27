@@ -7,9 +7,7 @@ Cannon::Cannon()
 
 	_barrel = make_shared<Barrel>();
 	_barrel->GetTransform()->SetParent(_quad->GetTransform());
-	_barrel->GetTransform()->Getpos()._x += 50;
-
-	
+	_barrel->GetTransform()->Getpos()._x += 50;	
 
 	_circleCol = make_shared<CircleCollider>(60);
 	_circleCol->GetTransform()->SetParent(_quad->GetTransform());
@@ -21,7 +19,7 @@ Cannon::~Cannon()
 
 void Cannon::Update()
 {
-	Move();
+	Move();	
 	_barrel->Update();
 	_quad->Update();
 	_circleCol->Update();
@@ -44,9 +42,9 @@ void Cannon::Set(const Vector2 pos)
 	_quad->GetTransform()->Getpos()= pos;
 }
 
-void Cannon::Fire(const Vector2& mousepos)
+void Cannon::Fire()
 {
-	_barrel->FireBullet(mousepos);
+	_barrel->FireBullet();
 }
 
 
@@ -62,4 +60,7 @@ void Cannon::Move()
 	{
 		_quad->GetTransform()->Getpos()._x += _speed * DELTA_TIME;
 	}
+
 }
+
+
