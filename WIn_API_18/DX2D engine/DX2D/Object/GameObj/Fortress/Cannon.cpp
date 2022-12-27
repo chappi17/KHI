@@ -4,9 +4,12 @@
 Cannon::Cannon()
 {
 	_quad = make_shared<Quad>(L"Fortress.png", Vector2(100, 100));
+	_rotation = make_shared<Transform>();
+	_rotation->SetParent(_quad->GetTransform());
 
 	_barrel = make_shared<Barrel>();
-	_barrel->GetTransform()->SetParent(_quad->GetTransform());
+	_barrel->GetTransform()->SetParent(_rotation);
+
 	_barrel->GetTransform()->Getpos()._x += 50;	
 
 	_circleCol = make_shared<CircleCollider>(60);
@@ -20,6 +23,7 @@ Cannon::~Cannon()
 void Cannon::Update()
 {
 	Move();	
+	_rotation->Update();
 	_barrel->Update();
 	_quad->Update();
 	_circleCol->Update();
@@ -61,6 +65,14 @@ void Cannon::Move()
 		_quad->GetTransform()->Getpos()._x += _speed * DELTA_TIME;
 	}
 
+	if (KEY_PRESS('W'))
+	{
+		_rotation->GetAngle() += 0.5f * DELTA_TIME;
+	}
+	if (KEY_PRESS('S'))
+	{
+		_rotation->GetAngle() -= 0.5f * DELTA_TIME;
+	}
 }
 
 

@@ -16,7 +16,7 @@ public:
 private:
 	shared_ptr<Quad> _quad;
 	shared_ptr<Collider> _rectCol;	
-	shared_ptr<Transform> _barrelTrans;	
+	shared_ptr<Transform> _muzzle;	
 
 	UINT _poolCount = 20;
 	vector<shared_ptr<class F_bullet>> _bullets;
