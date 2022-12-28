@@ -42,6 +42,11 @@ Program::~Program()
 
 void Program::Update()
 {
+	if (KEY_DOWN(VK_F1))
+	{
+		Collider::_isDebug = !Collider::_isDebug;
+	}
+
 	Keyboard::GetInstance()->Update();
 	Timer::GetInstance()->Update();
 	_curscene->Update();

@@ -32,6 +32,8 @@ void SpriteScene::PostRender()
 	ImGui::SliderInt("FrameY", &_frameY, 0, 1);
 	ImGui::SliderInt("LeftRight", &_leftRight, 0, 1);
 	_sprite->SetLeftRight(_leftRight);
+
+	ImGui::SliderInt("CHECK", &_check, 0, 100);
 }
 
 void SpriteScene::CreateAction()
@@ -53,6 +55,19 @@ void SpriteScene::CreateAction()
 		}
 	}
 
-	 _action = make_shared<Action>(clips, "XMAN_RUN",Action::LOOP);
+	 _action = make_shared<Action>(clips, "XMAN_RUN",Action::END);
 	 _action->Play();
+	 
+	// _action->SetEndEvent(std::bind(&SpriteScene::Check, this));
+	 _action->SetTestEvent(std::bind(&SpriteScene::Check_1, this, 10));
 	}
+
+void SpriteScene::Check()
+{
+	_check = 50;
+}
+
+void SpriteScene::Check_1(int t)
+{
+	_check = t;
+}

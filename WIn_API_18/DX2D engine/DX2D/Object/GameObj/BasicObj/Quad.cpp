@@ -89,7 +89,6 @@ void Quad::CreateVertricesAndIndices()
 	v.uv = { 1.0f, 0.0f };
 	_vertices.push_back(v);
 
-
 	_indices.push_back(0);
 	_indices.push_back(1);
 	_indices.push_back(2);

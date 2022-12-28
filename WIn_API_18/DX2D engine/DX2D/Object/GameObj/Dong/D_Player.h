@@ -27,7 +27,4 @@ private:
 	Vector2 _LeftRight = { 0,WIN_WIDTH };
 	
 	float _speed = 300.0f;
-
-
 };
-

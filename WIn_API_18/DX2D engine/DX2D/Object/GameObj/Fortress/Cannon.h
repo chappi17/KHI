@@ -23,4 +23,3 @@ private:
 	float _angle = 0.0f;
 	float _speed = 300.0f;
 };
-

@@ -20,4 +20,3 @@ private:
 	string _name;
 	shared_ptr<Quad> _quad;
 };
-

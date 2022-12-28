@@ -16,11 +16,6 @@ GunScene::~GunScene()
 
 void GunScene::Update()
 {	
-	if (KEY_DOWN(VK_F1))
-	{
-		Collider::_isDebug = !Collider::_isDebug;
-	}
-
 	if (KEY_DOWN(VK_LBUTTON) && !ImGui::GetIO().WantCaptureMouse)
 	{
 		_player->Fire(mousePos);

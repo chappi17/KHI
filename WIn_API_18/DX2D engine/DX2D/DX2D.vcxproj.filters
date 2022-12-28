@@ -165,6 +165,9 @@
     <ClInclude Include="Framework\Animation\Action.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Object\GameObj\CupHead\Cup_player.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DX2D.cpp">
@@ -302,6 +305,9 @@
     <ClCompile Include="Framework\Animation\Action.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Object\GameObj\CupHead\Cup_player.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX2D.rc">
@@ -366,6 +372,12 @@
     <Image Include="Resource\Texture\Idle.png">
       <Filter>리소스 파일</Filter>
     </Image>
+    <Image Include="Resource\Texture\CupHead\Run.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Texture\CupHead\Idle.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shader\Tutorial.hlsl" />
@@ -377,5 +389,7 @@
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Resource\Texture\Idle.xml" />
+    <Xml Include="Resource\Texture\CupHead\Run.xml" />
+    <Xml Include="Resource\Texture\CupHead\Idle.xml" />
   </ItemGroup>
 </Project>

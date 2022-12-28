@@ -31,4 +31,8 @@
 #define HALF *0.5f
 
 using Float2 = XMFLOAT2;
+
+using CallBack = std::function<void()>;
+using CallBack_1 = std::function<void(int)>;
+
 typedef XMFLOAT4X4	Float4x4;

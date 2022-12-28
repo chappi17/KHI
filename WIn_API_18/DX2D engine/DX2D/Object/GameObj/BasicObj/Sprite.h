@@ -15,4 +15,3 @@ private:
 	shared_ptr<FrameBuffer> _frameBuffer;
 
 };
-

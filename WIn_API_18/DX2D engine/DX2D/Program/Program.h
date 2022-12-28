@@ -18,4 +18,3 @@ private:
 	shared_ptr<Scene> _curscene;
 
 };
-

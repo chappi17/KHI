@@ -47,7 +47,3 @@ void D_Player::Move()
 			_quad->GetTransform()->Getpos().x += _speed * DELTA_TIME;
 		}
 }
-
-
-
-

@@ -13,4 +13,3 @@ private:
 	shared_ptr<Cannon> _player;
 
 };
-

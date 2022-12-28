@@ -55,5 +55,3 @@ bool Dong::IsCollisionWithPlayer(shared_ptr<D_Player> player)
 
 	return _circleCol->IsCollision(player->GetCollider());
 }
-
-

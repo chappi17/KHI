@@ -36,6 +36,8 @@ public:
 
 	Clip GetCurClip() { return _clips[_curClipNum]; }
 	Action::Type GetRepeatType() { return _repeatType; }
+	void SetEndEvent(CallBack function) { _endEvent = function; }
+	void SetTestEvent(CallBack_1 function) { _testEvent = function; }
 
 	bool _isPlay = true;
 private:
@@ -51,5 +53,7 @@ private:
 	float _speed = 0.0f;
 
 	bool _isReverse = false;
-};
 
+	CallBack _endEvent = nullptr;
+	CallBack_1 _testEvent = nullptr;
+};

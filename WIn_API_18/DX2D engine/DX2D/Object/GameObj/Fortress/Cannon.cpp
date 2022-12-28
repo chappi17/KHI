@@ -74,5 +74,3 @@ void Cannon::Move()
 		_rotation->GetAngle() -= 0.5f * DELTA_TIME;
 	}
 }
-
-

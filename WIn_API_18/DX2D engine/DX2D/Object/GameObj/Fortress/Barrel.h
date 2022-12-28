@@ -23,4 +23,3 @@ private:
 	
 	float _speed = 300.0f;
 };
-

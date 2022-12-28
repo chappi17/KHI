@@ -12,4 +12,3 @@ private:
 	shared_ptr<Player> _player;
 	shared_ptr<RectCollider> _target;
 };
-

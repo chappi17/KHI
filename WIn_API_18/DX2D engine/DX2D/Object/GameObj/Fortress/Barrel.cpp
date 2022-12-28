@@ -83,7 +83,3 @@ void Barrel::MoveAngle()
 	}
 
 }
-
-
-
-

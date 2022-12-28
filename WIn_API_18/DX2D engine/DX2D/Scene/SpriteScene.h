@@ -11,6 +11,9 @@ public:
 
 	void CreateAction();
 
+	void Check();
+	void Check_1(int t);
+
 private:
 
 	shared_ptr<Sprite> _sprite;
@@ -20,5 +23,6 @@ private:
 	int _frameY = 0;
 
 	int _leftRight = 0;
-};
 
+	int _check = 0;
+};

@@ -22,6 +22,7 @@
 #include <unordered_map>
 #include <algorithm>
 #include <wrl/client.h>
+#include <functional>
 
 #include <d3d11.h>
 #include <d3dcompiler.h>
@@ -94,6 +95,7 @@ using namespace DirectX;
 #include "Object/GameObj/Fortress/Cannon.h"
 #include "Object/GameObj/Fortress/Barrel.h"
 #include "Object/GameObj/Fortress/F_bullet.h"
+#include "Object/GameObj/CupHead/Cup_player.h"
 
 // Scene
 #include "Scene/Scene.h"

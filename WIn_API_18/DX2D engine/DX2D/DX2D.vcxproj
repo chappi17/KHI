@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Object\GameObj\CupHead\Cup_player.h" />
     <ClInclude Include="Framework\Animation\Action.h" />
     <ClInclude Include="Scene\CupHeadScene.h" />
     <ClInclude Include="Object\GameObj\Dong\D_BackGround.h" />
@@ -203,6 +204,7 @@
     <ClInclude Include="Framework\Render\VertexShader.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Object\GameObj\CupHead\Cup_player.cpp" />
     <ClCompile Include="Framework\Animation\Action.cpp" />
     <ClCompile Include="Scene\CupHeadScene.cpp" />
     <ClCompile Include="Object\GameObj\Dong\D_BackGround.cpp" />
@@ -268,6 +270,8 @@
     <Image Include="Resource\Texture\BM.png" />
     <Image Include="Resource\Texture\Bullet.png" />
     <Image Include="Resource\Texture\Cannonball.png" />
+    <Image Include="Resource\Texture\CupHead\Idle.png" />
+    <Image Include="Resource\Texture\CupHead\Run.png" />
     <Image Include="Resource\Texture\earth.png" />
     <Image Include="Resource\Texture\Fortress.png" />
     <Image Include="Resource\Texture\Gun.png" />
@@ -373,6 +377,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Xml Include="Resource\Texture\CupHead\Idle.xml" />
+    <Xml Include="Resource\Texture\CupHead\Run.xml" />
     <Xml Include="Resource\Texture\Idle.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

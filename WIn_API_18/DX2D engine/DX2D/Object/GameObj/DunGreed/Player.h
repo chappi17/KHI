@@ -20,4 +20,3 @@ private:
 	shared_ptr<class Gun> _gun;
 	
 };
-
