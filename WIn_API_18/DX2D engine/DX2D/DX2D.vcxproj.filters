@@ -171,6 +171,12 @@
     <ClInclude Include="Framework\Utility\tinyxml2.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Object\GameObj\CupHead\Cup_Background.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\FilterScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DX2D.cpp">
@@ -314,6 +320,12 @@
     <ClCompile Include="Framework\Utility\tinyxml2.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Object\GameObj\CupHead\Cup_Background.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\FilterScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX2D.rc">
@@ -384,6 +396,45 @@
     <Image Include="Resource\Texture\CupHead\Idle.png">
       <Filter>리소스 파일</Filter>
     </Image>
+    <Image Include="Resource\Texture\CupHead\BackGround\clown_bg_back_coaster.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Texture\CupHead\BackGround\clown_bg_bulb_row_light.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Texture\CupHead\BackGround\clown_bg_close_coaster.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Texture\CupHead\BackGround\clown_bg_left_slide.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Texture\CupHead\BackGround\clown_bg_main.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Texture\CupHead\BackGround\clown_bg_mid_coaster.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Texture\CupHead\BackGround\clown_bg_sky.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Texture\CupHead\BackGround\clown_bg_track.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Texture\CupHead\BackGround\clown_fg_left_arrow_light.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Texture\CupHead\BackGround\clown_fg_left_sign.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Texture\CupHead\BackGround\clown_fg_right_flag.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Texture\CupHead\BackGround\clown_fg_right_sign_light.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Texture\CupHead\Shot.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shader\Tutorial.hlsl" />
@@ -393,10 +444,12 @@
     <FxCompile Include="Shader\Collider\ColliderPixelShader.hlsl" />
     <FxCompile Include="Shader\SpritePixelShader.hlsl" />
     <FxCompile Include="Shader\ActionPixelShader.hlsl" />
+    <FxCompile Include="Shader\Filter\FilterShader.hlsl" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Resource\Texture\Idle.xml" />
     <Xml Include="Resource\Texture\CupHead\Run.xml" />
     <Xml Include="Resource\Texture\CupHead\Idle.xml" />
+    <Xml Include="Resource\Texture\CupHead\Shot.xml" />
   </ItemGroup>
 </Project>

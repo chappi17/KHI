@@ -31,7 +31,7 @@ void SpriteScene::PostRender()
 	ImGui::SliderInt("FrameX", &_frameX, 0, 4);
 	ImGui::SliderInt("FrameY", &_frameY, 0, 1);
 	ImGui::SliderInt("LeftRight", &_leftRight, 0, 1);
-	_sprite->SetLeftRight(_leftRight);
+	_sprite->SetLeftRight_leftRightBuffer(_leftRight);
 
 	ImGui::SliderInt("CHECK", &_check, 0, 100);
 }

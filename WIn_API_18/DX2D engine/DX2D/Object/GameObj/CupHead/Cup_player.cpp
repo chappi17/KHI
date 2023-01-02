@@ -8,11 +8,13 @@ Cup_player::Cup_player()
 	_collider->GetTransform()->SetParent(_transform);
 	CreateAction("Idle");
 	CreateAction("Run");
+	CreateAction("Shot");
+
 
 	_actions[State::IDLE]->SetSpeed(0.1f);
 //	_actions[State::RUN]->SetSpeed(0.7f);
 
-	_transform->Getpos() = { CENTER_X, CENTER_Y };
+	_transform->Getpos() = { CENTER_X, CENTER_Y-150 };
 }
 
 Cup_player::~Cup_player()
@@ -35,6 +37,11 @@ void Cup_player::Input()
 		_state = State::RUN;
 		SetRight();
 	
+	}
+
+	else if ((KEY_PRESS('F')))
+	{		
+		_state = State::SHOT;
 	}
 	else
 		_state = State::IDLE;	
@@ -60,7 +67,7 @@ void Cup_player::Render()
 
 void Cup_player::PostRender()
 {
-	ImGui::SliderInt("State", (int*)&_state, 0, 1);			
+	ImGui::SliderInt("State", (int*)&_state, 0, 1);
 }
 
 void Cup_player::CreateAction(string state)

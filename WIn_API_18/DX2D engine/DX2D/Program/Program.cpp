@@ -9,6 +9,7 @@
 #include "../Scene/FortressScene.h"
 #include "../Scene/SpriteScene.h"
 #include "../Scene/CupHeadScene.h"
+#include "../Scene/FilterScene.h"
 
 Program::Program()
 {
@@ -21,6 +22,7 @@ Program::Program()
 	_scenes["FortressScene"] = make_shared<FortressScene>();
 	_scenes["SpriteScene"] = make_shared<SpriteScene>();
 	_scenes["CupHeadScene"] = make_shared<CupHeadScene>();
+	_scenes["FilterScene"] = make_shared<FilterScene>();
 
 	_curscene = _scenes["CupHeadScene"];
 

@@ -5,7 +5,8 @@ public:
 	enum State
 	{
 		IDLE = 0,
-		RUN =1
+		RUN =1,		
+		SHOT = 2
 	};
 
 	Cup_player();
@@ -25,6 +26,7 @@ public:
 
 private:
 	State _state = State::IDLE;
+	State _state3 = State::SHOT;
 
 	shared_ptr<Transform> _transform;
 	vector <shared_ptr<Sprite>> _sprites;
@@ -32,7 +34,7 @@ private:
 	vector <shared_ptr<Action>> _actions;	
 
 	int _leftRight = 0;
-	float _speed = 30.0f;
+	float _speed = 100.0f;
 	string _text = "Hello World!";
 };
 

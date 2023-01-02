@@ -151,6 +151,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Scene\FilterScene.h" />
+    <ClInclude Include="Object\GameObj\CupHead\Cup_Background.h" />
     <ClInclude Include="Framework\Utility\tinyxml2.h" />
     <ClInclude Include="Object\GameObj\CupHead\Cup_player.h" />
     <ClInclude Include="Framework\Animation\Action.h" />
@@ -205,6 +207,8 @@
     <ClInclude Include="Framework\Render\VertexShader.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Scene\FilterScene.cpp" />
+    <ClCompile Include="Object\GameObj\CupHead\Cup_Background.cpp" />
     <ClCompile Include="Framework\Utility\tinyxml2.cpp" />
     <ClCompile Include="Object\GameObj\CupHead\Cup_player.cpp" />
     <ClCompile Include="Framework\Animation\Action.cpp" />
@@ -272,8 +276,21 @@
     <Image Include="Resource\Texture\BM.png" />
     <Image Include="Resource\Texture\Bullet.png" />
     <Image Include="Resource\Texture\Cannonball.png" />
+    <Image Include="Resource\Texture\CupHead\BackGround\clown_bg_back_coaster.png" />
+    <Image Include="Resource\Texture\CupHead\BackGround\clown_bg_bulb_row_light.png" />
+    <Image Include="Resource\Texture\CupHead\BackGround\clown_bg_close_coaster.png" />
+    <Image Include="Resource\Texture\CupHead\BackGround\clown_bg_left_slide.png" />
+    <Image Include="Resource\Texture\CupHead\BackGround\clown_bg_main.png" />
+    <Image Include="Resource\Texture\CupHead\BackGround\clown_bg_mid_coaster.png" />
+    <Image Include="Resource\Texture\CupHead\BackGround\clown_bg_sky.png" />
+    <Image Include="Resource\Texture\CupHead\BackGround\clown_bg_track.png" />
+    <Image Include="Resource\Texture\CupHead\BackGround\clown_fg_left_arrow_light.png" />
+    <Image Include="Resource\Texture\CupHead\BackGround\clown_fg_left_sign.png" />
+    <Image Include="Resource\Texture\CupHead\BackGround\clown_fg_right_flag.png" />
+    <Image Include="Resource\Texture\CupHead\BackGround\clown_fg_right_sign_light.png" />
     <Image Include="Resource\Texture\CupHead\Idle.png" />
     <Image Include="Resource\Texture\CupHead\Run.png" />
+    <Image Include="Resource\Texture\CupHead\Shot.png" />
     <Image Include="Resource\Texture\earth.png" />
     <Image Include="Resource\Texture\Fortress.png" />
     <Image Include="Resource\Texture\Gun.png" />
@@ -329,6 +346,20 @@
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="Shader\Filter\FilterShader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">PS</EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">PS</EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">PS</EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">PS</EntryPointName>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
     </FxCompile>
     <FxCompile Include="Shader\SpritePixelShader.hlsl">
@@ -395,6 +426,7 @@
   <ItemGroup>
     <Xml Include="Resource\Texture\CupHead\Idle.xml" />
     <Xml Include="Resource\Texture\CupHead\Run.xml" />
+    <Xml Include="Resource\Texture\CupHead\Shot.xml" />
     <Xml Include="Resource\Texture\Idle.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

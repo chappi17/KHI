@@ -62,7 +62,7 @@ void Quad::Render()
 	DC->DrawIndexed(_indices.size(), 0, 0);
 }
 
-void Quad::SetLeftRight(int leftRight)
+void Quad::SetLeftRight_leftRightBuffer(int leftRight)
 {
 	leftRight %= 2;
 	_leftRightBuffer->_data.leftRight = leftRight;
