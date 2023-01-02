@@ -11,7 +11,7 @@ public:
 
 	Vector2 GetSize() { return _size; }
 
-	void SetLeftRight(int leftRight);
+	void SetLeftRight_leftRightBuffer(int leftRight);
 
 	shared_ptr<Transform> GetTransform() { return _transform; }
 	

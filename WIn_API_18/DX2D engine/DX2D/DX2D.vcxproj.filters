@@ -168,6 +168,9 @@
     <ClInclude Include="Object\GameObj\CupHead\Cup_player.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Framework\Utility\tinyxml2.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DX2D.cpp">
@@ -308,6 +311,9 @@
     <ClCompile Include="Object\GameObj\CupHead\Cup_player.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Framework\Utility\tinyxml2.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX2D.rc">
@@ -386,6 +392,7 @@
     <FxCompile Include="Shader\Collider\ColliderVertexShader.hlsl" />
     <FxCompile Include="Shader\Collider\ColliderPixelShader.hlsl" />
     <FxCompile Include="Shader\SpritePixelShader.hlsl" />
+    <FxCompile Include="Shader\ActionPixelShader.hlsl" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Resource\Texture\Idle.xml" />

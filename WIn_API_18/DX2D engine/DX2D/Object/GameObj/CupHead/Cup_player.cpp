@@ -3,12 +3,16 @@
 
 Cup_player::Cup_player()
 {
-	_sprite = make_shared<Sprite>(L"CupHead/Idle.png",Vector2(5,1),Vector2(150,150));
-	_sprite->GetTransform()->Getpos() = { CENTER_X,CENTER_Y };
-
+	_transform = make_shared<Transform>();
 	_collider = make_shared<CircleCollider>(35);
-	_collider->GetTransform()->SetParent(_sprite->GetTransform());
-	CreateAction();
+	_collider->GetTransform()->SetParent(_transform);
+	CreateAction("Idle");
+	CreateAction("Run");
+
+	_actions[State::IDLE]->SetSpeed(0.1f);
+//	_actions[State::RUN]->SetSpeed(0.7f);
+
+	_transform->Getpos() = { CENTER_X, CENTER_Y };
 }
 
 Cup_player::~Cup_player()
@@ -16,119 +20,116 @@ Cup_player::~Cup_player()
 }
 
 void Cup_player::Input()
-{
+{	
+	shared_ptr<Sprite> sprite;
 	if (KEY_PRESS('A'))
 	{
-		_sprite->GetTransform()->Getpos().x -= DELTA_TIME * _speed;
-		_sprite->SetLeftRight(1);
+		_transform->Getpos().x -= DELTA_TIME * _speed;
+		_state = State::RUN;
+		SetLeft();
+		
 	}
-	if (KEY_PRESS('D'))
+	else if ((KEY_PRESS('D')))
 	{
-		_sprite->GetTransform()->Getpos().x += DELTA_TIME * _speed;
-		_sprite->SetLeftRight(0);
+		_transform->Getpos().x += DELTA_TIME * _speed;
+		_state = State::RUN;
+		SetRight();
+	
 	}
+	else
+		_state = State::IDLE;	
 }
 
 void Cup_player::Update()
 {
 	Input();
-	_action->Update();
+
+	_transform->Update();
 	_collider->Update();
-	_sprite->Update();
+	_actions[_state]->Update();
+	_sprites[_state]->Update();
 }
 
 void Cup_player::Render()
 {
-	_sprite->SetSprite(_action->GetCurClip());
-	_sprite->Render();
+	_transform->SetWorldBuffer();
+	_sprites[_state]->SetSpriteByAction(_actions[_state]->GetCurClip());
+	_sprites[_state]->Render();	
 	_collider->Render();
 }
 
 void Cup_player::PostRender()
 {
-	ImGui::Text(_text.c_str());
+	ImGui::SliderInt("State", (int*)&_state, 0, 1);			
 }
 
-void Cup_player::CreateAction()
+void Cup_player::CreateAction(string state)
 {
-	shared_ptr<SRV> srv_1 = SRVManager::GetInstance()->AddSRV(L"Idle.png");
-	vector<Action::Clip> clips_1;
-
-	Action::Clip clip0_1 = Action::Clip(1, 1, 300, 300, srv_1);
-	clips_1.emplace_back(clip0_1);
-
-	Action::Clip clip1_1 = Action::Clip(303, 1, 300, 300, srv_1);
-	clips_1.emplace_back(clip1_1);
-
-	Action::Clip clip_2 = Action::Clip(605, 1, 300, 300, srv_1);
-	clips_1.emplace_back(clip_2);
-
-	Action::Clip clip_3 = Action::Clip(907, 1, 300, 300, srv_1);
-	clips_1.emplace_back(clip_3);
-
-	Action::Clip clip_4 = Action::Clip(1209, 1, 300, 300, srv_1);
-	clips_1.emplace_back(clip_4);
-
-	_action = make_shared<Action>(clips_1, "CupHead_Idle", Action::END, 0.5f);
-	_action->Play();
-
-	_action->SetEndEvent(std::bind(&Cup_player::SetText, this));
-
-
-	shared_ptr<SRV> srv = SRVManager::GetInstance()->AddSRV(L"Run.png");
+	wstring srvPath;
+	srvPath.assign(state.begin(), state.end());
+	srvPath = L"CupHead/" + srvPath + L".png";
+	shared_ptr<SRV> srv = SRVManager::GetInstance()->AddSRV(srvPath);
 	vector<Action::Clip> clips;
 
-	Action::Clip clip0 = Action::Clip(1, 158, 137, 157, srv);
-	clips.emplace_back(clip0);
 
-	Action::Clip clip1 = Action::Clip(127, 640, 124, 151, srv);
-	clips.emplace_back(clip1);
+	shared_ptr<tinyxml2::XMLDocument> document = make_shared<tinyxml2::XMLDocument>();
+	string xmlpath = "Resource/Texture/CupHead/" + state + ".xml";
+	document->LoadFile(xmlpath.c_str());
 
-	Action::Clip clip2 = Action::Clip(1, 1069, 115, 159, srv);
-	clips.emplace_back(clip2);
+	tinyxml2::XMLElement* TextureAtlas = document->FirstChildElement();
+	tinyxml2::XMLElement* row = TextureAtlas->FirstChildElement();
 
-	Action::Clip clip3 = Action::Clip(142, 1, 111, 164, srv);
-	clips.emplace_back(clip3);
+	int averageW = 0;
+	int averageH = 0;
+	int count = 0;
 
-	Action::Clip clip4 = Action::Clip(140, 167, 112, 171, srv);
-	clips.emplace_back(clip4);
 
-	Action::Clip clip5 = Action::Clip(118, 1095, 114, 146, srv);
-	clips.emplace_back(clip5);
+	while (true)
+	{
+		if (row == nullptr)
+			break;
+		int x = row->FindAttribute("x")->IntValue();
+		int y = row->FindAttribute("y")->IntValue();
+		int w = row->FindAttribute("w")->IntValue();
+		averageW += w;
+		int h = row->FindAttribute("h")->IntValue();
+		averageH += h;
 
-	Action::Clip clip6 = Action::Clip(1, 769, 124, 148, srv);
-	clips.emplace_back(clip6);
+		count++;
 
-	Action::Clip clip7 = Action::Clip(1, 317, 132, 148, srv);
-	clips.emplace_back(clip7);
+		Action::Clip clip = Action::Clip(x, y, w, h, srv);
+		clips.push_back(clip);
 
-	Action::Clip clip8 = Action::Clip(1, 615, 124, 152, srv);
-	clips.emplace_back(clip8);
+		row = row->NextSiblingElement();
+	}
 
-	Action::Clip clip9 = Action::Clip(1, 919, 116, 148, srv);
-	clips.emplace_back(clip9);
+	shared_ptr<Sprite> sprite;
 
-	Action::Clip clip10 = Action::Clip(119, 942, 115, 151, srv);
-	clips.emplace_back(clip10);
+	averageW /= count * 1.5f;
+	averageH /= count * 1.5f;
 
-	Action::Clip clip11 = Action::Clip(135, 340, 117, 152, srv);
-	clips.emplace_back(clip11);
+	sprite = make_shared<Sprite>(srvPath, Vector2(averageW, averageH));
 
-	Action::Clip clip12 = Action::Clip(127, 793, 122, 147, srv);
-	clips.emplace_back(clip12);
+	sprite->GetTransform()->SetParent(_transform);
+	_sprites.push_back(sprite);
 
-	Action::Clip clip13 = Action::Clip(133, 494, 120, 144, srv);
-	clips.emplace_back(clip13);
+	shared_ptr<Action> action = make_shared<Action>(clips, state, Action::LOOP, 0.1f);
+	action->Play();
+	_actions.push_back(action);
+}
 
-	Action::Clip clip14 = Action::Clip(1, 467, 130, 146, srv);
-	clips.emplace_back(clip14);
+void Cup_player::SetLeft()
+{
+	for (auto sprite : _sprites)
+	{
+		sprite->SetLeft();
+	}
+}
 
-	Action::Clip clip15 = Action::Clip(1, 1, 139, 155, srv);
-	clips.emplace_back(clip15);
-
-	//_action = make_shared<Action>(clips, "CupHead_Run", Action::LOOP, 0.2f);
-	//_action->Play();
-
-	//_action->SetEndEvent(std::bind(&Cup_player::SetText, this));
-
+void Cup_player::SetRight()
+{
+	for (auto sprite : _sprites)
+	{
+		sprite->SetRight();
+	}
 }

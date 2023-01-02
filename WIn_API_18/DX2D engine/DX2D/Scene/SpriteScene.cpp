@@ -23,7 +23,7 @@ void SpriteScene::Render()
 {
 	AdditiveBlendState->SetState();		
 	_sprite->Render();
-	_sprite->SetSprite(_action->GetCurClip());
+	_sprite->SetSpriteByFrame(Vector2(1, 1));
 }
 
 void SpriteScene::PostRender()
@@ -55,11 +55,10 @@ void SpriteScene::CreateAction()
 		}
 	}
 
-	 _action = make_shared<Action>(clips, "XMAN_RUN",Action::END);
+	 _action = make_shared<Action>(clips, "XMAN_RUN",Action::LOOP);
 	 _action->Play();
 	 
-	// _action->SetEndEvent(std::bind(&SpriteScene::Check, this));
-	 _action->SetTestEvent(std::bind(&SpriteScene::Check_1, this, 10));
+	// _action->SetEndEvent(std::bind(&SpriteScene::Check, this));	
 	}
 
 void SpriteScene::Check()

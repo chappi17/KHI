@@ -50,6 +50,7 @@ using namespace DirectX;
 // Utility
 #include "Framework/Utility/Timer.h"
 #include "Framework/Utility/Keyboard.h"
+#include "Framework/Utility/tinyxml2.h"
 
 // Render
 #include "Framework/Render/VertexLayOut.h"
