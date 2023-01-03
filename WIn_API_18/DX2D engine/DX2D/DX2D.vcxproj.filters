@@ -396,12 +396,6 @@
     <Image Include="Resource\Texture\Idle.png">
       <Filter>리소스 파일</Filter>
     </Image>
-    <Image Include="Resource\Texture\CupHead\Run.png">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="Resource\Texture\CupHead\Idle.png">
-      <Filter>리소스 파일</Filter>
-    </Image>
     <Image Include="Resource\Texture\CupHead\BackGround\clown_bg_back_coaster.png">
       <Filter>리소스 파일</Filter>
     </Image>
@@ -438,10 +432,19 @@
     <Image Include="Resource\Texture\CupHead\BackGround\clown_fg_right_sign_light.png">
       <Filter>리소스 파일</Filter>
     </Image>
-    <Image Include="Resource\Texture\CupHead\Shot.png">
+    <Image Include="Resource\Texture\CupHead\Player\Idle.png">
       <Filter>리소스 파일</Filter>
     </Image>
-    <Image Include="Resource\Texture\CupHead\Bullet_Loop.png">
+    <Image Include="Resource\Texture\CupHead\Player\Run.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Texture\CupHead\Player\Shot.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Texture\CupHead\Bullet\Bullet_Loop.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Texture\CupHead\Bullet\Special_Bullet_Loop.png">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>
@@ -457,9 +460,10 @@
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Resource\Texture\Idle.xml" />
-    <Xml Include="Resource\Texture\CupHead\Run.xml" />
-    <Xml Include="Resource\Texture\CupHead\Idle.xml" />
-    <Xml Include="Resource\Texture\CupHead\Shot.xml" />
-    <Xml Include="Resource\Texture\CupHead\Bullet_Loop.xml" />
+    <Xml Include="Resource\Texture\CupHead\Player\Idle.xml" />
+    <Xml Include="Resource\Texture\CupHead\Player\Run.xml" />
+    <Xml Include="Resource\Texture\CupHead\Player\Shot.xml" />
+    <Xml Include="Resource\Texture\CupHead\Bullet\Bullet_Loop.xml" />
+    <Xml Include="Resource\Texture\CupHead\Bullet\Special_Bullet_Loop.xml" />
   </ItemGroup>
 </Project>

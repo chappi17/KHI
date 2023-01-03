@@ -4,28 +4,28 @@
 Cup_player::Cup_player()
 {
 	_transform = make_shared<Transform>();
+	_firepos = make_shared<Transform>();
+	_firepos->SetParent(_transform);
+	_firepos->Getpos().x += 50;
 	_collider = make_shared<CircleCollider>(35);
 	_collider->GetTransform()->SetParent(_transform);
-
-	_muzzle = make_shared<Transform>();
-	_muzzle->SetParent(_transform);
-	_muzzle->Getpos().x += 50;
-
-	for (int i = 0; i < _poolCount; i++)
-	{
-		shared_ptr<Cup_bullet> bullet = make_shared<Cup_bullet>();
-		bullet->_isActive = false;
-		_bullets.push_back(bullet);
-	}
 
 	CreateAction("Idle");
 	CreateAction("Run");
 	CreateAction("Shot");
 
 	_actions[State::IDLE]->SetSpeed(0.1f);
-//	_actions[State::RUN]->SetSpeed(0.7f);
+	_actions[State::RUN]->SetSpeed(0.1f);
+	_actions[State::SHOT]->SetRepeatType(Action::Type::END);
+	_actions[State::SHOT]->SetEndEvent(std::bind(&Cup_player :: SetIdle, this));
 
 	_transform->Getpos() = { CENTER_X, CENTER_Y-150 };
+
+	for (int i = 0; i < 30; i++)
+	{
+		shared_ptr<Cup_bullet> bullet = make_shared<Cup_bullet>();
+		_bullets.push_back(bullet);
+	}
 }
 
 Cup_player::~Cup_player()
@@ -34,51 +34,49 @@ Cup_player::~Cup_player()
 
 void Cup_player::Input()
 {	
-	shared_ptr<Sprite> sprite;
+	if (_state == State::SHOT)
+		return;
+
+	_state = State::IDLE;
+
+
 	if (KEY_PRESS('A'))
 	{
 		_transform->Getpos().x -= DELTA_TIME * _speed;
-		_state = State::RUN;
 		SetLeft();
+		_state = State::RUN;
 	}
-	else if ((KEY_PRESS('D')))
+	if ((KEY_PRESS('D')))
 	{
 		_transform->Getpos().x += DELTA_TIME * _speed;
-		_state = State::RUN;
 		SetRight();	
+		_state = State::RUN;
 	}
-
-	else if ((KEY_PRESS('F')))
-	{		
-		_state = State::SHOT;
-			Fire();
-	}
-	else
-		_state = State::IDLE;	
 }
 
 void Cup_player::Update()
 {
+	Shot();
 	Input();
 
-	for (auto bullet : _bullets)
-		bullet->Update();
-
 	_transform->Update();
+	_firepos->Update();
 	_collider->Update();
 	_actions[_state]->Update();
 	_sprites[_state]->Update();	
+
+	for (auto bullet : _bullets)
+		bullet->Update();
 }
 
 void Cup_player::Render()
 {
-	for (auto bullet : _bullets)
-		bullet->Render();
-
-	_collider->Render();
-	_transform->SetWorldBuffer();
+	_collider->Render();	
 	_sprites[_state]->SetSpriteByAction(_actions[_state]->GetCurClip());
 	_sprites[_state]->Render();
+
+	for (auto bullet : _bullets)
+		bullet->Render();
 }
 
 void Cup_player::PostRender()
@@ -90,13 +88,13 @@ void Cup_player::CreateAction(string state)
 {
 	wstring srvPath;
 	srvPath.assign(state.begin(), state.end());
-	srvPath = L"CupHead/" + srvPath + L".png";
+	srvPath = L"CupHead/Player/" + srvPath + L".png";
 	shared_ptr<SRV> srv = SRVManager::GetInstance()->AddSRV(srvPath);
 	vector<Action::Clip> clips;
 
 	shared_ptr<tinyxml2::XMLDocument> document = make_shared<tinyxml2::XMLDocument>();
-	string xmlpath = "Resource/Texture/CupHead/" + state + ".xml";
-	document->LoadFile(xmlpath.c_str());
+	string xmlPath = "Resource/Texture/CupHead/Player/" + state + ".xml";
+	document->LoadFile(xmlPath.c_str());
 
 	tinyxml2::XMLElement* TextureAtlas = document->FirstChildElement();
 	tinyxml2::XMLElement* row = TextureAtlas->FirstChildElement();
@@ -140,10 +138,9 @@ void Cup_player::CreateAction(string state)
 	_actions.push_back(action);
 }
 
-
-
 void Cup_player::SetLeft()
 {
+	_firepos->Getpos().x = -30;
 	for (auto sprite : _sprites)
 	{
 		sprite->SetLeft();
@@ -152,31 +149,39 @@ void Cup_player::SetLeft()
 
 void Cup_player::SetRight()
 {
+	_firepos->Getpos().x = +30;
 	for (auto sprite : _sprites)
 	{
 		sprite->SetRight();
 	}
 }
 
-void Cup_player::Fire()
+void Cup_player::Shot()
 {
-	Vector2 dir = _muzzle->GetWorldPos() - _transform->GetWorldPos();
+	if (KEY_DOWN(VK_SPACE))
+	{
+		_state = State::SHOT;
+		_actions[_state]->Play();
 
-	auto iter = std::find_if(_bullets.begin(), _bullets.end(), [](const shared_ptr<Cup_bullet>& bullet)->bool
+		auto iter = std::find_if(_bullets.begin(), _bullets.end(), [](const shared_ptr<Cup_bullet>& bullet)->bool
 		{
 			if (bullet->_isActive == false)
 				return true;
 			return false;
 		});
 
-	if (iter != _bullets.end())
-	{
-		(*iter)->_isActive = true;
-		(*iter)->GetTransform()->Getpos() = _muzzle->GetWorldPos();
-		(*iter)->SetDir(dir);
-		(*iter)->GetTransform()->GetAngle() = dir.Angle();
+		if (iter != _bullets.end())
+		{
+			(*iter)->_isActive = true;
+			(*iter)->SetDirection(_firepos->Getpos().Normal());
+			(*iter)->GetTransform()->Getpos() = _firepos->GetWorldPos();
+			(*iter)->GetTransform()->Update();			
+		}
+		
 	}
-	else
-	{
-	}
+}
+
+void Cup_player::SetIdle()
+{
+	_state = State::IDLE;
 }

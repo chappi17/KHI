@@ -38,6 +38,7 @@ public:
 
 	Clip GetCurClip() { return _clips[_curClipNum]; }
 	Action::Type GetRepeatType() { return _repeatType; }
+	void SetRepeatType(Action::Type repeatType) { _repeatType = repeatType; }
 	void SetEndEvent(CallBack function) { _endEvent = function; }	
 
 	bool _isPlay = true;

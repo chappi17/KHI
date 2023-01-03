@@ -13,6 +13,9 @@ public:
 	~Cup_player();
 
 	void Input();
+	void Shot();
+	void SetIdle();
+
 
 	void Update();
 	void Render();
@@ -24,22 +27,20 @@ public:
 	void SetLeft();
 	void SetRight();
 
-	void Fire();
+
 	
-	int LR_state = 0;
+	int _isActive = false;
 
 private:
 	State _state = State::IDLE;
 
 	shared_ptr<Transform> _transform;
+	shared_ptr<Transform> _firepos;
 	vector <shared_ptr<Sprite>> _sprites;
 	shared_ptr<Collider> _collider;
 	vector <shared_ptr<Action>> _actions;
 
-	UINT _poolCount = 20;
-	shared_ptr<Transform> _muzzle;
-	vector<shared_ptr<Cup_bullet>> _bullets;
-	shared_ptr<Cup_bullet> _bullet;
+	vector <shared_ptr<Cup_bullet>> _bullets;
 
 	int _leftRight = 0;
 	float _speed = 100.0f;
