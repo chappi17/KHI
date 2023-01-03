@@ -5,7 +5,6 @@ FortressScene::FortressScene()
 {
 	_player = make_shared<Cannon>();
 	_player->Set({ CENTER_X,CENTER_Y });
-	
 }
 
 FortressScene::~FortressScene()

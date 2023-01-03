@@ -24,14 +24,22 @@ public:
 	void SetLeft();
 	void SetRight();
 
+	void Fire();
+	
+	int LR_state = 0;
+
 private:
 	State _state = State::IDLE;
-	State _state3 = State::SHOT;
 
 	shared_ptr<Transform> _transform;
 	vector <shared_ptr<Sprite>> _sprites;
 	shared_ptr<Collider> _collider;
-	vector <shared_ptr<Action>> _actions;	
+	vector <shared_ptr<Action>> _actions;
+
+	UINT _poolCount = 20;
+	shared_ptr<Transform> _muzzle;
+	vector<shared_ptr<Cup_bullet>> _bullets;
+	shared_ptr<Cup_bullet> _bullet;
 
 	int _leftRight = 0;
 	float _speed = 100.0f;

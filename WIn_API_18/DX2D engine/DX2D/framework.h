@@ -98,6 +98,7 @@ using namespace DirectX;
 #include "Object/GameObj/Fortress/F_bullet.h"
 
 #include "Object/GameObj/CupHead/Cup_Background.h"
+#include "Object/GameObj/CupHead/Cup_bullet.h"
 #include "Object/GameObj/CupHead/Cup_player.h"
 
 // Scene

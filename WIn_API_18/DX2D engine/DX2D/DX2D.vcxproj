@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Object\GameObj\CupHead\Cup_bullet.h" />
     <ClInclude Include="Scene\FilterScene.h" />
     <ClInclude Include="Object\GameObj\CupHead\Cup_Background.h" />
     <ClInclude Include="Framework\Utility\tinyxml2.h" />
@@ -207,6 +208,7 @@
     <ClInclude Include="Framework\Render\VertexShader.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Object\GameObj\CupHead\Cup_bullet.cpp" />
     <ClCompile Include="Scene\FilterScene.cpp" />
     <ClCompile Include="Object\GameObj\CupHead\Cup_Background.cpp" />
     <ClCompile Include="Framework\Utility\tinyxml2.cpp" />
@@ -288,6 +290,7 @@
     <Image Include="Resource\Texture\CupHead\BackGround\clown_fg_left_sign.png" />
     <Image Include="Resource\Texture\CupHead\BackGround\clown_fg_right_flag.png" />
     <Image Include="Resource\Texture\CupHead\BackGround\clown_fg_right_sign_light.png" />
+    <Image Include="Resource\Texture\CupHead\Bullet_Loop.png" />
     <Image Include="Resource\Texture\CupHead\Idle.png" />
     <Image Include="Resource\Texture\CupHead\Run.png" />
     <Image Include="Resource\Texture\CupHead\Shot.png" />
@@ -424,6 +427,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Xml Include="Resource\Texture\CupHead\Bullet_Loop.xml" />
     <Xml Include="Resource\Texture\CupHead\Idle.xml" />
     <Xml Include="Resource\Texture\CupHead\Run.xml" />
     <Xml Include="Resource\Texture\CupHead\Shot.xml" />

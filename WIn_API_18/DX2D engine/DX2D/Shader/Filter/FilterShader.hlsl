@@ -60,6 +60,31 @@ float4 Blur(float2 uv)
 	return result;
 }
 
+float4 OctaBlur(float2 uv)
+{
+	float4 result = 0;
+
+	for (int i = 0; i < value2; i++)
+	{
+		float divX = (i + 1) / imageSize.x;
+		float divY = (i + 1) / imageSize.y;
+
+		result += map.Sample(samp, float2(uv.x + divX, uv.y));
+		result += map.Sample(samp, float2(uv.x - divX, uv.y));
+		result += map.Sample(samp, float2(uv.x, uv.y + divY));
+		result += map.Sample(samp, float2(uv.x, uv.y - divY));
+
+		result += map.Sample(samp, float2(uv.x + divX, uv.y + divY));
+		result += map.Sample(samp, float2(uv.x - divX, uv.y + divY));
+		result += map.Sample(samp, float2(uv.x - divX, uv.y - divY));
+		result += map.Sample(samp, float2(uv.x + divX, uv.y - divY));
+	}
+
+	result /= 8 * value2;
+
+	return result;
+}
+
 // SV_TARGET -> 그릴 곳... 우리한테는 후면버퍼(RTV)
 float4 PS(PixelInput input) : SV_TARGET
 {
@@ -70,6 +95,8 @@ float4 PS(PixelInput input) : SV_TARGET
 		return Mosaic(input.uv);
 	else if (selected == 2)
 		return Blur(input.uv);
+	else if (selected == 3)
+		return OctaBlur(input.uv);
 
 	return map.Sample(samp, input.uv);
 }

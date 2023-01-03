@@ -34,7 +34,6 @@ void Barrel::Update()
 
 	for (auto bullet : _bullets)
 		bullet->Update();
-	
 }
 
 void Barrel::Render()
