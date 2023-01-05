@@ -165,14 +165,14 @@ void Cup_player::Shot()
 
 		auto iter = std::find_if(_bullets.begin(), _bullets.end(), [](const shared_ptr<Cup_bullet>& bullet)->bool
 		{
-			if (bullet->_isActive == false)
+			if (bullet->isActive == false)
 				return true;
 			return false;
 		});
 
 		if (iter != _bullets.end())
 		{
-			(*iter)->_isActive = true;
+			(*iter)->isActive = true;
 			(*iter)->SetDirection(_firepos->Getpos().Normal());
 			(*iter)->GetTransform()->Getpos() = _firepos->GetWorldPos();
 			(*iter)->GetTransform()->Update();			

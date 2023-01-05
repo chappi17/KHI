@@ -5,7 +5,6 @@ D_Player::D_Player()
 {
 	_quad = make_shared<Quad>(L"Player.png", Vector2(150, 150));
 
-
 	_rectCol = make_shared<RectCollider>(Vector2(100, 140));
 	_rectCol->GetTransform()->SetParent(_quad->GetTransform());
 

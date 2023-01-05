@@ -13,6 +13,7 @@ public:
 	void SetPixelShader(shared_ptr<PixelShader> ps) { _ps = ps; }
 
 	Vector2 GetSize() { return _size; }
+	Vector2 GetImage() { return _srv->GetSize(); }
 
 	void SetLeftRight_leftRightBuffer(int leftRight);
 

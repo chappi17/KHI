@@ -64,7 +64,7 @@ void Cup_bullet::CreateAction()
 
 void Cup_bullet::Update()
 {
-	if (_isActive == false)
+	if (isActive == false)
 	{	
 		_lastTime = RUN_TIME;
 		return;
@@ -78,7 +78,7 @@ void Cup_bullet::Update()
 	{
 		_lastTime = 0.0;
 		_curTime = 0.0;
-		_isActive = false;
+		isActive = false;
 	}
 	
 	_sprite->GetTransform()->Getpos() += _direction * _speed * DELTA_TIME;
@@ -90,11 +90,18 @@ void Cup_bullet::Update()
 
 void Cup_bullet::Render()
 {
-	if (!_isActive) return;
+	if (!isActive) return;
 
 	_sprite->SetSpriteByAction(_action->GetCurClip());
 	_sprite->Render();
 	_collider->Render();
+}
+
+bool Cup_bullet::IsCollisionWithBoss(shared_ptr<Cup_boss> boss)
+{
+	if (isActive == false || boss->isActive == false)
+		return false;
+	return _collider->IsCollision(boss->GetCollider());
 }
 
 void Cup_bullet::SetDirection(Vector2 dir)

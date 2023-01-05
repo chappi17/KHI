@@ -16,7 +16,6 @@ public:
 	void Shot();
 	void SetIdle();
 
-
 	void Update();
 	void Render();
 	void PostRender();
@@ -27,9 +26,9 @@ public:
 	void SetLeft();
 	void SetRight();
 
-
+	shared_ptr<Transform> GetTransform() { return _transform; }
 	
-	int _isActive = false;
+	int isActive = false;
 
 private:
 	State _state = State::IDLE;

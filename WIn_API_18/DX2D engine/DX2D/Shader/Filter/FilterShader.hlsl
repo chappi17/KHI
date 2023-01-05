@@ -85,6 +85,76 @@ float4 OctaBlur(float2 uv)
 	return result;
 }
 
+static const float weight[13] =
+{
+	0.0561f, 0.1353f, 0.2730f, 0.4868f, 0.7261f, 0.9231f,
+	1.0f,
+	0.9231f, 0.7261f, 0.4868f, 0.2730f, 0.1353f, 0.0561f
+};
+
+float4 GaussianBlur(float2 uv)
+{
+	float4 result = 0.0f;
+	float sum = 0.0f;
+
+	float divX = 1.0f / imageSize.x;
+	float divY = 1.0f / imageSize.y;
+
+	for (int i = -6; i <= 6; i++)
+	{
+		float2 temp = uv + float2(divX * i * value2, 0);
+		result += weight[6 + i] * map.Sample(samp, temp);
+
+		temp = uv + float2(0, divY * i * value2);
+		result += weight[6 + i] * map.Sample(samp, temp);
+
+		sum += weight[6 + i] * 2;
+	}
+
+	result /= sum;
+
+	return result;
+}
+
+float4 RadialBlur(float2 uv)
+{
+	float2 offset = float2(0.5f, 0.5f); // -> 가운데
+	float2 radiusUV = uv - offset;
+	float r = length(radiusUV);
+	radiusUV /= r;
+
+	r = saturate(2 * r / value1);
+
+	float2 delta = -radiusUV * r * r * value3 / value2;
+
+	float4 result = 0;
+
+	for (int i = 0; i < value2; i++)
+	{
+		result += map.Sample(samp, uv);
+		uv += delta;
+	}
+
+	result /= value2;
+
+	return result;
+}
+
+float4 OutLine(float2 uv)
+{
+	float4 result;
+
+	result = map.Sample(samp, uv);
+
+	if (result.w < 0.05f && result.w > 0.01f)
+	{
+		return float4(1, 0, 0, 1);
+	}
+
+	return result;
+}
+
+
 // SV_TARGET -> 그릴 곳... 우리한테는 후면버퍼(RTV)
 float4 PS(PixelInput input) : SV_TARGET
 {
@@ -97,6 +167,12 @@ float4 PS(PixelInput input) : SV_TARGET
 		return Blur(input.uv);
 	else if (selected == 3)
 		return OctaBlur(input.uv);
+	else if (selected == 4)
+		return GaussianBlur(input.uv);
+	else if (selected == 5)
+		return RadialBlur(input.uv);
+	else if (selected == 6)
+		return OutLine(input.uv);
 
 	return map.Sample(samp, input.uv);
 }

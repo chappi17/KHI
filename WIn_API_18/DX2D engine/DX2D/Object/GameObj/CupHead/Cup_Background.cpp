@@ -29,3 +29,9 @@ void Cup_Background::Render()
 	_mainBg->Render();
 	_track->Render();
 }
+
+Vector2 Cup_Background::GetSize()
+{
+	Vector2 result = _mainBg->GetSize();
+	return result;
+}

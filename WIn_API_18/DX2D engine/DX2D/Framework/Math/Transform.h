@@ -9,7 +9,7 @@ public:
 	~Transform();
 
 	void Update();
-	void SetWorldBuffer();
+	void SetWorldBuffer(int slot =0);
 
 	Vector2& GetScale();
 	Vector2 GetWorldScale();

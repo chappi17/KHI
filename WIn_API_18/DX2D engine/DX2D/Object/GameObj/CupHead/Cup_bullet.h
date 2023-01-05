@@ -1,4 +1,5 @@
 #pragma once
+class Cup_boss;
 
 class Cup_bullet
 {
@@ -12,8 +13,11 @@ public:
 	void Render();
 
 	shared_ptr<Transform> GetTransform() { return _sprite->GetTransform(); }
+	shared_ptr<Collider> GetCollider() { return _collider; }
+	bool IsCollisionWithBoss(shared_ptr<Cup_boss> boss);
+
 	void SetDirection(Vector2 dir);
-	bool _isActive = false;
+	bool isActive = false;
 
 private:
 

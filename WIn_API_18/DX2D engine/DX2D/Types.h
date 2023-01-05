@@ -29,6 +29,9 @@
 #define ADD_PS(k) ShaderManager::GetInstance()->AddPS(k)
 
 #define HALF *0.5f
+#define LERP(s,e,t) s + (e - s) * t
+
+#define CAMERA Camera ::Getinstance()
 
 using Float2 = XMFLOAT2;
 

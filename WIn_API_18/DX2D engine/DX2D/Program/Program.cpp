@@ -10,32 +10,23 @@
 #include "../Scene/SpriteScene.h"
 #include "../Scene/CupHeadScene.h"
 #include "../Scene/FilterScene.h"
+#include "../Scene/EffectScene.h"
 
 Program::Program()
 {
 	srand(static_cast<UINT>(time(nullptr)));
-	_scenes["TextureScene"] = make_shared<TextureScene>();
-	_scenes["SolarSystem"] = make_shared<SolarSystem>();
-	_scenes["GunScene"] = make_shared<GunScene>();
-	_scenes["Collision"] = make_shared<CollisionScene>();
-	_scenes["DongScene"] = make_shared<DongScene>();
-	_scenes["FortressScene"] = make_shared<FortressScene>();
+	//_scenes["TextureScene"] = make_shared<TextureScene>();
+	//_scenes["SolarSystem"] = make_shared<SolarSystem>();
+	//_scenes["GunScene"] = make_shared<GunScene>();
+	//_scenes["Collision"] = make_shared<CollisionScene>();
+	//_scenes["DongScene"] = make_shared<DongScene>();
+	//_scenes["FortressScene"] = make_shared<FortressScene>();
 	_scenes["SpriteScene"] = make_shared<SpriteScene>();
 	_scenes["CupHeadScene"] = make_shared<CupHeadScene>();
 	_scenes["FilterScene"] = make_shared<FilterScene>();
+	_scenes["EffectScene"] = make_shared<EffectScene>();
 
 	_curscene = _scenes["CupHeadScene"];
-
-	_viewBuffer = make_shared<MatrixBuffer>();
-	_projectBuffer = make_shared<MatrixBuffer>();
-
-	XMMATRIX projectionM = XMMatrixOrthographicOffCenterLH(0.0f, WIN_WIDTH, 0, WIN_HEIGHT, -1.0f, 1.0f);
-
-	_projectBuffer->SetData(projectionM);
-
-	_viewBuffer->Update();
-	_projectBuffer->Update();
-
 }
 
 Program::~Program()
@@ -51,7 +42,10 @@ void Program::Update()
 
 	Keyboard::GetInstance()->Update();
 	Timer::GetInstance()->Update();
+	
 	_curscene->Update();
+
+	Camera::Getinstance()->Update();
 }
 
 void Program::Render()
@@ -63,18 +57,19 @@ void Program::Render()
 	ImGui_ImplWin32_NewFrame();
 	ImGui::NewFrame();
 
-
-	AlphaBlendState->SetState();
+	Camera::Getinstance()->SetProjectionBuffer(WIN_WIDTH, WIN_HEIGHT); // 투영 정의 
+	Camera::Getinstance()->SetCameraWorldBuffer();
 
 	_curscene->PreRender();
-	
-	_viewBuffer->SetVSBuffer(1);
-	_projectBuffer->SetVSBuffer(2);
+
+	Camera::Getinstance()->SetViewPort();
+	AlphaBlendState->SetState();
 	
 	// Render
 	_curscene->Render();
 
 	ImGui::Text("FPS : %d", Timer::GetInstance()->GetFPS());
+	Camera::Getinstance()->PostRender();
 	_curscene->PostRender();
 	ImGui::Render();
 	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());

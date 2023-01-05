@@ -64,12 +64,15 @@ using namespace DirectX;
 #include "Framework/Render/GlobalBuffer.h"
 
 // Math
+#include "Framework/Math/MathUtility.h"
 #include "Framework/Math/Vector2.h"
 #include "Framework/Math/Transform.h"
 #include "Framework/Math/Collider.h"
 #include "Framework/Math/RectCollider.h"
 #include "Framework/Math/CircleCollider.h"
 
+// Camera
+#include "Framework/Camera/Camera.h"
 
 // Texture
 #include "Framework/Texture/SRV.h"
@@ -84,6 +87,7 @@ using namespace DirectX;
 // BagicObj
 #include "Object/GameObj/BasicObj/Quad.h"
 #include "Object/GameObj/BasicObj/Sprite.h"
+#include "Object/GameObj/BasicObj/Effect.h"
 
 // GameObj
 #include "Object/GameObj/Planet.h"
@@ -100,6 +104,7 @@ using namespace DirectX;
 #include "Object/GameObj/CupHead/Cup_Background.h"
 #include "Object/GameObj/CupHead/Cup_bullet.h"
 #include "Object/GameObj/CupHead/Cup_player.h"
+#include "Object/GameObj/CupHead/Cup_boss.h"
 
 // Scene
 #include "Scene/Scene.h"

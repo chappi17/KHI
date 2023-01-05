@@ -13,6 +13,7 @@ public:
 private:
 	shared_ptr<Cup_player> _player;
 	shared_ptr<Cup_Background> _bg;
-	shared_ptr<Cup_bullet> _bullet;
+	shared_ptr<Cup_boss> _boss;
+	vector <shared_ptr<Cup_bullet>> _bullets;
 
 };

@@ -27,9 +27,9 @@ void Transform::Update()
 	_worldBuffer->Update();
 }
 
-void Transform::SetWorldBuffer()
+void Transform::SetWorldBuffer(int slot)
 {
-	_worldBuffer->SetVSBuffer(0);
+	_worldBuffer->SetVSBuffer(slot);
 }
 
 Vector2& Transform::GetScale()

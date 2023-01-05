@@ -37,6 +37,7 @@ void FilterScene::Render()
 void FilterScene::PostRender()
 {
 	ImGui::SliderInt("Selected", &_filterbuffer->_data.selected, 0, 5);
-	ImGui::SliderInt("Value1", &_filterbuffer->_data.value1, 0, 1000);
+	ImGui::SliderInt("Value1", &_filterbuffer->_data.value1, 0, 100);
 	ImGui::SliderInt("Value2", &_filterbuffer->_data.value2, 1, 100);
+	ImGui::SliderInt("Value3", &_filterbuffer->_data.value3, 0, 100); 
 }
