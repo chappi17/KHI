@@ -67,6 +67,7 @@ void Cup_player::Update()
 
 	for (auto bullet : _bullets)
 		bullet->Update();
+
 }
 
 void Cup_player::Render()

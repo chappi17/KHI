@@ -97,10 +97,21 @@ void Cup_bullet::Render()
 	_collider->Render();
 }
 
-bool Cup_bullet::IsCollisionWithBoss(shared_ptr<Cup_boss> boss)
+void Cup_bullet::Init()
 {
-	if (isActive == false || boss->isActive == false)
+	isActive = false;
+}
+
+bool Cup_bullet::IsCollisionWithBoss(shared_ptr<Cup_boss> boss)
+{	
+	if (isActive == false )
 		return false;
+
+	if (_collider->IsCollision(boss->GetCollider()))
+	{
+		isActive == false;
+	}
+
 	return _collider->IsCollision(boss->GetCollider());
 }
 

@@ -27,6 +27,7 @@ public:
 	void SetRight();
 
 	shared_ptr<Transform> GetTransform() { return _transform; }
+	vector<shared_ptr<class Cup_bullet>> GetBullets() { return _bullets; }
 	
 	int isActive = false;
 
@@ -38,6 +39,7 @@ private:
 	vector <shared_ptr<Sprite>> _sprites;
 	shared_ptr<Collider> _collider;
 	vector <shared_ptr<Action>> _actions;
+	shared_ptr<Cup_boss> _boss;
 
 	vector <shared_ptr<Cup_bullet>> _bullets;
 

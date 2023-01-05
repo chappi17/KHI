@@ -12,6 +12,8 @@ public:
 	void Update();
 	void Render();
 
+	void Init();
+
 	shared_ptr<Transform> GetTransform() { return _sprite->GetTransform(); }
 	shared_ptr<Collider> GetCollider() { return _collider; }
 	bool IsCollisionWithBoss(shared_ptr<Cup_boss> boss);

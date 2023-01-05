@@ -23,6 +23,9 @@ void Cup_boss::SetIdle()
 
 void Cup_boss::Update()
 {
+	if (isActive == false)
+		return;
+
 	_transform->Update();
 	_collider->Update();
 	_actions[_state]->Update();
@@ -31,6 +34,9 @@ void Cup_boss::Update()
 
 void Cup_boss::Render()
 {
+	if (isActive == false)
+		return;
+
 	_collider->Render();
 	_sprites[_state]->SetSpriteByAction(_actions[_state]->GetCurClip());
 	_sprites[_state]->Render();

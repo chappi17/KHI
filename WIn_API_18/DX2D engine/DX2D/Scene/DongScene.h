@@ -16,7 +16,5 @@ private:
 
 	shared_ptr<D_BackGround> _bg;
 	shared_ptr<D_Player> _player;
-	vector<shared_ptr<Dong>> _dongs;
-
-	
+	vector<shared_ptr<Dong>> _dongs;	
 };

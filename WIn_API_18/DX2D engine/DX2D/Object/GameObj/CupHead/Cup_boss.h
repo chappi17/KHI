@@ -10,6 +10,8 @@ public:
 	Cup_boss();
 	~Cup_boss();
 
+	UINT& GetHp() { return _hp; }
+
 	void SetIdle();
 
 	void Update();
@@ -28,6 +30,9 @@ private:
 	vector <shared_ptr<Sprite>> _sprites;
 	vector <shared_ptr<Action>> _actions;
 	shared_ptr<Collider> _collider;
+
+	UINT _hp = 10;
+
 
 	float _speed = 100.0f;
 };

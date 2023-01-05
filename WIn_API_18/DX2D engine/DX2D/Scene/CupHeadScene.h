@@ -14,6 +14,8 @@ private:
 	shared_ptr<Cup_player> _player;
 	shared_ptr<Cup_Background> _bg;
 	shared_ptr<Cup_boss> _boss;
-	vector <shared_ptr<Cup_bullet>> _bullets;
+	shared_ptr<Effect> _effect;
+
+//	shared_ptr<Cup_bullet> _bullet;
 
 };
