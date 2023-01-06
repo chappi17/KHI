@@ -12,6 +12,7 @@ CupHeadScene::CupHeadScene()
 	_effect = make_shared<Effect>
 		(L"Effects/explosion.png", Vector2(5, 3), Vector2(100, 100));	
 	_effect->isActive = true;
+	EFFECT->AddEffect(L"Effects/explosion.png", Vector2(5, 3), Vector2(100, 100));
 
 
 	Camera::Getinstance()->SetTarget(_player->GetTransform());
@@ -36,7 +37,7 @@ void CupHeadScene::Update()
 		if (bullet->IsCollisionWithBoss(_boss))
 		{	
 			Camera::Getinstance()->ShakeStart(3.0f, 0.3f);
-			_effect->Play_1();
+			_effect->Play(bullet->GetCollider()->GetTransform()->GetWorldPos());
 			--_boss->GetHp();
 			bullet->Init();
 			break;
@@ -47,8 +48,6 @@ void CupHeadScene::Update()
 	{
  		_boss->isActive = false;
 	}
-
-
 	_effect->Update();
 	_player->Update();
 	_boss->Update();
