@@ -12,7 +12,7 @@ Collider::~Collider()
 
 void Collider::Update()
 {
-    if (_isActive == false)
+    if (isActive == false)
         return;
     _transform->Update();
     _colorBuffer->Update();
@@ -20,7 +20,7 @@ void Collider::Update()
 
 void Collider::Render()
 {
-    if (_isActive == false || _isDebug == false)
+    if (isActive == false || _isDebug == false)
         return;
     _transform->SetWorldBuffer();
     _colorBuffer->SetPSBuffer(0);
@@ -47,7 +47,7 @@ void Collider::SetGREEN()
 
 bool Collider::IsCollision(shared_ptr<Collider> col, bool isObb)
 {
-    if (_isActive == false)
+    if (isActive == false)
         return false;
 
     switch (col->GetType())

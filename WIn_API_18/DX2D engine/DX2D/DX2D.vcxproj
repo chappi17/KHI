@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Object\GameObj\BasicObj\EffectManager.h" />
     <ClInclude Include="Object\GameObj\CupHead\Cup_boss.h" />
     <ClInclude Include="Object\GameObj\BasicObj\Effect.h" />
     <ClInclude Include="Scene\EffectScene.h" />
@@ -213,6 +214,7 @@
     <ClInclude Include="Framework\Render\VertexShader.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Object\GameObj\BasicObj\EffectManager.cpp" />
     <ClCompile Include="Object\GameObj\CupHead\Cup_boss.cpp" />
     <ClCompile Include="Object\GameObj\BasicObj\Effect.cpp" />
     <ClCompile Include="Scene\EffectScene.cpp" />

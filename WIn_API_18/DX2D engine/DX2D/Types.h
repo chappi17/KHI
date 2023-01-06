@@ -32,6 +32,7 @@
 #define LERP(s,e,t) s + (e - s) * t
 
 #define CAMERA Camera ::Getinstance()
+#define EFFECT EffectManager::GetInstance()
 
 using Float2 = XMFLOAT2;
 

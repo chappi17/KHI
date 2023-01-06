@@ -28,15 +28,16 @@ CupHeadScene::~CupHeadScene()
 
 void CupHeadScene::Update()
 {
-	if (KEY_DOWN(VK_SPACE))
-	{
-		Camera::Getinstance()->ShakeStart(3.0f, 0.3f);
-	}
+	//if (KEY_DOWN(VK_SPACE))
+	//{
+	//	Camera::Getinstance()->ShakeStart(3.0f, 0.3f);
+	//}
 
 	for (auto bullet : _player->GetBullets())
 	{
 		if (bullet->IsCollisionWithBoss(_boss))
 		{	
+			Camera::Getinstance()->ShakeStart(3.0f, 0.3f);
 			_effect->Play_1();
 			--_boss->GetHp();
 			bullet->Init();
@@ -45,10 +46,12 @@ void CupHeadScene::Update()
 	}
 
 	if (_boss->GetHp() <= 0)
-		_boss->isActive = false;
-
+	{
+ 		_boss->isActive = false;
+	}
 //	_bg->Update();
 //	_bullet->Update();
+
 	_effect->Update();
 	_player->Update();
 	_boss->Update();

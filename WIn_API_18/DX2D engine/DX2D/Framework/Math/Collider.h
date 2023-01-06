@@ -35,7 +35,7 @@ public:
 
 	ColliderType GetType() { return _type; }
 
-	bool _isActive = true;
+	bool isActive = true;
 	static bool _isDebug;
 
 	

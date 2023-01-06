@@ -7,8 +7,11 @@ EffectScene::EffectScene()
 
 	_effect = make_shared<Effect>
 		(L"Effects/explosion.png", Vector2(5, 3), Vector2(100, 100));
+
 	_effect->Play(Vector2({ CENTER_X,CENTER_Y }));
 	_effect->isActive = true;
+
+	EFFECT->AddEffect(L"Effects/explosion.png", Vector2(5, 3), Vector2(100, 100));
 
 	_bg = make_shared<Cup_Background>();
 }
@@ -21,14 +24,15 @@ void EffectScene::Update()
 {
 	if (KEY_DOWN(VK_LBUTTON))
 	{
-		_effect->Play(CAMERA->GetWorldMousePos());
+		EFFECT->Play("explosion", CAMERA->GetWorldMousePos());
 	}
-	_effect->Update();
+
+	EFFECT->Update();	
 }
 
 void EffectScene::Render()
 {
-	_effect->Render();
+	EFFECT->Render();
 }
 
 void EffectScene::PreRender()
