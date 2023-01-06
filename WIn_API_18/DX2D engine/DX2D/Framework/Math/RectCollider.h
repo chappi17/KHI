@@ -24,7 +24,6 @@ public:
 	virtual bool OBB(shared_ptr<CircleCollider> circle)override;
 	virtual bool OBB(shared_ptr<RectCollider> rect) override;
 
-	
 	Vector2 LeftTop();
 	Vector2 RightBottom();
 

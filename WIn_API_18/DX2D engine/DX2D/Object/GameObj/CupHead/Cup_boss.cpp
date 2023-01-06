@@ -24,10 +24,7 @@ void Cup_boss::SetIdle()
 void Cup_boss::Update()
 {
 	if (isActive == false && _hp <= 0)
-	{
-		_collider->isActive = false;
 		return;
-	}
 
 	_transform->Update();
 	_collider->Update();
@@ -37,8 +34,7 @@ void Cup_boss::Update()
 
 void Cup_boss::Render()
 {
-	if (isActive == false)
-		return;
+	if (!isActive) return;
 
 	_collider->Render();
 	_sprites[_state]->SetSpriteByAction(_actions[_state]->GetCurClip());

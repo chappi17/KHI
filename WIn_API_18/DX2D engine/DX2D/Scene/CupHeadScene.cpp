@@ -3,7 +3,7 @@
 
 CupHeadScene::CupHeadScene()
 {
-	//_bullet = make_shared<Cup_bullet>();
+	
 	_player = make_shared<Cup_player>();
 	_bg = make_shared<Cup_Background>();
 	_boss = make_shared<Cup_boss>();
@@ -13,8 +13,6 @@ CupHeadScene::CupHeadScene()
 		(L"Effects/explosion.png", Vector2(5, 3), Vector2(100, 100));	
 	_effect->isActive = true;
 
-
-//	_bullet->GetTransform()->Getpos() = { CENTER_X,CENTER_Y };
 
 	Camera::Getinstance()->SetTarget(_player->GetTransform());
 	Camera::Getinstance()->SetOffSet({ CENTER_X, 160 });
@@ -49,8 +47,7 @@ void CupHeadScene::Update()
 	{
  		_boss->isActive = false;
 	}
-//	_bg->Update();
-//	_bullet->Update();
+
 
 	_effect->Update();
 	_player->Update();
@@ -64,7 +61,6 @@ void CupHeadScene::PreRender()
 
 void CupHeadScene::Render()
 {	
-//	_bullet->Render();
 	_effect->Render();
 	_player->Render();
 	_boss->Render();

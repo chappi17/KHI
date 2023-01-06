@@ -104,7 +104,7 @@ void Cup_bullet::Init()
 
 bool Cup_bullet::IsCollisionWithBoss(shared_ptr<Cup_boss> boss)
 {	
-	if (isActive == false )
+	if (isActive == false || boss->isActive == false) 
 		return false;
 
 	if (_collider->IsCollision(boss->GetCollider()))
