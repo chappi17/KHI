@@ -11,7 +11,7 @@ EffectScene::EffectScene()
 	_effect->Play(Vector2({ CENTER_X,CENTER_Y }));
 	_effect->isActive = true;
 
-	EFFECT->AddEffect(L"Effects/explosion.png", Vector2(5, 3), Vector2(100, 100));
+	EFFECT->AddEffect(L"Effects/explosion.png",Vector2(5,3), Vector2(100, 100));
 
 	_bg = make_shared<Cup_Background>();
 }

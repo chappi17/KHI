@@ -64,13 +64,6 @@ void Effect::Play(Vector2 pos)
 	_action->Play();
 }
 
-void Effect::Play_1()
-{
-	isActive = true;
-	_sprite->GetTransform()->Getpos();
-	_action->Play();
-}
-
 void Effect::End()
 {
 	isActive = false;

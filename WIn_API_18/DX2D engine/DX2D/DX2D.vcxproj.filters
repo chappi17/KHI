@@ -489,6 +489,15 @@
     <Image Include="Resource\Texture\CupHead\Boss\Page_Two_Intro_2.png">
       <Filter>리소스 파일</Filter>
     </Image>
+    <Image Include="Resource\Texture\CupHead\Player\Jump.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Texture\Effects\JumpDustA.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Texture\CupHead\Player\Duck.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shader\Tutorial.hlsl" />
@@ -508,5 +517,8 @@
     <Xml Include="Resource\Texture\CupHead\Bullet\Bullet_Loop.xml" />
     <Xml Include="Resource\Texture\CupHead\Bullet\Special_Bullet_Loop.xml" />
     <Xml Include="Resource\Texture\CupHead\Boss\Page_Two_Intro_2.xml" />
+    <Xml Include="Resource\Texture\CupHead\Player\Jump.xml" />
+    <Xml Include="Resource\Texture\Effects\JumpDustA.xml" />
+    <Xml Include="Resource\Texture\CupHead\Player\Duck.xml" />
   </ItemGroup>
 </Project>

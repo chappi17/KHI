@@ -11,8 +11,8 @@ public:
 
 	void CreateAction(wstring file, Vector2 maxFrame, float speed = 0.1f, Action::Type type =Action ::Type:: END );
 
+
 	void Play(Vector2 pos);
-	void Play_1();
 	void End();
 
 	bool isActive;

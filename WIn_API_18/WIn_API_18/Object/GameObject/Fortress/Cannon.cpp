@@ -71,6 +71,13 @@ void Cannon::MoveRight()
 	_body->SetCenter(temp);
 }
 
+void Cannon::MoveDown()
+{
+	Vector2 temp = _body->GetCenter();
+	temp._y += _speed;
+	_body->SetCenter(temp);
+}
+
 void Cannon::Fire()
 {
 	auto iter = _bullets.begin();

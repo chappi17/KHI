@@ -22,7 +22,7 @@ private:
 	Vector2 _dir = Vector2();
 
 	Vector2 _gravity = Vector2();
-	float _speed =10.0f;
+	float _speed =5.0f;
 	bool _isActive = false;
 };
 

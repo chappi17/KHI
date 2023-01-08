@@ -11,6 +11,7 @@ public:
 	
 	void MoveLeft();
 	void MoveRight();		
+	void MoveDown();		
 	void Fire();
 
 	shared_ptr<CircleCollider> GetBody() { return _body; }

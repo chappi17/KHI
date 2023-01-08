@@ -22,7 +22,7 @@ void Fortress_scene::Update()
 	if (GetAsyncKeyState(VK_UP))
 		_angle -= 0.01f;
 	if (GetAsyncKeyState(VK_DOWN))
-		_angle += 0.01f;
+		_cannon->MoveDown();
 	if (GetAsyncKeyState(VK_SPACE) & 0x0001)
 		_cannon->Fire();
 

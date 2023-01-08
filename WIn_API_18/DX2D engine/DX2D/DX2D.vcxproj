@@ -305,11 +305,14 @@
     <Image Include="Resource\Texture\CupHead\Boss\Page_Two_Intro_2.png" />
     <Image Include="Resource\Texture\CupHead\Bullet\Bullet_Loop.png" />
     <Image Include="Resource\Texture\CupHead\Bullet\Special_Bullet_Loop.png" />
+    <Image Include="Resource\Texture\CupHead\Player\Duck.png" />
     <Image Include="Resource\Texture\CupHead\Player\Idle.png" />
+    <Image Include="Resource\Texture\CupHead\Player\Jump.png" />
     <Image Include="Resource\Texture\CupHead\Player\Run.png" />
     <Image Include="Resource\Texture\CupHead\Player\Shot.png" />
     <Image Include="Resource\Texture\earth.png" />
     <Image Include="Resource\Texture\Effects\explosion.png" />
+    <Image Include="Resource\Texture\Effects\JumpDustA.png" />
     <Image Include="Resource\Texture\Fortress.png" />
     <Image Include="Resource\Texture\Gun.png" />
     <Image Include="Resource\Texture\Gun1.png" />
@@ -445,9 +448,12 @@
     <Xml Include="Resource\Texture\CupHead\Boss\Page_Two_Intro_2.xml" />
     <Xml Include="Resource\Texture\CupHead\Bullet\Bullet_Loop.xml" />
     <Xml Include="Resource\Texture\CupHead\Bullet\Special_Bullet_Loop.xml" />
+    <Xml Include="Resource\Texture\CupHead\Player\Duck.xml" />
     <Xml Include="Resource\Texture\CupHead\Player\Idle.xml" />
+    <Xml Include="Resource\Texture\CupHead\Player\Jump.xml" />
     <Xml Include="Resource\Texture\CupHead\Player\Run.xml" />
     <Xml Include="Resource\Texture\CupHead\Player\Shot.xml" />
+    <Xml Include="Resource\Texture\Effects\JumpDustA.xml" />
     <Xml Include="Resource\Texture\Idle.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

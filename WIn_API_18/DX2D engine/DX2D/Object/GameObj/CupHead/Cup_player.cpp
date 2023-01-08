@@ -13,6 +13,9 @@ Cup_player::Cup_player()
 	CreateAction("Idle");
 	CreateAction("Run");
 	CreateAction("Shot");
+	CreateAction("Jump");
+	CreateAction("Duck");
+
 
 	_actions[State::IDLE]->SetSpeed(0.1f);
 	_actions[State::RUN]->SetSpeed(0.1f);
@@ -52,12 +55,24 @@ void Cup_player::Input()
 		SetRight();	
 		_state = State::RUN;
 	}
+
+	if ((KEY_PRESS('S')))
+	{
+		_state = State::DUCK;
+	}
+
+	if ((KEY_DOWN('W')))
+	{
+		isjumping = true;
+		return;
+	}	
 }
 
 void Cup_player::Update()
 {
 	Shot();
 	Input();
+	Jumping();
 
 	_transform->Update();
 	_firepos->Update();
@@ -72,10 +87,10 @@ void Cup_player::Update()
 
 void Cup_player::Render()
 {
+
 	_collider->Render();	
 	_sprites[_state]->SetSpriteByAction(_actions[_state]->GetCurClip());
 	_sprites[_state]->Render();
-
 	for (auto bullet : _bullets)
 		bullet->Render();
 }
@@ -103,7 +118,6 @@ void Cup_player::CreateAction(string state)
 	int averageW = 0;
 	int averageH = 0;
 	int count = 0;
-
 
 	while (true)
 	{
@@ -176,9 +190,8 @@ void Cup_player::Shot()
 			(*iter)->isActive = true;
 			(*iter)->SetDirection(_firepos->Getpos().Normal());
 			(*iter)->GetTransform()->Getpos() = _firepos->GetWorldPos();
-			(*iter)->GetTransform()->Update();			
+			(*iter)->GetTransform()->Update();
 		}
-		
 	}
 }
 
@@ -186,3 +199,24 @@ void Cup_player::SetIdle()
 {
 	_state = State::IDLE;
 }
+
+void Cup_player::Jumping()
+{
+	if (isjumping == false)
+		return;
+
+	Vector2 height;
+	_velocity -= (float)pow(_gravity, 2) * DELTA_TIME;
+
+	height.y = _velocity;
+	_transform->Getpos() += height * DELTA_TIME;
+	_state = State::JUMP;
+
+	if (_transform->Getpos().y <= CENTER_Y - 150)
+	{
+		isjumping = false;	
+		_velocity = 200.0f;
+		return;
+	}
+}
+
