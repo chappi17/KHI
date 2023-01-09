@@ -15,6 +15,9 @@ CupHeadScene::CupHeadScene()
 	CAMERA->SetOffSet({ CENTER_X, 160 });
 	CAMERA->SetLeftBottom(_bg->GetSize() * 0.5f * -1.0f + _bg->GetMainPos());
 	CAMERA->SetRightTop(_bg->GetSize() * 0.5f + _bg->GetMainPos());
+
+	SOUND->Add("basic_bgm", "Resource/Sound/mario_beat.mp3", true);
+	SOUND->Play("basic_bgm");
 }
 
 CupHeadScene::~CupHeadScene()

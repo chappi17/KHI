@@ -34,6 +34,9 @@
 #define CAMERA Camera ::Getinstance()
 #define EFFECT EffectManager::GetInstance()
 
+#define SOUND Audio::GetInstance()
+#define GRAVITY			 30
+
 using Float2 = XMFLOAT2;
 
 using CallBack = std::function<void()>;

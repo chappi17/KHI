@@ -37,6 +37,10 @@ using namespace DirectX;
 // DirectX Tex
 #include "../DirectXTex/DirectXTex.h"
 
+//FMOD
+#include "Library/FMOD/inc/fmod.hpp"
+#pragma comment(lib,"Library/FMOD/fmod_vc.lib")
+
 // ImGUI
 #include "../ImGUI/imgui.h"
 #include "../ImGUI/imgui_impl_win32.h"
@@ -51,6 +55,7 @@ using namespace DirectX;
 #include "Framework/Utility/Timer.h"
 #include "Framework/Utility/Keyboard.h"
 #include "Framework/Utility/tinyxml2.h"
+#include "Framework/Utility/Audio.h"
 
 // Render
 #include "Framework/Render/VertexLayOut.h"

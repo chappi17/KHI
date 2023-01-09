@@ -10,6 +10,7 @@ Cup_bullet::Cup_bullet()
 	_collider->GetTransform()->Getpos().y += 35;
 
 	_sprite->GetTransform()->GetAngle() = -PI * 0.5f;
+	SOUND->Add("Hit", "Resource/Sound/Hit_Sound.wav");
 }
 
 Cup_bullet::~Cup_bullet()
@@ -109,6 +110,7 @@ bool Cup_bullet::IsCollisionWithBoss(shared_ptr<Cup_boss> boss)
 
 	if (_collider->IsCollision(boss->GetCollider()))
 	{
+		SOUND->Play("Hit");
 		isActive == false;
 	}
 

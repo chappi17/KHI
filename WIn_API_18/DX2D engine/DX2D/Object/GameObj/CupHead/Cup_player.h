@@ -49,8 +49,8 @@ private:
 	int _leftRight = 0;
 	float _speed = 100.0f;
 	string _text = "Hello World!";
-	float _velocity = 200.0f;
-	float _gravity = 15.0f;
+	float _velocity = 350.0f;
+	float _gravity = 25.0f;
 	float _jumpTime = 0.0f;
 
 	bool isjumping = false;

@@ -29,6 +29,9 @@ Cup_player::Cup_player()
 		shared_ptr<Cup_bullet> bullet = make_shared<Cup_bullet>();
 		_bullets.push_back(bullet);
 	}
+
+	SOUND->Add("cup_jump", "Resource/Sound/Jump.wav");
+	SOUND->Add("fire", "Resource/Sound/Fire.wav");
 }
 
 Cup_player::~Cup_player()
@@ -64,6 +67,7 @@ void Cup_player::Input()
 	if ((KEY_DOWN('W')))
 	{
 		isjumping = true;
+		SOUND->Play("cup_jump");
 		return;
 	}	
 }
@@ -175,6 +179,7 @@ void Cup_player::Shot()
 {
 	if (KEY_DOWN(VK_SPACE))
 	{
+		SOUND->Play("fire");
 		_state = State::SHOT;
 		_actions[_state]->Play();
 
@@ -214,9 +219,8 @@ void Cup_player::Jumping()
 
 	if (_transform->Getpos().y <= CENTER_Y - 150)
 	{
-		isjumping = false;	
-		_velocity = 200.0f;
+		isjumping = false;
+		_velocity = 350.0f;
 		return;
 	}
 }
-

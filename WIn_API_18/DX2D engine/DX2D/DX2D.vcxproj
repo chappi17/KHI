@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Framework\Utility\Audio.h" />
     <ClInclude Include="Object\GameObj\BasicObj\EffectManager.h" />
     <ClInclude Include="Object\GameObj\CupHead\Cup_boss.h" />
     <ClInclude Include="Object\GameObj\BasicObj\Effect.h" />
@@ -214,6 +215,7 @@
     <ClInclude Include="Framework\Render\VertexShader.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Framework\Utility\Audio.cpp" />
     <ClCompile Include="Object\GameObj\BasicObj\EffectManager.cpp" />
     <ClCompile Include="Object\GameObj\CupHead\Cup_boss.cpp" />
     <ClCompile Include="Object\GameObj\BasicObj\Effect.cpp" />
@@ -455,6 +457,12 @@
     <Xml Include="Resource\Texture\CupHead\Player\Shot.xml" />
     <Xml Include="Resource\Texture\Effects\JumpDustA.xml" />
     <Xml Include="Resource\Texture\Idle.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Resource\Sound\Fire.wav" />
+    <Media Include="Resource\Sound\Hit Sound.wav" />
+    <Media Include="Resource\Sound\Jump.wav" />
+    <Media Include="Resource\Sound\mario_beat.mp3" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

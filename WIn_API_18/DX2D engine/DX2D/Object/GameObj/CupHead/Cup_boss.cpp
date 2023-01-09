@@ -11,6 +11,7 @@ Cup_boss::Cup_boss()
 	CreateAction("Page_Two_Intro_2");
 
 	_transform->Getpos() = { CENTER_X + 450, CENTER_Y+50};
+	
 }
 
 Cup_boss::~Cup_boss()
